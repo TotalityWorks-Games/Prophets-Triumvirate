@@ -1,1 +1,1 @@
-# Prophets-Triumvirate
+# Prophets Triumvirate
