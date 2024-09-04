@@ -12,15 +12,16 @@
     "lint": "lint"
   },
   "devDependencies": {
-    "typescript": "^5.5.3",
-    "vite": "^5.4.1",
     "@commitlint/cli": "^19.4.1",
     "@commitlint/config-conventional": "^19.4.1",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^9.1.5"
+    "husky": "^9.1.5",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1"
   },
   "dependencies": {
+    "@excaliburjs/plugin-tiled": "^0.29.2",
     "excalibur": "^0.29.3"
   },
   "config": {
