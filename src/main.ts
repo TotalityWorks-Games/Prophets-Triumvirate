@@ -35,6 +35,7 @@ class MainGuy extends Actor {
     });
 
     this.z = 100;
+    this.scale = new Vector(2, 2);
   }
 
   onInitialize(_engine: Engine): void {
@@ -176,4 +177,5 @@ game.start(loader).then(() => {
   Resources.TiledMap.addToScene(game.currentScene, { pos: vec(1050, 1450) });
   game.add(player);
   game.currentScene.camera.strategy.lockToActor(player);
+  game.currentScene.camera.zoom = 0.8;
 });
