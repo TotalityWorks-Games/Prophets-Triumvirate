@@ -7,19 +7,18 @@ import {
   Actor,
   SpriteSheet,
   ImageSource,
-  Sprite,
   Animation,
   Vector,
   Keys,
+  Sprite,
 } from 'excalibur';
 import { Resources, loader } from './resources';
-import { Player } from './player';
+// import { Player } from './player';
 import { Config } from './config';
-// import { DevTool } from '@excaliburjs/dev-tools';
 
 const game = new Engine({
-  // width: 600,
-  // height: 400,
+  width: 600,
+  height: 400,
   displayMode: DisplayMode.FitScreenAndFill,
   pixelArt: true,
   pixelRatio: 2,
@@ -44,7 +43,7 @@ class MainGuy extends Actor {
       grid: {
         spriteWidth: 32,
         spriteHeight: 32,
-        rows: 4,
+        rows: 6,
         columns: 6,
       },
     });
@@ -59,93 +58,129 @@ class MainGuy extends Actor {
     });
     this.graphics.add('down-idle', downIdle);
 
-    // const leftWalk = new Animation({
-    //   frames: [
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(0, 5) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(1, 5) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(2, 5) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(3, 5) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //   ],
-    // });
-    // this.graphics.add('left-walk', leftWalk);
+    const rightWalk = new Animation({
+      frames: [
+        {
+          graphic: playerSpriteSheet.getSprite(0, 4) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 4) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 4) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 4) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(4, 4) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(5, 4) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('right-walk', rightWalk);
 
-    // const rightWalk = new Animation({
-    //   frames: [
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(0, 6) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(1, 6) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(2, 6) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(3, 6) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //   ],
-    // });
-    // this.graphics.add('right-walk', rightWalk);
+    const leftSprites = playerSpriteSheet.clone();
+    leftSprites.getSprite(0, 4).flipHorizontal = true;
+    leftSprites.getSprite(1, 4).flipHorizontal = true;
+    leftSprites.getSprite(2, 4).flipHorizontal = true;
+    leftSprites.getSprite(3, 4).flipHorizontal = true;
+    leftSprites.getSprite(4, 4).flipHorizontal = true;
+    leftSprites.getSprite(5, 4).flipHorizontal = true;
+    const leftWalk = new Animation({
+      frames: [
+        {
+          graphic: leftSprites.getSprite(0, 4) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: leftSprites.getSprite(1, 4) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: leftSprites.getSprite(2, 4) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: leftSprites.getSprite(3, 4) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: leftSprites.getSprite(4, 4) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: leftSprites.getSprite(5, 4) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-walk', leftWalk);
 
-    // const upWalk = new Animation({
-    //   frames: [
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(0, 7) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(1, 7) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(2, 7) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(3, 7) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //   ],
-    // });
-    // this.graphics.add('up-walk', upWalk);
+    const upWalk = new Animation({
+      frames: [
+        {
+          graphic: playerSpriteSheet.getSprite(0, 5) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 5) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 5) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 5) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(4, 5) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(5, 5) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('up-walk', upWalk);
 
-    // const downWalk = new Animation({
-    //   frames: [
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(0, 4) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(1, 4) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(2, 4) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerSpriteSheet.getSprite(3, 4) as Sprite,
-    //       duration: Config.PlayerFrameSpeed,
-    //     },
-    //   ],
-    // });
-    // this.graphics.add('down-walk', downWalk);
+    const downWalk = new Animation({
+      frames: [
+        {
+          graphic: playerSpriteSheet.getSprite(0, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(4, 3) as Sprite,
+          duration: 200,
+        },
+
+        {
+          graphic: playerSpriteSheet.getSprite(5, 3) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('down-walk', downWalk);
   }
 
   onPreUpdate(engine: Engine, _elapsedMs: number): void {

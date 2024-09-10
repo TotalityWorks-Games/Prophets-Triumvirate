@@ -1,9 +1,9 @@
-import { ImageFiltering, ImageSource, Loader, Resource, vec } from 'excalibur';
+import { ImageFiltering, ImageSource, Loader, Resource } from 'excalibur';
 import { TiledResource } from '@excaliburjs/plugin-tiled';
 
 // Import paths to work with Vite
 // Note the ?url suffix
-import heroPath from '../Resources/Sheets/Characters/Main/Prototype_Character.png?url';
+import heroPath from '../Resources/Sheets/Characters/Main/Player.png?url';
 import harborSetPath from '../Resources/Sheets/Locations/Harbor.png?url';
 import shipsSetPath from '../Resources/Sheets/Locations/Ships.png?url';
 import waterSetPath from '../Resources/Sheets/Locations/water.png?url';
@@ -17,7 +17,7 @@ import lantern1TsxPath from '../Resources/TSX/Lantern1.tsx?url';
 import lantern1bTsxPath from '../Resources/TSX/Lantern1B.tsx?url';
 import lantern2TsxPath from '../Resources/TSX/Lantern2.tsx?url';
 import lantern2bTsxPath from '../Resources/TSX/Lantern2B.tsx?url';
-import { Player } from './player';
+// import { Player } from './player';
 
 export const Resources = {
   HeroSpriteSheetPng: new ImageSource(heroPath, false, ImageFiltering.Pixel),
