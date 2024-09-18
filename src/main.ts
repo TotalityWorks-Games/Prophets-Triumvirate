@@ -15,6 +15,12 @@ import {
 import { Resources, loader } from './resources';
 // import { Player } from './player';
 import { Config } from './config';
+import {
+  DIRECTION_DOWN,
+  DIRECTION_LEFT,
+  DIRECTION_RIGHT,
+  DIRECTION_UP,
+} from './constants';
 
 const game = new Engine({
   width: 600,
@@ -26,15 +32,21 @@ const game = new Engine({
 });
 
 class MainGuy extends Actor {
+  direction:
+    | typeof DIRECTION_DOWN
+    | typeof DIRECTION_UP
+    | typeof DIRECTION_LEFT
+    | typeof DIRECTION_RIGHT;
   constructor() {
     super({
       pos: vec(2450, 3050),
-      width: 100,
-      height: 100,
+      width: 32,
+      height: 32,
     });
 
     this.z = 100;
     this.scale = new Vector(2, 2);
+    this.direction = 'down';
   }
 
   onInitialize(_engine: Engine): void {
@@ -48,6 +60,14 @@ class MainGuy extends Actor {
       },
     });
 
+    const leftSprites = playerSpriteSheet.clone();
+    leftSprites.getSprite(0, 4).flipHorizontal = true;
+    leftSprites.getSprite(1, 4).flipHorizontal = true;
+    leftSprites.getSprite(2, 4).flipHorizontal = true;
+    leftSprites.getSprite(3, 4).flipHorizontal = true;
+    leftSprites.getSprite(4, 4).flipHorizontal = true;
+    leftSprites.getSprite(5, 4).flipHorizontal = true;
+
     const downIdle = new Animation({
       frames: [
         {
@@ -57,6 +77,36 @@ class MainGuy extends Actor {
       ],
     });
     this.graphics.add('down-idle', downIdle);
+
+    const leftIdle = new Animation({
+      frames: [
+        {
+          graphic: leftSprites.getSprite(2, 4) as Sprite,
+          duration: Config.PlayerFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('left-idle', leftIdle);
+
+    const rightIdle = new Animation({
+      frames: [
+        {
+          graphic: playerSpriteSheet.getSprite(2, 4) as Sprite,
+          duration: Config.PlayerFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('right-idle', rightIdle);
+
+    const upIdle = new Animation({
+      frames: [
+        {
+          graphic: playerSpriteSheet.getSprite(2, 2) as Sprite,
+          duration: Config.PlayerFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('up-idle', upIdle);
 
     const rightWalk = new Animation({
       frames: [
@@ -88,13 +138,6 @@ class MainGuy extends Actor {
     });
     this.graphics.add('right-walk', rightWalk);
 
-    const leftSprites = playerSpriteSheet.clone();
-    leftSprites.getSprite(0, 4).flipHorizontal = true;
-    leftSprites.getSprite(1, 4).flipHorizontal = true;
-    leftSprites.getSprite(2, 4).flipHorizontal = true;
-    leftSprites.getSprite(3, 4).flipHorizontal = true;
-    leftSprites.getSprite(4, 4).flipHorizontal = true;
-    leftSprites.getSprite(5, 4).flipHorizontal = true;
     const leftWalk = new Animation({
       frames: [
         {
@@ -186,22 +229,26 @@ class MainGuy extends Actor {
   onPreUpdate(engine: Engine, _elapsedMs: number): void {
     this.vel = Vector.Zero;
 
-    this.graphics.use('down-idle');
+    this.graphics.use(`${this.direction}-idle`);
     if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
       this.vel = vec(Config.PlayerSpeed, 0);
       this.graphics.use('right-walk');
+      this.direction = 'right';
     }
     if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
       this.vel = vec(-Config.PlayerSpeed, 0);
       this.graphics.use('left-walk');
+      this.direction = 'left';
     }
     if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
       this.vel = vec(0, -Config.PlayerSpeed);
       this.graphics.use('up-walk');
+      this.direction = 'up';
     }
     if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
       this.vel = vec(0, Config.PlayerSpeed);
       this.graphics.use('down-walk');
+      this.direction = 'down';
     }
   }
 }
