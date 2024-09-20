@@ -59,7 +59,7 @@ export class MainGuy extends Actor {
       frames: [
         {
           graphic: playerSpriteSheet.getSprite(0, 0),
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
       ],
     });
@@ -99,27 +99,27 @@ export class MainGuy extends Actor {
       frames: [
         {
           graphic: playerSpriteSheet.getSprite(0, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(1, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(2, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(3, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(4, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(5, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
       ],
     });
@@ -129,27 +129,27 @@ export class MainGuy extends Actor {
       frames: [
         {
           graphic: leftSprites.getSprite(0, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: leftSprites.getSprite(1, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: leftSprites.getSprite(2, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: leftSprites.getSprite(3, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: leftSprites.getSprite(4, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: leftSprites.getSprite(5, 4) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
       ],
     });
@@ -159,27 +159,27 @@ export class MainGuy extends Actor {
       frames: [
         {
           graphic: playerSpriteSheet.getSprite(0, 5) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(1, 5) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(2, 5) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(3, 5) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(4, 5) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(5, 5) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
       ],
     });
@@ -189,53 +189,195 @@ export class MainGuy extends Actor {
       frames: [
         {
           graphic: playerSpriteSheet.getSprite(0, 3) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(2, 3) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
         {
           graphic: playerSpriteSheet.getSprite(4, 3) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
 
         {
           graphic: playerSpriteSheet.getSprite(5, 3) as Sprite,
-          duration: 200,
+          duration: Config.PlayerFrameSpeed,
         },
       ],
     });
     this.graphics.add('down-walk', downWalk);
+
+    const rightRun = new Animation({
+      frames: [
+        {
+          graphic: playerSpriteSheet.getSprite(0, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(4, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(5, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('right-run', rightRun);
+
+    const leftRun = new Animation({
+      frames: [
+        {
+          graphic: leftSprites.getSprite(0, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: leftSprites.getSprite(1, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: leftSprites.getSprite(2, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: leftSprites.getSprite(3, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: leftSprites.getSprite(4, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: leftSprites.getSprite(5, 4) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('left-run', leftRun);
+
+    const upRun = new Animation({
+      frames: [
+        {
+          graphic: playerSpriteSheet.getSprite(0, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(4, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(5, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('up-run', upRun);
+
+    const downRun = new Animation({
+      frames: [
+        {
+          graphic: playerSpriteSheet.getSprite(0, 3) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 3) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(4, 3) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+
+        {
+          graphic: playerSpriteSheet.getSprite(5, 3) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('down-run', downRun);
   }
 
   onPreUpdate(engine: Engine, _elapsedMs: number): void {
     this.vel = Vector.Zero;
 
     this.graphics.use(`${this.direction}-idle`);
-    if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
-      this.vel = vec(Config.PlayerSpeed, 0);
-      this.graphics.use('right-walk');
-      this.direction = 'right';
-    }
-    if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
-      this.vel = vec(-Config.PlayerSpeed, 0);
-      this.graphics.use('left-walk');
-      this.direction = 'left';
-    }
-    if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
-      this.vel = vec(0, -Config.PlayerSpeed);
-      this.graphics.use('up-walk');
-      this.direction = 'up';
-    }
-    if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
-      this.vel = vec(0, Config.PlayerSpeed);
-      this.graphics.use('down-walk');
-      this.direction = 'down';
+    // running
+    if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
+      if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
+        this.vel = vec(Config.PlayerRunningSpeed, 0);
+        this.graphics.use('right-run');
+        this.direction = 'right';
+      }
+      if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
+        this.vel = vec(-Config.PlayerRunningSpeed, 0);
+        this.graphics.use('left-run');
+        this.direction = 'left';
+      }
+      if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
+        this.vel = vec(0, -Config.PlayerRunningSpeed);
+        this.graphics.use('up-run');
+        this.direction = 'up';
+      }
+      if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
+        this.vel = vec(0, Config.PlayerRunningSpeed);
+        this.graphics.use('down-run');
+        this.direction = 'down';
+      }
+    } else {
+      // walking
+      if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
+        this.vel = vec(Config.PlayerSpeed, 0);
+        this.graphics.use('right-walk');
+        this.direction = 'right';
+      }
+      if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
+        this.vel = vec(-Config.PlayerSpeed, 0);
+        this.graphics.use('left-walk');
+        this.direction = 'left';
+      }
+      if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
+        this.vel = vec(0, -Config.PlayerSpeed);
+        this.graphics.use('up-walk');
+        this.direction = 'up';
+      }
+      if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
+        this.vel = vec(0, Config.PlayerSpeed);
+        this.graphics.use('down-walk');
+        this.direction = 'down';
+      }
     }
   }
 }
