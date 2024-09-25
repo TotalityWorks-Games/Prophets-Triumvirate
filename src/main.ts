@@ -9,13 +9,13 @@ const game = new Engine({
   displayMode: DisplayMode.FitScreenAndFill,
   pixelArt: true,
   pixelRatio: 2,
-  resolution: Resolution.SNES,
+  // resolution: Resolution.SNES,
 });
 
 const player = new MainGuy();
 
 game.start(loader).then(() => {
-  Resources.TiledMap.addToScene(game.currentScene, { pos: vec(1050, 1450) });
+  Resources.TiledMap.addToScene(game.currentScene);
   game.add(player);
   game.currentScene.camera.strategy.lockToActor(player);
   game.currentScene.camera.zoom = 0.8;

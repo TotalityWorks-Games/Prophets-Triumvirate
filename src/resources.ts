@@ -3,16 +3,24 @@ import { TiledResource } from '@excaliburjs/plugin-tiled';
 
 // Import paths to work with Vite
 // Note the ?url suffix
+// Import Tiled Maps
+import iconclawPortPath from '../Resources/TMX/IronclawPort.tmx?url';
+import testSceneMapPath from '../Resources/TMX/test-map.tmx?url';
+
+// Import Spritesheets
 import heroPath from '../Resources/Sheets/Characters/Main/Player.png?url';
 import harborSetPath from '../Resources/Sheets/Locations/Harbor.png?url';
+import houseInteriorsSetPath from '../Resources/Sheets/Locations/houses_interriors.png?url';
 import shipsSetPath from '../Resources/Sheets/Locations/Ships.png?url';
 import waterSetPath from '../Resources/Sheets/Locations/water.png?url';
 import lantern1SetPath from '../Resources/Sheets/Locations/Lantern1.png';
 import lantern2SetPath from '../Resources/Sheets/Locations/Lantern2.png';
-import iconclawPortPath from '../Resources/TMX/IronclawPort.tmx?url';
+
+// Import Tilesets
 import waterTsxPath from '../Resources/TSX/water.tsx?url';
 import shipsTsxPath from '../Resources/TSX/Ships.tsx?url';
 import harborTsxPath from '../Resources/TSX/Harbor.tsx?url';
+import houseInteriorTsxPath from '../Resources/TSX/houses_interriors.tsx?url';
 import lantern1TsxPath from '../Resources/TSX/Lantern1.tsx?url';
 import lantern1bTsxPath from '../Resources/TSX/Lantern1B.tsx?url';
 import lantern2TsxPath from '../Resources/TSX/Lantern2.tsx?url';
@@ -21,18 +29,11 @@ import lantern2bTsxPath from '../Resources/TSX/Lantern2B.tsx?url';
 
 export const Resources = {
   HeroSpriteSheetPng: new ImageSource(heroPath, false, ImageFiltering.Pixel),
-  TiledMap: new TiledResource(iconclawPortPath, {
-    // entityClassNameFactories: {
-    //   player: (props) => {
-    //     const player = new Player(props.worldPos);
-    //     player.z = 100;
-    //     return player;
-    //   },
-    // },
+  TiledMap: new TiledResource(testSceneMapPath, {
     useTilemapCameraStrategy: true,
     // Path map intercepts and redirects to work around vite's static bundling
     pathMap: [
-      { path: 'IronclawPort.tmx', output: iconclawPortPath },
+      { path: 'test-map.tmx', output: testSceneMapPath },
       { path: 'Harbor.png', output: harborSetPath },
       { path: 'water.png', output: waterSetPath },
       { path: 'Ships.png', output: shipsSetPath },
