@@ -5,7 +5,7 @@ import { TiledResource } from '@excaliburjs/plugin-tiled';
 // Note the ?url suffix
 // Import Tiled Maps
 import iconclawPortPath from '../Resources/TMX/IronclawPort.tmx?url';
-import testSceneMapPath from '../Resources/TMX/test-map.tmx?url';
+import testSceneMapPath from '../Resources/TMX/test-map2.tmx?url';
 
 // Import Spritesheets
 import heroPath from '../Resources/Sheets/Characters/Main/Player.png?url';
@@ -29,11 +29,11 @@ import lantern2bTsxPath from '../Resources/TSX/Lantern2B.tsx?url';
 
 export const Resources = {
   HeroSpriteSheetPng: new ImageSource(heroPath, false, ImageFiltering.Pixel),
-  TiledMap: new TiledResource(testSceneMapPath, {
+  TiledMap: new TiledResource(iconclawPortPath, {
     useTilemapCameraStrategy: true,
     // Path map intercepts and redirects to work around vite's static bundling
     pathMap: [
-      { path: 'test-map.tmx', output: testSceneMapPath },
+      { path: 'IronclawPort.tmx', output: iconclawPortPath },
       { path: 'Harbor.png', output: harborSetPath },
       { path: 'water.png', output: waterSetPath },
       { path: 'Ships.png', output: shipsSetPath },

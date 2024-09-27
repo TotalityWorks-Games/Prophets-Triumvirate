@@ -1,6 +1,7 @@
 import {
   Actor,
   Animation,
+  CollisionType,
   Engine,
   ImageSource,
   Keys,
@@ -26,9 +27,10 @@ export class MainGuy extends Actor {
     | typeof DIRECTION_RIGHT;
   constructor() {
     super({
-      pos: vec(2450, 3050),
+      pos: vec(1250, 1500),
       width: 32,
       height: 32,
+      collisionType: CollisionType.Active,
     });
 
     this.z = 100;

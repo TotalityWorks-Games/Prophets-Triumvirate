@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.10" tiledversion="1.11.0" name="Harbor" tilewidth="32" tileheight="32" tilecount="336" columns="24">
- <image source="../../../Paid Game Assets/Locations/RPGW_Harbor_v1.0/Harbor.png" width="768" height="448"/>
+ <image source="../Sheets/Locations/Harbor.png" width="768" height="448"/>
  <tile id="32">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="32" height="32"/>
