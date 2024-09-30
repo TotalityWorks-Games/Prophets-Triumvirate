@@ -18,6 +18,7 @@ import {
 } from './constants';
 import { Resources } from './resources';
 import { Config } from './config';
+import { IronclawPortResources } from './Scenes/IronclawPort';
 
 export class MainGuy extends Actor {
   direction:
@@ -27,7 +28,7 @@ export class MainGuy extends Actor {
     | typeof DIRECTION_RIGHT;
   constructor() {
     super({
-      pos: vec(1250, 1500),
+      pos: vec(2300, 2550),
       width: 32,
       height: 32,
       collisionType: CollisionType.Active,
@@ -40,7 +41,7 @@ export class MainGuy extends Actor {
 
   onInitialize(_engine: Engine): void {
     const playerSpriteSheet = SpriteSheet.fromImageSource({
-      image: Resources.HeroSpriteSheetPng as ImageSource,
+      image: IronclawPortResources.HeroSpriteSheetPng as ImageSource,
       grid: {
         spriteWidth: 32,
         spriteHeight: 32,

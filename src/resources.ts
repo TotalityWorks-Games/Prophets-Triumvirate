@@ -4,7 +4,7 @@ import { TiledResource } from '@excaliburjs/plugin-tiled';
 // Import paths to work with Vite
 // Note the ?url suffix
 // Import Tiled Maps
-import iconclawPortPath from '../Resources/TMX/IronclawPort.tmx?url';
+// import iconclawPortPath from '../Resources/TMX/IronclawPort.tmx?url';
 import testSceneMapPath from '../Resources/TMX/test-map2.tmx?url';
 
 // Import Spritesheets
@@ -29,11 +29,11 @@ import lantern2bTsxPath from '../Resources/TSX/Lantern2B.tsx?url';
 
 export const Resources = {
   HeroSpriteSheetPng: new ImageSource(heroPath, false, ImageFiltering.Pixel),
-  TiledMap: new TiledResource(iconclawPortPath, {
+  TiledMap: new TiledResource(testSceneMapPath, {
     useTilemapCameraStrategy: true,
     // Path map intercepts and redirects to work around vite's static bundling
     pathMap: [
-      { path: 'IronclawPort.tmx', output: iconclawPortPath },
+      { path: 'IronclawPort.tmx', output: testSceneMapPath },
       { path: 'Harbor.png', output: harborSetPath },
       { path: 'water.png', output: waterSetPath },
       { path: 'Ships.png', output: shipsSetPath },
@@ -43,18 +43,14 @@ export const Resources = {
       { path: 'Water.tsx', output: waterTsxPath },
       { path: 'Ships.tsx', output: shipsTsxPath },
       { path: 'Lantern1.tsx', output: lantern1TsxPath },
-      { path: 'Lantern1B.tsx', output: lantern1bTsxPath },
       { path: 'Lantern2.tsx', output: lantern2TsxPath },
-      { path: 'Lantern2B.tsx', output: lantern2bTsxPath },
     ],
   }),
   harborTsxResource: new Resource(harborTsxPath, 'text'),
   waterTsxResource: new Resource(waterTsxPath, 'text'),
   shipsTsxResource: new Resource(shipsTsxPath, 'text'),
   lantern1TsxResource: new Resource(lantern1TsxPath, 'text'),
-  lantern1BTsxResource: new Resource(lantern1bTsxPath, 'text'),
   lantern2TsxResource: new Resource(lantern2TsxPath, 'text'),
-  lantern2BTsxResource: new Resource(lantern2bTsxPath, 'text'),
 } as const;
 
 export const loader = new Loader();
