@@ -94,8 +94,16 @@ export const IronclawPortResources = {
 } as const;
 
 class IronClawPort extends Scene {
+  leftBounds: number;
+  rightBounds: number;
+  upBounds: number;
+  downBounds: number;
   constructor() {
     super();
+    this.leftBounds = 0;
+    this.rightBounds = 10000;
+    this.upBounds = 10;
+    this.downBounds = 10000;
   }
 
   onInitialize(_engine: Engine): void {
@@ -117,8 +125,4 @@ export const ironClawPortScene = new IronClawPort();
 export const ironClawPortSceneLoader = new Loader();
 for (let resource of Object.values(IronclawPortResources)) {
   ironClawPortSceneLoader.addResource(resource);
-}
-
-if (IronclawPortResources.Music.isLoaded()) {
-  IronclawPortResources.Music.play(0.5);
 }
