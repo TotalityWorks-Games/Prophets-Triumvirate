@@ -5,11 +5,17 @@ import {
   Loader,
   Resource,
   Scene,
+  Sound,
 } from 'excalibur';
 import { TiledResource } from '@excaliburjs/plugin-tiled';
 
 // import map
 import ironclawPortMapPath from '../../Resources/TMX/IronClawPort.tmx?url';
+
+// import music
+import harborMP3 from '../../Resources/Sounds/Music/Harbor 1 - Treasure Island (Loopable).mp3';
+import harborOgg from '../../Resources/Sounds/Music/Harbor 1 - Treasure Island (Loopable).ogg';
+import harborWav from '../../Resources/Sounds/Music/Harbor 1 - Treasure Island (Loopable).wav';
 
 // import spritesheets
 import heroPath from '../../Resources/Sheets/Characters/Main/Player.png?url';
@@ -42,6 +48,7 @@ import waterTsxPath from '../../Resources/TSX/water.tsx?url';
 
 export const IronclawPortResources = {
   HeroSpriteSheetPng: new ImageSource(heroPath, false, ImageFiltering.Pixel),
+  Music: new Sound(harborMP3, harborWav, harborOgg),
   TiledMap: new TiledResource(ironclawPortMapPath, {
     useTilemapCameraStrategy: true,
     pathMap: [
@@ -93,6 +100,7 @@ class IronClawPort extends Scene {
 
   onInitialize(_engine: Engine): void {
     /* Default Player Location: pos: vec(2300, 2550), */
+    // IronclawPortResources.Music.loop = true;
     // engine.input.touch.on('pointerdown', () => {
     //   engine.goto('mynextScene');
     // });
@@ -109,4 +117,8 @@ export const ironClawPortScene = new IronClawPort();
 export const ironClawPortSceneLoader = new Loader();
 for (let resource of Object.values(IronclawPortResources)) {
   ironClawPortSceneLoader.addResource(resource);
+}
+
+if (IronclawPortResources.Music.isLoaded()) {
+  IronclawPortResources.Music.play(0.5);
 }

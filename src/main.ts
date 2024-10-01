@@ -24,4 +24,6 @@ game.start(ironClawPortSceneLoader).then(() => {
   game.add(player);
   game.currentScene.camera.strategy.lockToActor(player);
   game.currentScene.camera.zoom = 0.8;
+  IronclawPortResources.Music.loop = true;
+  IronclawPortResources.Music.play(0.5);
 });
