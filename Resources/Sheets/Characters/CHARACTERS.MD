@@ -164,12 +164,12 @@ Running animations are available for the following:
 - Character 006
 - Character 011
 - Character 016
-- Character 021 - 05
+- Character 021
 - Character 026
-- Character 031 - 01
-- Character 036 - 03
+- Character 031
+- Character 036
 - Character 046
-- Character 061 - 10
-- Character 086 - 07
+- Character 061
+- Character 086
 - Character 091
-- Character 106 - 08
+- Character 106
