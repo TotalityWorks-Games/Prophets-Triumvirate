@@ -118,13 +118,23 @@ What follows is the list of all character sprites with short, simple description
 - Character 074: do not use
 - Character 075: do not use
 
+### Type 12
+
+- Character 076: neutral-maid white-skinned Green female
+- Character 077: yellow-maid white-skinned Orange female
+- Character 078: purple-maid brown-skinned Pink female
+- Character 079: gold-maid white-skinned Brown female
+- Character 080: pink-maid brown-skinned Purple female
+
+### Do not use
+
 - Character 081: do not use
 - Character 082: do not use
 - Character 083: do not use
 - Character 084: do not use
 - Character 085: do not use
 
-### Type 12
+### Type 13
 
 - Character 086: orange/teal-dress white-skinned elf Brown female
 - Character 087: black/blue-dress white-skinned elf Blonde female
@@ -132,7 +142,7 @@ What follows is the list of all character sprites with short, simple description
 - Character 089: grey/brown-dress white-skinned important elf Teal female
 - Character 090: blue/green-dress white-skinned important elf Muted Green female
 
-### Type 13
+### Type 14
 
 - Character 091: muscle shirt white-skinned hero Green male
 - Character 092: muscle shirt white-skinned hero Orange male
@@ -140,7 +150,23 @@ What follows is the list of all character sprites with short, simple description
 - Character 094: muscle shirt white-skinned hero Black male
 - Character 095: muscle shirt brown-skinned hero/villain Blue male
 
-### Type 14
+### Type 15
+
+- Character 096: brown-scarf white-skinned old White male
+- Character 097: black-scarf brown-skinned old White male
+- Character 098: green-scarf white-skinned old Black male
+- Character 099: blue-scarf white-skinned old Brown male
+- Character 100: purple-scarf white-skinned old Orange male
+
+### Type 16
+
+- Character 101: white-cape white-skinned Blue androgynous
+- Character 102: black-cape brown-skinned Purple androgynous
+- Character 103: red-cape white-skinned important Black androgynous
+- Character 104: brown-cape white-skinned Orange androgynous
+- Character 105: green-caped white-skinned important Green androgynous
+
+### Type 17
 
 - Character 106: brown/green-shoulder-full-armored white-skinned important Blonde male
 - Character 107: green/red-shoulder-full-armored white-skinned important Blue male
@@ -148,13 +174,69 @@ What follows is the list of all character sprites with short, simple description
 - Character 109: nasty green-full-armored white-skinned Purple male
 - Character 110: black/green-shoulder-full-armored brown-skinned important Black male
 
-### Type 15
+### Type 18
 
 - Character 111: blue/gold-cape white-skinned important Black-long female
 - Character 112: white/teal-cape white-skinned Brown-long female
 - Character 113: purple/white-cape white-skinned important Blue-long female
 - Character 114: green/gold-cape white-skinned important Red-long female
 - Character 115: orange/green-cape white-skinned important Silver-long female
+
+### Do not use
+
+- Character 116: do not use
+- Character 117: do not use
+- Character 118: do not use
+- Character 119: do not use
+- Character 120: do not use
+
+### Type 19
+
+- Character 121: black/teal-masked white-skinned important White female
+- Character 122: white-masked white-skinned important Orange female
+- Character 123: green-masked white-skinned important Blue female
+- Character 124: white-masked white-skinned important Pink female
+- Character 125: green-masked white-skinned important Green female
+
+### Type 20
+
+- Character 126: blue-dress white-skinned important Silver female
+- Character 127: black-dress white-skinned Green female
+- Character 128: red-dress brown-skinned Black female
+- Character 129: red-dress black-skinned Orange female
+- Character 130: black-dress white-skinned Brown female
+
+### Type 21
+
+- Character 131: purple-dress white-skinned important Blue female
+- Character 132: green-dress white-skinned important Blonde female
+- Character 133: white-dress white-skinned important Red female
+- Character 134: blue-dress white-skinned important White female
+- Character 135: yellow-dress brown-skinned Green female
+
+### Type 22
+
+- Character 136: orange/teal-clothed white-skinned rogue Black female
+- Character 137: purple-clothed white-skinned rogue White female
+- Character 138: blue-clothed white-skinned rogue Purple female
+- Character 139: black-clothed white-skinned rogue Burnt Orange female
+- Character 140: grey-clothed white-skinned important rogue Blue female
+
+### Type 23
+
+- Character 141: orange-dressed red-caped white-skinned important Blonde female
+- Character 142: brown-dressed blue-caped white-skinned important White female
+- Character 143: green-dressed white-caped white-skinned Brown female
+- Character 144: red-dressed yellow-caped white-skinned Black female
+- Character 145: black-dressed white-caped white-skinned important Blue female
+
+### Type 24
+
+- Character 146: white-skinned important engineer Brown female
+- Character 147: white-skinned engineer Blue female
+- Character 148: brown-skinned engineer White female
+- Character 149: white-skinned engineer Orange female
+- Character 150: white-skinned important engineer Black female
 
 ## Running Animations
 
