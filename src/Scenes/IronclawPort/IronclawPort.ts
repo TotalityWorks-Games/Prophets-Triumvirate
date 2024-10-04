@@ -4,16 +4,8 @@ import { Pig } from '../../Actors/Animals/Pig';
 import { IronclawPortResources } from './Resources';
 
 class IronClawPort extends Scene {
-  leftBounds: number;
-  rightBounds: number;
-  upBounds: number;
-  downBounds: number;
   constructor() {
     super();
-    this.leftBounds = 0;
-    this.rightBounds = 10000;
-    this.upBounds = 10;
-    this.downBounds = 10000;
   }
 
   onInitialize(engine: Engine): void {
