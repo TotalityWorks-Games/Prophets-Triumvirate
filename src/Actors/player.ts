@@ -25,9 +25,10 @@ export class MainGuy extends Actor {
     | typeof DIRECTION_UP
     | typeof DIRECTION_LEFT
     | typeof DIRECTION_RIGHT;
-  constructor() {
+  resources: { HeroSpriteSheetPng: ImageSource };
+  constructor(pos: Vector, resources: { HeroSpriteSheetPng: ImageSource }) {
     super({
-      pos: vec(2300, 2550),
+      pos,
       width: 32,
       height: 32,
       collisionType: CollisionType.Active,
@@ -36,11 +37,12 @@ export class MainGuy extends Actor {
     this.z = 100;
     this.scale = new Vector(2, 2);
     this.direction = 'down';
+    this.resources = resources;
   }
 
   onInitialize(_engine: Engine): void {
     const playerSpriteSheet = SpriteSheet.fromImageSource({
-      image: IronclawPortResources.HeroSpriteSheetPng as ImageSource,
+      image: this.resources.HeroSpriteSheetPng as ImageSource,
       grid: {
         spriteWidth: 32,
         spriteHeight: 32,
