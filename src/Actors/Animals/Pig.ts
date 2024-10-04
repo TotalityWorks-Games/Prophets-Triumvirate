@@ -15,7 +15,6 @@ import {
   DIRECTION_LEFT,
   DIRECTION_RIGHT,
 } from '../../constants';
-import { IronclawPortResources } from '../../Scenes/IronclawPort';
 
 export class Pig extends Actor {
   direction:
@@ -23,7 +22,8 @@ export class Pig extends Actor {
     | typeof DIRECTION_UP
     | typeof DIRECTION_LEFT
     | typeof DIRECTION_RIGHT;
-  constructor(pos: Vector) {
+  resources: { Animal3SpriteSheetPng: ImageSource };
+  constructor(pos: Vector, resources: { Animal3SpriteSheetPng: ImageSource }) {
     super({
       pos,
       width: 32,
@@ -34,11 +34,12 @@ export class Pig extends Actor {
     this.z = 100;
     this.scale = new Vector(2, 2);
     this.direction = 'down';
+    this.resources = resources;
   }
 
   onInitialize(_engine: Engine): void {
     const animalSpriteSheet = SpriteSheet.fromImageSource({
-      image: IronclawPortResources.Animal3SpriteSheetPng as ImageSource,
+      image: this.resources.Animal3SpriteSheetPng as ImageSource,
       grid: {
         spriteWidth: 42,
         spriteHeight: 38,

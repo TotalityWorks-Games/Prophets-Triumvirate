@@ -10,7 +10,7 @@ import {
 import {
   ironClawPortScene,
   ironClawPortSceneLoader,
-} from './Scenes/IronclawPort';
+} from './Scenes/IronclawPort/IronclawPort';
 
 const game = new Engine({
   width: 600,
