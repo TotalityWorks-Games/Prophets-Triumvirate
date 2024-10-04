@@ -28,7 +28,7 @@ export class MainGuy extends Actor {
     | typeof DIRECTION_RIGHT;
   constructor() {
     super({
-      pos: vec(2300, 750),
+      pos: vec(2300, 2550),
       width: 32,
       height: 32,
       collisionType: CollisionType.Active,
