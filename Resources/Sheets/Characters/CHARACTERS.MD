@@ -238,6 +238,22 @@ What follows is the list of all character sprites with short, simple description
 - Character 149: white-skinned engineer Orange female
 - Character 150: white-skinned important engineer Black female
 
+### Type 25
+
+- Character 151: black-clothed white-skinned deity villain Red female
+- Character 152: blue-clothed white-skinned important Blue female
+- Character 153: black-clothed white-skinned important Black female
+- Character 154: purple-clothed white-skinned Teal female
+- Character 155: grey-clothed white-skinned deity Purple female
+
+### Type 26
+
+- Character 156: neutral/blue-armored white-skinned hero Brown male
+- Character 157: neutral/orange-armored white-skinned hero Orange male
+- Character 158: neutral/red-armored white-skinned Black male
+- Character 159: white-armored white-skinned important White male
+- Character 160: yellow-armored white-skinned important Blonde male
+
 ## Running Animations
 
 Running animations are available for the following:
