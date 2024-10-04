@@ -15,10 +15,9 @@ import {
   DIRECTION_LEFT,
   DIRECTION_RIGHT,
   DIRECTION_UP,
-} from './constants';
-import { Resources } from './resources';
-import { Config } from './config';
-import { IronclawPortResources } from './Scenes/IronclawPort';
+} from '../constants';
+import { Config } from '../config';
+import { IronclawPortResources } from '../Scenes/IronclawPort';
 
 export class MainGuy extends Actor {
   direction:

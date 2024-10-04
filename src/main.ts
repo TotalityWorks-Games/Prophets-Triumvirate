@@ -2,12 +2,12 @@ import './style.css';
 import { DisplayMode, Engine, vec, Resolution, BoundingBox } from 'excalibur';
 // import { Resources, loader } from './resources';
 
-import { MainGuy } from './player';
+import { MainGuy } from './Actors/player';
 import {
   IronclawPortResources,
   ironClawPortSceneLoader,
-  Pig,
 } from './Scenes/IronclawPort';
+import { Pig } from './Actors/Animals/Pig';
 
 const game = new Engine({
   width: 600,
