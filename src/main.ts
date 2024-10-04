@@ -6,6 +6,7 @@ import { MainGuy } from './player';
 import {
   IronclawPortResources,
   ironClawPortSceneLoader,
+  Pig,
 } from './Scenes/IronclawPort';
 
 const game = new Engine({
@@ -18,6 +19,8 @@ const game = new Engine({
 });
 
 const player = new MainGuy();
+const pigOne = new Pig(vec(2450, 500));
+const pigTwo = new Pig(vec(2450, 400));
 
 game.start(ironClawPortSceneLoader).then(() => {
   IronclawPortResources.TiledMap.addToScene(game.currentScene);
@@ -33,6 +36,8 @@ game.start(ironClawPortSceneLoader).then(() => {
   });
 
   game.add(player);
+  game.add(pigOne);
+  game.add(pigTwo);
   game.currentScene.camera.strategy.lockToActor(player);
   game.currentScene.camera.zoom = 0.8;
   game.currentScene.camera.strategy.limitCameraBounds(mapBounds);
