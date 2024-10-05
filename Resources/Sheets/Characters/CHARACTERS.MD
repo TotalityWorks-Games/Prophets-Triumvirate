@@ -254,6 +254,54 @@ What follows is the list of all character sprites with short, simple description
 - Character 159: white-armored white-skinned important White male
 - Character 160: yellow-armored white-skinned important Blonde male
 
+### Type 27
+
+- Character 161: gold-armored white-skinned important old Red male
+- Character 162: brown-armored white-skinned important old Blue male
+- Character 163: yellow-armored black-skinned old Teal male
+- Character 164: red-armored green-skinned old orc Brown male
+- Character 165: blue-armored white-skinned important old White male
+
+### Type 28
+
+- Character 166: blue-hat white-skinned important Brown female
+- Character 167: white-hat white-skinned important White female
+- Character 168: green-hat white-skinned important Orange female
+- Character 169: red-hat white-skinned important White female
+- Character 170: brown-hat brown-skinned Green female
+
+### Type 29
+
+- Character 171: black-dress white-skinned important Blonde female
+- Character 172: purple-dress white-skinned important Brown female
+- Character 173: black-dress brown-skinned Green female
+- Character 174: red-dress white-skinned important Black female
+- Character 175: white-dress white-skinned deity Teal female
+
+### Do not use
+
+- Character 176: do not use
+- Character 177: do not use
+- Character 178: do not use
+- Character 179: do not use
+- Character 180: do not use
+
+### Type 30
+
+- Character 181: black-pants eye-patch white-skinned deity White male
+- Character 182: blue-pants eye-patch white-skinned important Brown male
+- Character 183: black-pants eye-patch white-skinned important Black/Green male
+- Character 184: black-pants eye-patch brown-skinned important White male
+- Character 185: black-panths eye-patch white-skinned important Red male
+
+### Type 31
+
+- Character 186: gold-armored white-skinned important Blue female
+- Character 187: burgandy-armored white-skinned Teal female
+- Character 188: red-armored white-skinned White female
+- Character 189: green-armored white-skinned Orange female
+- Character 190: gold-armored brown-skinned important Black female
+
 ## Running Animations
 
 Running animations are available for the following:
