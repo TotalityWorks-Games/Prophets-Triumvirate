@@ -1,7 +1,16 @@
-import { BoundingBox, Engine, Loader, Scene, vec } from 'excalibur';
+import {
+  BoundingBox,
+  Engine,
+  ImageSource,
+  Loader,
+  Scene,
+  SpriteSheet,
+  vec,
+} from 'excalibur';
 import { MainGuy } from '../../Actors/player';
 import { Pig } from '../../Actors/Animals/Pig';
 import { IronclawPortResources } from './Resources';
+import { Guard } from '../../Actors/NPCs/Guard';
 
 class IronClawPort extends Scene {
   constructor() {
@@ -28,10 +37,49 @@ class IronClawPort extends Scene {
 
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
-    const player = new MainGuy(vec(2300, 2550), IronclawPortResources);
+    const player = new MainGuy(vec(300, 300), IronclawPortResources);
     engine.currentScene.add(player);
     engine.currentScene.camera.strategy.lockToActor(player);
     engine.currentScene.camera.zoom = 0.8;
+
+    // add NPCs
+    const wolfkinSpriteSheet = SpriteSheet.fromImageSource({
+      image: IronclawPortResources.WolfkinSpriteSheetPng as ImageSource,
+      grid: {
+        spriteWidth: 26,
+        spriteHeight: 36,
+        rows: 8,
+        columns: 12,
+      },
+    });
+
+    // guardOne and guardTwo block the exit to Ironclaw.
+    const guardOne = new Guard(vec(1775, 100), wolfkinSpriteSheet);
+    const guardTwo = new Guard(vec(1840, 100), wolfkinSpriteSheet);
+    engine.add(guardOne);
+    engine.add(guardTwo);
+
+    // guardThree and guardFour watch over the Temple
+    const guardThree = new Guard(vec(1390, 830), wolfkinSpriteSheet);
+    const guardFour = new Guard(vec(1170, 830), wolfkinSpriteSheet);
+    engine.add(guardThree);
+    engine.add(guardFour);
+
+    // guardFive and guardSix watch over the Palace
+    const guardFive = new Guard(vec(1720, 830), wolfkinSpriteSheet);
+    const guardSix = new Guard(vec(1550, 830), wolfkinSpriteSheet);
+    engine.add(guardFive);
+    engine.add(guardSix);
+
+    // guardSeven and guardEight stand near the barracks
+    const guardSeven = new Guard(vec(1000, 100), wolfkinSpriteSheet);
+    const guardEight = new Guard(vec(930, 230), wolfkinSpriteSheet, 'right');
+    engine.add(guardSeven);
+    engine.add(guardEight);
+
+    // guardNine is talking to a citizen, probably doing something illegal
+    const guardNine = new Guard(vec(300, 100), wolfkinSpriteSheet, 'left');
+    engine.add(guardNine);
 
     // add animals
     const pigOne = new Pig(vec(2450, 500), IronclawPortResources);
