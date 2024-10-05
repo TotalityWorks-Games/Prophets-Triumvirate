@@ -21,6 +21,41 @@ class IronClawPort extends Scene {
   }
 
   onInitialize(engine: Engine): void {
+    this.setCameraBoundaries(engine);
+    this.setupCharacters(engine);
+    this.startMusic();
+
+    // engine.input.touch.on('pointerdown', () => {
+    //   engine.goto('mynextScene');
+    // });
+
+    // logic from https://github.com/excaliburjs/sample-ldtk/blob/main/src/main.ts
+    // showing how to load scene on trigger:
+    // const trigger = new ex.Trigger({
+    //   width: props.entity.width,
+    //   height: props.entity.height,
+    //   pos: props.worldPos.add(ex.vec(props.entity.width/2, props.entity.height/2)),
+    //   filter: (entity) => {
+    //       return entity instanceof Player
+    //   },
+    //   action: () => {
+    //       game.goToScene(props.entity.fieldInstances[0].__value);
+    //   }
+    // });
+    IronclawPortResources.TiledMap.addToScene(engine.currentScene);
+  }
+
+  onPreUpdate(_engine: Engine, _delta: number): void {
+    // ... update stuff
+  }
+
+  private startMusic() {
+    // add looping music
+    IronclawPortResources.Music.loop = true;
+    IronclawPortResources.Music.play(0.5);
+  }
+
+  private setCameraBoundaries(engine: Engine) {
     // add map boundaries for camera
     const tilemap = IronclawPortResources.TiledMap.getTileLayers()[0].tilemap;
     const tileWidth = IronclawPortResources.TiledMap.getTileLayers()[0].width;
@@ -33,11 +68,9 @@ class IronClawPort extends Scene {
       right: tilemap.pos.y + tileHeight * 32,
     });
     engine.currentScene.camera.strategy.limitCameraBounds(mapBounds);
+  }
 
-    // add looping music
-    IronclawPortResources.Music.loop = true;
-    IronclawPortResources.Music.play(0.5);
-
+  private setupCharacters(engine: Engine) {
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
     const player = new MainGuy(vec(2300, 2550), IronclawPortResources);
@@ -118,29 +151,6 @@ class IronClawPort extends Scene {
     const pigTwo = new Pig(vec(2450, 400), IronclawPortResources);
     engine.add(pigOne);
     engine.add(pigTwo);
-
-    // engine.input.touch.on('pointerdown', () => {
-    //   engine.goto('mynextScene');
-    // });
-
-    // logic from https://github.com/excaliburjs/sample-ldtk/blob/main/src/main.ts
-    // showing how to load scene on trigger:
-    // const trigger = new ex.Trigger({
-    //   width: props.entity.width,
-    //   height: props.entity.height,
-    //   pos: props.worldPos.add(ex.vec(props.entity.width/2, props.entity.height/2)),
-    //   filter: (entity) => {
-    //       return entity instanceof Player
-    //   },
-    //   action: () => {
-    //       game.goToScene(props.entity.fieldInstances[0].__value);
-    //   }
-    // });
-    IronclawPortResources.TiledMap.addToScene(engine.currentScene);
-  }
-
-  onPreUpdate(_engine: Engine, _delta: number): void {
-    // ... update stuff
   }
 }
 
