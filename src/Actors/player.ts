@@ -10,20 +10,11 @@ import {
   vec,
   Vector,
 } from 'excalibur';
-import {
-  DIRECTION_DOWN,
-  DIRECTION_LEFT,
-  DIRECTION_RIGHT,
-  DIRECTION_UP,
-} from '../constants';
+import { Direction } from '../constants';
 import { Config } from '../config';
 
 export class MainGuy extends Actor {
-  direction:
-    | typeof DIRECTION_DOWN
-    | typeof DIRECTION_UP
-    | typeof DIRECTION_LEFT
-    | typeof DIRECTION_RIGHT;
+  direction: Direction;
   resources: {
     HeroSpriteSheetPng: ImageSource;
     HeroRunningSpriteSheetPng: ImageSource;
