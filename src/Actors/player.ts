@@ -24,8 +24,17 @@ export class MainGuy extends Actor {
     | typeof DIRECTION_UP
     | typeof DIRECTION_LEFT
     | typeof DIRECTION_RIGHT;
-  resources: { HeroSpriteSheetPng: ImageSource };
-  constructor(pos: Vector, resources: { HeroSpriteSheetPng: ImageSource }) {
+  resources: {
+    HeroSpriteSheetPng: ImageSource;
+    HeroRunningSpriteSheetPng: ImageSource;
+  };
+  constructor(
+    pos: Vector,
+    resources: {
+      HeroSpriteSheetPng: ImageSource;
+      HeroRunningSpriteSheetPng: ImageSource;
+    }
+  ) {
     super({
       pos,
       width: 32,
@@ -43,25 +52,27 @@ export class MainGuy extends Actor {
     const playerSpriteSheet = SpriteSheet.fromImageSource({
       image: this.resources.HeroSpriteSheetPng as ImageSource,
       grid: {
-        spriteWidth: 32,
+        spriteWidth: 24,
         spriteHeight: 32,
-        rows: 6,
-        columns: 6,
+        rows: 4,
+        columns: 3,
       },
     });
 
-    const leftSprites = playerSpriteSheet.clone();
-    leftSprites.getSprite(0, 4).flipHorizontal = true;
-    leftSprites.getSprite(1, 4).flipHorizontal = true;
-    leftSprites.getSprite(2, 4).flipHorizontal = true;
-    leftSprites.getSprite(3, 4).flipHorizontal = true;
-    leftSprites.getSprite(4, 4).flipHorizontal = true;
-    leftSprites.getSprite(5, 4).flipHorizontal = true;
+    const playerRunningSpriteSheet = SpriteSheet.fromImageSource({
+      image: this.resources.HeroRunningSpriteSheetPng as ImageSource,
+      grid: {
+        spriteWidth: 24,
+        spriteHeight: 32,
+        rows: 4,
+        columns: 5,
+      },
+    });
 
     const downIdle = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 0),
+          graphic: playerSpriteSheet.getSprite(1, 0),
           duration: Config.PlayerFrameSpeed,
         },
       ],
@@ -71,7 +82,7 @@ export class MainGuy extends Actor {
     const leftIdle = new Animation({
       frames: [
         {
-          graphic: leftSprites.getSprite(2, 4) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 1) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
       ],
@@ -81,7 +92,7 @@ export class MainGuy extends Actor {
     const rightIdle = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(2, 4) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 2) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
       ],
@@ -91,7 +102,7 @@ export class MainGuy extends Actor {
     const upIdle = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(2, 2) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
       ],
@@ -101,27 +112,19 @@ export class MainGuy extends Actor {
     const rightWalk = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 4) as Sprite,
+          graphic: playerSpriteSheet.getSprite(0, 2) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 4) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 2) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(2, 4) as Sprite,
+          graphic: playerSpriteSheet.getSprite(2, 2) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(3, 4) as Sprite,
-          duration: Config.PlayerFrameSpeed,
-        },
-        {
-          graphic: playerSpriteSheet.getSprite(4, 4) as Sprite,
-          duration: Config.PlayerFrameSpeed,
-        },
-        {
-          graphic: playerSpriteSheet.getSprite(5, 4) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 2) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
       ],
@@ -131,27 +134,19 @@ export class MainGuy extends Actor {
     const leftWalk = new Animation({
       frames: [
         {
-          graphic: leftSprites.getSprite(0, 4) as Sprite,
+          graphic: playerSpriteSheet.getSprite(0, 1) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: leftSprites.getSprite(1, 4) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 1) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: leftSprites.getSprite(2, 4) as Sprite,
+          graphic: playerSpriteSheet.getSprite(2, 1) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: leftSprites.getSprite(3, 4) as Sprite,
-          duration: Config.PlayerFrameSpeed,
-        },
-        {
-          graphic: leftSprites.getSprite(4, 4) as Sprite,
-          duration: Config.PlayerFrameSpeed,
-        },
-        {
-          graphic: leftSprites.getSprite(5, 4) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 1) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
       ],
@@ -161,27 +156,19 @@ export class MainGuy extends Actor {
     const upWalk = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 5) as Sprite,
+          graphic: playerSpriteSheet.getSprite(0, 3) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 5) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(2, 5) as Sprite,
+          graphic: playerSpriteSheet.getSprite(2, 3) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(3, 5) as Sprite,
-          duration: Config.PlayerFrameSpeed,
-        },
-        {
-          graphic: playerSpriteSheet.getSprite(4, 5) as Sprite,
-          duration: Config.PlayerFrameSpeed,
-        },
-        {
-          graphic: playerSpriteSheet.getSprite(5, 5) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
       ],
@@ -191,24 +178,19 @@ export class MainGuy extends Actor {
     const downWalk = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 3) as Sprite,
+          graphic: playerSpriteSheet.getSprite(0, 0) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 0) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(2, 3) as Sprite,
+          graphic: playerSpriteSheet.getSprite(2, 0) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(4, 3) as Sprite,
-          duration: Config.PlayerFrameSpeed,
-        },
-
-        {
-          graphic: playerSpriteSheet.getSprite(5, 3) as Sprite,
+          graphic: playerSpriteSheet.getSprite(1, 0) as Sprite,
           duration: Config.PlayerFrameSpeed,
         },
       ],
@@ -218,27 +200,23 @@ export class MainGuy extends Actor {
     const rightRun = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 4) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(0, 1) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 4) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(1, 1) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(2, 4) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(2, 1) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(3, 4) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(3, 1) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(4, 4) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerSpriteSheet.getSprite(5, 4) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(4, 1) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
       ],
@@ -248,27 +226,23 @@ export class MainGuy extends Actor {
     const leftRun = new Animation({
       frames: [
         {
-          graphic: leftSprites.getSprite(0, 4) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(0, 2) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: leftSprites.getSprite(1, 4) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(1, 2) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: leftSprites.getSprite(2, 4) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(2, 2) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: leftSprites.getSprite(3, 4) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(3, 2) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: leftSprites.getSprite(4, 4) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: leftSprites.getSprite(5, 4) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(4, 2) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
       ],
@@ -278,27 +252,23 @@ export class MainGuy extends Actor {
     const upRun = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 5) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(0, 3) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 5) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(1, 3) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(2, 5) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(2, 3) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(3, 5) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(3, 3) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(4, 5) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerSpriteSheet.getSprite(5, 5) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(4, 3) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
       ],
@@ -308,24 +278,23 @@ export class MainGuy extends Actor {
     const downRun = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 3) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(0, 0) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(1, 0) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(2, 3) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(2, 0) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(4, 3) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(3, 0) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
-
         {
-          graphic: playerSpriteSheet.getSprite(5, 3) as Sprite,
+          graphic: playerRunningSpriteSheet.getSprite(4, 0) as Sprite,
           duration: Config.PlayerRunningFrameSpeed,
         },
       ],
