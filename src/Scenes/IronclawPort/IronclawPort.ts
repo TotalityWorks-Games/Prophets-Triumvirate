@@ -11,6 +11,8 @@ import { MainGuy } from '../../Actors/player';
 import { Pig } from '../../Actors/Animals/Pig';
 import { IronclawPortResources } from './Resources';
 import { Guard } from '../../Actors/NPCs/Guard';
+import { Wolfkin1 } from '../../Actors/NPCs/Citizens/Wolfkin1';
+import { WolfkinCleric } from '../../Actors/NPCs/Citizens/WolfkinCleric';
 
 class IronClawPort extends Scene {
   constructor() {
@@ -37,7 +39,7 @@ class IronClawPort extends Scene {
 
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
-    const player = new MainGuy(vec(300, 300), IronclawPortResources);
+    const player = new MainGuy(vec(2200, 2250), IronclawPortResources);
     engine.currentScene.add(player);
     engine.currentScene.camera.strategy.lockToActor(player);
     engine.currentScene.camera.zoom = 0.8;
@@ -79,7 +81,29 @@ class IronClawPort extends Scene {
 
     // guardNine is talking to a citizen, probably doing something illegal
     const guardNine = new Guard(vec(300, 100), wolfkinSpriteSheet, 'left');
+    const citizenOne = new Wolfkin1(vec(265, 100), wolfkinSpriteSheet, 'right');
     engine.add(guardNine);
+    engine.add(citizenOne);
+
+    // clericOne is tending to the graves
+    const clericOne = new WolfkinCleric(
+      vec(1475, 450),
+      wolfkinSpriteSheet,
+      'left'
+    );
+    engine.add(clericOne);
+
+    // citizenTwo, citizenThree, and citizenFour are enjoying themselves by the tables
+    const citizenTwo = new Wolfkin1(vec(2800, 330), wolfkinSpriteSheet, 'left');
+    const citizenThree = new Wolfkin1(vec(2770, 465), wolfkinSpriteSheet);
+    const citizenFour = new Wolfkin1(
+      vec(2570, 400),
+      wolfkinSpriteSheet,
+      'left'
+    );
+    engine.add(citizenTwo);
+    engine.add(citizenThree);
+    engine.add(citizenFour);
 
     // add animals
     const pigOne = new Pig(vec(2450, 500), IronclawPortResources);
