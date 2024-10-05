@@ -7,18 +7,7 @@ import {
   SpriteSheet,
   Vector,
 } from 'excalibur';
-import {
-  DIRECTION_DOWN,
-  DIRECTION_UP,
-  DIRECTION_LEFT,
-  DIRECTION_RIGHT,
-} from '../../constants';
-
-type Direction =
-  | typeof DIRECTION_DOWN
-  | typeof DIRECTION_UP
-  | typeof DIRECTION_LEFT
-  | typeof DIRECTION_RIGHT;
+import { Direction } from '../../constants';
 
 export class Guard extends Actor {
   direction: Direction;
@@ -38,6 +27,14 @@ export class Guard extends Actor {
   }
 
   onInitialize(_engine: Engine): void {
+    this.addAnimations();
+  }
+
+  onPreUpdate(_engine: Engine, _delta: number): void {
+    this.graphics.use(`${this.direction}-idle`);
+  }
+
+  private addAnimations() {
     const downIdle = new Animation({
       frames: [
         {
@@ -77,81 +74,5 @@ export class Guard extends Actor {
       ],
     });
     this.graphics.add('up-idle', upIdle);
-
-    const rightWalk = new Animation({
-      frames: [
-        {
-          graphic: this.spriteSheet.getSprite(0, 6) as Sprite,
-          duration: 150,
-        },
-        {
-          graphic: this.spriteSheet.getSprite(1, 6) as Sprite,
-          duration: 150,
-        },
-        {
-          graphic: this.spriteSheet.getSprite(2, 6) as Sprite,
-          duration: 150,
-        },
-      ],
-    });
-    this.graphics.add('right-walk', rightWalk);
-
-    const leftWalk = new Animation({
-      frames: [
-        {
-          graphic: this.spriteSheet.getSprite(0, 5) as Sprite,
-          duration: 150,
-        },
-        {
-          graphic: this.spriteSheet.getSprite(1, 5) as Sprite,
-          duration: 150,
-        },
-        {
-          graphic: this.spriteSheet.getSprite(2, 5) as Sprite,
-          duration: 150,
-        },
-      ],
-    });
-    this.graphics.add('left-walk', leftWalk);
-
-    const upWalk = new Animation({
-      frames: [
-        {
-          graphic: this.spriteSheet.getSprite(0, 7) as Sprite,
-          duration: 150,
-        },
-        {
-          graphic: this.spriteSheet.getSprite(1, 7) as Sprite,
-          duration: 150,
-        },
-        {
-          graphic: this.spriteSheet.getSprite(2, 7) as Sprite,
-          duration: 150,
-        },
-      ],
-    });
-    this.graphics.add('up-walk', upWalk);
-
-    const downWalk = new Animation({
-      frames: [
-        {
-          graphic: this.spriteSheet.getSprite(0, 4) as Sprite,
-          duration: 150,
-        },
-        {
-          graphic: this.spriteSheet.getSprite(1, 4) as Sprite,
-          duration: 150,
-        },
-        {
-          graphic: this.spriteSheet.getSprite(2, 4) as Sprite,
-          duration: 150,
-        },
-      ],
-    });
-    this.graphics.add('down-walk', downWalk);
-  }
-
-  onPreUpdate(_engine: Engine, _delta: number): void {
-    this.graphics.use(`${this.direction}-idle`);
   }
 }

@@ -28,6 +28,14 @@ export class Delsaran extends Actor {
   }
 
   onInitialize(_engine: Engine): void {
+    this.addAnimations();
+  }
+
+  onPreUpdate(_engine: Engine, _elapsedMs: number): void {
+    this.graphics.use(`${this.direction}-idle`);
+  }
+
+  addAnimations() {
     const delsaranSpriteSheet = SpriteSheet.fromImageSource({
       image: this.resources as ImageSource,
       grid: {
@@ -77,9 +85,5 @@ export class Delsaran extends Actor {
       ],
     });
     this.graphics.add('up-idle', upIdle);
-  }
-
-  onPreUpdate(_engine: Engine, _elapsedMs: number): void {
-    this.graphics.use(`${this.direction}-idle`);
   }
 }

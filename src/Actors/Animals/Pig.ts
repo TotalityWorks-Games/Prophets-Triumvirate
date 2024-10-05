@@ -38,6 +38,18 @@ export class Pig extends Actor {
   }
 
   onInitialize(_engine: Engine): void {
+    this.addAnimations();
+  }
+
+  onPreUpdate(_engine: Engine, _delta: number): void {
+    this.vel = Vector.Zero;
+    // setTimeout(() => {
+    //   this.walkRandom();
+    // }, 40000);
+    this.graphics.use(`${this.direction}-idle`);
+  }
+
+  addAnimations() {
     const animalSpriteSheet = SpriteSheet.fromImageSource({
       image: this.resources.Animal3SpriteSheetPng as ImageSource,
       grid: {
@@ -203,14 +215,5 @@ export class Pig extends Actor {
       default:
         break;
     }
-  }
-
-  onPreUpdate(_engine: Engine, delta: number): void {
-    this.vel = Vector.Zero;
-    if (delta > 50) {
-      // walk
-      this.walkRandom();
-    }
-    this.graphics.use(`${this.direction}-idle`);
   }
 }
