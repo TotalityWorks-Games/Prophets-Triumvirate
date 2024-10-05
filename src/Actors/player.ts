@@ -40,6 +40,17 @@ export class MainGuy extends Actor {
   }
 
   onInitialize(_engine: Engine): void {
+    this.addAnimations();
+  }
+
+  onPreUpdate(engine: Engine, _elapsedMs: number): void {
+    this.vel = Vector.Zero;
+
+    this.graphics.use(`${this.direction}-idle`);
+    this.playerMovement(engine);
+  }
+
+  addAnimations() {
     const playerSpriteSheet = SpriteSheet.fromImageSource({
       image: this.resources.HeroSpriteSheetPng as ImageSource,
       grid: {
@@ -293,10 +304,7 @@ export class MainGuy extends Actor {
     this.graphics.add('down-run', downRun);
   }
 
-  onPreUpdate(engine: Engine, _elapsedMs: number): void {
-    this.vel = Vector.Zero;
-
-    this.graphics.use(`${this.direction}-idle`);
+  playerMovement(engine: Engine) {
     // running
     if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
       if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
