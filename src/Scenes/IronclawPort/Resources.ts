@@ -11,6 +11,7 @@ import harborWav from '../../../Resources/Sounds/Music/Harbor 1 - Treasure Islan
 
 // import spritesheets
 import heroPath from '../../../Resources/Sheets/Characters/Main/Player.png?url';
+import delsaranPath from '../../../Resources/Sheets/Characters/Main/Delsaran/Character041.png?url';
 import wolfkinPath from '../../../Resources/Sheets/Characters/Wolfkin/beast_tribe_1.png?url';
 import animal3Path from '../../../Resources/Sheets/Animals/animals3.png?url';
 import campGravesSetPath from '../../../Resources/Sheets/Locations/Camp_Graves.png?url';
@@ -42,6 +43,11 @@ import waterTsxPath from '../../../Resources/TSX/water.tsx?url';
 
 export const IronclawPortResources = {
   HeroSpriteSheetPng: new ImageSource(heroPath, false, ImageFiltering.Pixel),
+  DelsaranSpriteSheetPng: new ImageSource(
+    delsaranPath,
+    false,
+    ImageFiltering.Pixel
+  ),
   WolfkinSpriteSheetPng: new ImageSource(
     wolfkinPath,
     false,

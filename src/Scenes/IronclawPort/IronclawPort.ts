@@ -13,6 +13,7 @@ import { IronclawPortResources } from './Resources';
 import { Guard } from '../../Actors/NPCs/Guard';
 import { Wolfkin1 } from '../../Actors/NPCs/Citizens/Wolfkin1';
 import { WolfkinCleric } from '../../Actors/NPCs/Citizens/WolfkinCleric';
+import { Delsaran } from '../../Actors/Main/Delsaran';
 
 class IronClawPort extends Scene {
   constructor() {
@@ -39,7 +40,7 @@ class IronClawPort extends Scene {
 
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
-    const player = new MainGuy(vec(2200, 2250), IronclawPortResources);
+    const player = new MainGuy(vec(2300, 2550), IronclawPortResources);
     engine.currentScene.add(player);
     engine.currentScene.camera.strategy.lockToActor(player);
     engine.currentScene.camera.zoom = 0.8;
@@ -54,6 +55,13 @@ class IronClawPort extends Scene {
         columns: 12,
       },
     });
+
+    // Delsaran drinking in the harbor
+    const delsaran = new Delsaran(
+      vec(2090, 2270),
+      IronclawPortResources.DelsaranSpriteSheetPng
+    );
+    engine.add(delsaran);
 
     // guardOne and guardTwo block the exit to Ironclaw.
     const guardOne = new Guard(vec(1775, 100), wolfkinSpriteSheet);
