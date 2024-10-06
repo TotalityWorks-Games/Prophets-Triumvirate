@@ -73,7 +73,7 @@ class IronClawPort extends Scene {
   private setupCharacters(engine: Engine) {
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
-    const player = new MainGuy(vec(2300, 2550), IronclawPortResources);
+    const player = new MainGuy(vec(2250, 500), IronclawPortResources);
     engine.currentScene.add(player);
     engine.currentScene.camera.strategy.lockToActor(player);
     engine.currentScene.camera.zoom = 0.8;
@@ -148,9 +148,9 @@ class IronClawPort extends Scene {
 
     // add animals
     const pigOne = new Pig(vec(2450, 500), IronclawPortResources);
-    const pigTwo = new Pig(vec(2450, 400), IronclawPortResources);
+    // const pigTwo = new Pig(vec(2450, 400), IronclawPortResources);
     engine.add(pigOne);
-    engine.add(pigTwo);
+    // engine.add(pigTwo);
   }
 }
 

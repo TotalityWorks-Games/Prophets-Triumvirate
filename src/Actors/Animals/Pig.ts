@@ -23,6 +23,8 @@ export class Pig extends Actor {
     | typeof DIRECTION_LEFT
     | typeof DIRECTION_RIGHT;
   resources: { Animal3SpriteSheetPng: ImageSource };
+  x: number;
+  y: number;
   constructor(pos: Vector, resources: { Animal3SpriteSheetPng: ImageSource }) {
     super({
       pos,
@@ -39,13 +41,25 @@ export class Pig extends Actor {
 
   onInitialize(_engine: Engine): void {
     this.addAnimations();
+    // spawn at start point
+
+    this.actions.repeatForever((ctx) => {
+      ctx
+        .moveTo(2450, 400, 5000)
+        .delay(1000)
+        .moveTo(2450, 450, 5000)
+        .delay(1000)
+        .moveTo(2350, 450, 5000)
+        .delay(1000)
+        .moveTo(2350, 400, 5000)
+        .delay(1000)
+        .moveTo(2450, 400, 5000)
+        .delay(1000);
+    });
   }
 
   onPreUpdate(_engine: Engine, _delta: number): void {
     this.vel = Vector.Zero;
-    // setTimeout(() => {
-    //   this.walkRandom();
-    // }, 40000);
     this.graphics.use(`${this.direction}-idle`);
   }
 
@@ -173,47 +187,19 @@ export class Pig extends Actor {
     this.graphics.add('down-walk', downWalk);
   }
 
-  walkRight() {
-    this.vel = vec(Math.floor(Math.random() * 250), 0);
-    this.graphics.use('right-walk');
-    this.direction = 'right';
-  }
+  public patrol() {}
 
-  walkLeft() {
-    this.vel = vec(-Math.floor(Math.random() * 250), 0);
-    this.graphics.use('left-walk');
-    this.direction = 'left';
-  }
+  public shake() {
+    // clear existing queue
+    this.actions.clearActions();
 
-  walkUp() {
-    this.vel = vec(0, -Math.floor(Math.random() * 250));
-    this.graphics.use('up-walk');
-    this.direction = 'up';
-  }
-
-  walkDown() {
-    this.vel = vec(0, Math.floor(Math.random() * 250));
-    this.graphics.use('down-walk');
-    this.direction = 'down';
-  }
-
-  walkRandom() {
-    const dir = Math.floor(Math.random() * 4);
-    switch (dir) {
-      case 0:
-        this.walkUp();
-        break;
-      case 1:
-        this.walkLeft();
-        break;
-      case 2:
-        this.walkRight();
-        break;
-      case 3:
-        this.walkDown();
-        break;
-      default:
-        break;
-    }
+    // repeat shaking motion
+    this.actions.repeatForever((ctx) => {
+      ctx
+        .moveBy(vec(2450, 530), 700000)
+        // .delay(3000)
+        .moveBy(vec(2450, 500), 360000);
+      // .delay(3000);
+    });
   }
 }
