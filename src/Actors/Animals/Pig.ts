@@ -1,30 +1,22 @@
 import {
   Actor,
   Animation,
+  Collider,
+  CollisionContact,
   CollisionType,
   Engine,
   ImageSource,
+  Side,
   Sprite,
   SpriteSheet,
   vec,
   Vector,
 } from 'excalibur';
-import {
-  DIRECTION_DOWN,
-  DIRECTION_UP,
-  DIRECTION_LEFT,
-  DIRECTION_RIGHT,
-} from '../../constants';
+import { Direction } from '../../constants';
 
 export class Pig extends Actor {
-  direction:
-    | typeof DIRECTION_DOWN
-    | typeof DIRECTION_UP
-    | typeof DIRECTION_LEFT
-    | typeof DIRECTION_RIGHT;
+  direction: Direction;
   resources: { Animal3SpriteSheetPng: ImageSource };
-  x: number;
-  y: number;
   constructor(pos: Vector, resources: { Animal3SpriteSheetPng: ImageSource }) {
     super({
       pos,
@@ -43,19 +35,19 @@ export class Pig extends Actor {
     this.addAnimations();
     // spawn at start point
 
-    this.actions.repeatForever((ctx) => {
+    this.actions.repeat((ctx) => {
       ctx
-        .moveTo(2450, 400, 5000)
-        .delay(1000)
-        .moveTo(2450, 450, 5000)
-        .delay(1000)
-        .moveTo(2350, 450, 5000)
-        .delay(1000)
-        .moveTo(2350, 400, 5000)
-        .delay(1000)
-        .moveTo(2450, 400, 5000)
-        .delay(1000);
-    });
+        .moveTo(2450, 500, 25)
+        // .delay(1000)
+        .moveTo(2450, 550, 25)
+        // .delay(1000)
+        .moveTo(2350, 550, 25)
+        // .delay(1000)
+        .moveTo(2350, 500, 25)
+        // .delay(1000)
+        .moveTo(2450, 500, 25);
+      // .delay(1000);
+    }, 70);
   }
 
   onPreUpdate(_engine: Engine, _delta: number): void {
@@ -187,9 +179,8 @@ export class Pig extends Actor {
     this.graphics.add('down-walk', downWalk);
   }
 
-  public patrol() {}
-
   public shake() {
+    // This movement was not supposed to happen, but when I found it I couldn't not use it.
     // clear existing queue
     this.actions.clearActions();
 

@@ -73,7 +73,7 @@ class IronClawPort extends Scene {
   private setupCharacters(engine: Engine) {
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
-    const player = new MainGuy(vec(2250, 500), IronclawPortResources);
+    const player = new MainGuy(vec(2300, 2550), IronclawPortResources);
     engine.currentScene.add(player);
     engine.currentScene.camera.strategy.lockToActor(player);
     engine.currentScene.camera.zoom = 0.8;
