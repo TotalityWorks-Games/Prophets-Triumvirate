@@ -6,7 +6,11 @@
 
 ## About
 
-A 2D RPG with a 4 character+ party. As the gods interfere in the affairs of men, you and the Triumvirate must decide what the world will look like when the divine conflict is settled.
+As the gods interfere in the affairs of men, you and the Triumvirate must decide what the world will look like when the divine conflict is settled.
+
+Will you save the Empire or let it crumble? Will you challenge the Keeper of Magic and inherit the virtue of Time or would you rather steal magical artifacts and build up the College of Elven Mysteries?
+
+In this top-down 2D RPG with a 4 character+ party and turn-based combat, your decisions will shape the destinies of everyone you meet.
 
 ## Tech Stack
 
