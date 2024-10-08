@@ -364,65 +364,46 @@ export class MainGuy extends Actor {
   }
 
   playerMovement(engine: Engine) {
+    const movePlayer = (
+      x: number,
+      y: number,
+      direction: Direction,
+      speed: 'run' | 'walk'
+    ) => {
+      this.nearToNPC = null;
+      this.nearToObject = null;
+      this.vel = vec(x, y);
+      this.graphics.use(`${direction}-${speed}`);
+      this.direction = direction;
+    };
+
     // running
     if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
       if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
-        this.nearToNPC = null;
-        this.nearToObject = null;
-        this.vel = vec(Config.PlayerRunningSpeed, 0);
-        this.graphics.use('right-run');
-        this.direction = 'right';
+        movePlayer(Config.PlayerRunningSpeed, 0, 'right', 'run');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
-        this.nearToNPC = null;
-        this.nearToObject = null;
-        this.vel = vec(-Config.PlayerRunningSpeed, 0);
-        this.graphics.use('left-run');
-        this.direction = 'left';
+        movePlayer(-Config.PlayerRunningSpeed, 0, 'left', 'run');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
-        this.nearToNPC = null;
-        this.nearToObject = null;
-        this.vel = vec(0, -Config.PlayerRunningSpeed);
-        this.graphics.use('up-run');
-        this.direction = 'up';
+        movePlayer(0, -Config.PlayerRunningSpeed, 'up', 'run');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
-        this.nearToNPC = null;
-        this.nearToObject = null;
-        this.vel = vec(0, Config.PlayerRunningSpeed);
-        this.graphics.use('down-run');
-        this.direction = 'down';
+        movePlayer(0, Config.PlayerRunningSpeed, 'down', 'run');
       }
     } else {
       // walking
       if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
-        this.nearToNPC = null;
-        this.nearToObject = null;
-        this.vel = vec(Config.PlayerSpeed, 0);
-        this.graphics.use('right-walk');
-        this.direction = 'right';
+        movePlayer(Config.PlayerSpeed, 0, 'right', 'walk');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
-        this.nearToNPC = null;
-        this.nearToObject = null;
-        this.vel = vec(-Config.PlayerSpeed, 0);
-        this.graphics.use('left-walk');
-        this.direction = 'left';
+        movePlayer(-Config.PlayerSpeed, 0, 'left', 'walk');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
-        this.nearToNPC = null;
-        this.nearToObject = null;
-        this.vel = vec(0, -Config.PlayerSpeed);
-        this.graphics.use('up-walk');
-        this.direction = 'up';
+        movePlayer(0, -Config.PlayerSpeed, 'up', 'walk');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
-        this.nearToNPC = null;
-        this.nearToObject = null;
-        this.vel = vec(0, Config.PlayerSpeed);
-        this.graphics.use('down-walk');
-        this.direction = 'down';
+        movePlayer(0, Config.PlayerSpeed, 'down', 'walk');
       }
     }
   }
