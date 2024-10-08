@@ -355,32 +355,36 @@ export class MainGuy extends Actor {
 
   playerInteract(engine: Engine) {
     // dialogue
-    if (engine.input.keyboard.wasPressed(Keys.Space)) {
-      if (this.nearToNPC) {
-        console.log(`dialogue with: ${this.nearToNPC.name}`);
-        uiManager.update_state(SCENE_STATE.TALKING);
-        this.playerState = SCENE_STATE.TALKING;
-        // DO THING
-        setTimeout(() => {
-          uiManager.update_state(SCENE_STATE.PLAYING);
-          this.playerState = SCENE_STATE.PLAYING;
-        }, 3000);
+    switch (this.playerState) {
+      case SCENE_STATE.PLAYING:
+        if (engine.input.keyboard.wasPressed(Keys.Space)) {
+          if (this.nearToNPC) {
+            console.log(`dialogue with: ${this.nearToNPC.name}`);
+            uiManager.update_state(SCENE_STATE.TALKING);
+            this.playerState = SCENE_STATE.TALKING;
+            // DO THING
 
-        // this.set_state(PLAYER_STATE.TALKING);
-        // gameManager.start_talk(this.nearToNPC);
-        // return;
-      }
-      if (this.nearToObject) {
-        // investigate
-        console.log(`investigating: ${this.nearToObject.name}`);
-        uiManager.update_state(SCENE_STATE.TALKING);
-        this.playerState = SCENE_STATE.TALKING;
-        // DO THING
-        setTimeout(() => {
+            // this.set_state(PLAYER_STATE.TALKING);
+            // gameManager.start_talk(this.nearToNPC);
+            // return;
+          }
+          if (this.nearToObject) {
+            // investigate
+            console.log(`investigating: ${this.nearToObject.name}`);
+            uiManager.update_state(SCENE_STATE.TALKING);
+            this.playerState = SCENE_STATE.TALKING;
+            // DO THING
+          }
+        }
+        return;
+      case SCENE_STATE.TALKING:
+        if (engine.input.keyboard.wasPressed(Keys.Space)) {
           uiManager.update_state(SCENE_STATE.PLAYING);
           this.playerState = SCENE_STATE.PLAYING;
-        }, 3000);
-      }
+        }
+        return;
+      default:
+        return;
     }
   }
 
