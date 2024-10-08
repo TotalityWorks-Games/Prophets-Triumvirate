@@ -13,8 +13,9 @@ import {
   vec,
   Vector,
 } from 'excalibur';
-import { Direction } from '../constants';
+import { Direction, SCENE_STATE } from '../constants';
 import { Config } from '../config';
+import { uiManager } from '../Managers/UIManager';
 
 export class MainGuy extends Actor {
   public nearToNPC: any;
@@ -352,6 +353,7 @@ export class MainGuy extends Actor {
     if (engine.input.keyboard.wasPressed(Keys.Space)) {
       if (this.nearToNPC) {
         console.log(`dialogue with: ${this.nearToNPC.name}`);
+        uiManager.update_state(SCENE_STATE.TALKING);
         // this.set_state(PLAYER_STATE.TALKING);
         // gameManager.start_talk(this.nearToNPC);
         // return;
@@ -359,6 +361,7 @@ export class MainGuy extends Actor {
       if (this.nearToObject) {
         // investigate
         console.log(`investigating: ${this.nearToObject.name}`);
+        uiManager.update_state(SCENE_STATE.TALKING);
       }
     }
   }

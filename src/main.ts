@@ -11,8 +11,10 @@ import {
   ironClawPortScene,
   ironClawPortSceneLoader,
 } from './Scenes/IronclawPort/IronclawPort';
+import { uiManager } from './Managers/UIManager';
 
 const game = new Engine({
+  canvasElementId: 'game-canvas',
   width: 600,
   height: 400,
   displayMode: DisplayMode.FitScreenAndFill,
@@ -24,7 +26,7 @@ const game = new Engine({
       scene: ironClawPortScene,
       loader: ironClawPortSceneLoader,
       transitions: {
-        out: new FadeInOut({ duration: 500, direction: 'out' }),
+        out: new FadeInOut({ duration: 100, direction: 'out' }),
         in: new CrossFade({
           duration: 2500,
           direction: 'in',
@@ -36,5 +38,6 @@ const game = new Engine({
 });
 
 game.start().then(() => {
+  uiManager.init();
   game.goToScene('start');
 });
