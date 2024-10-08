@@ -18,6 +18,7 @@ import { Config } from '../config';
 import { uiManager } from '../Managers/UIManager';
 
 export class MainGuy extends Actor {
+  public playerState: SCENE_STATE;
   public nearToNPC: any;
   public nearToObject: any;
   public direction: Direction;
@@ -43,6 +44,7 @@ export class MainGuy extends Actor {
     this.scale = new Vector(2, 2);
     this.direction = 'down';
     this.resources = resources;
+    this.playerState = SCENE_STATE.PLAYING;
   }
 
   onInitialize(_engine: Engine): void {
@@ -53,7 +55,10 @@ export class MainGuy extends Actor {
     this.vel = Vector.Zero;
 
     this.graphics.use(`${this.direction}-idle`);
-    this.playerMovement(engine);
+
+    if (this.playerState === SCENE_STATE.PLAYING) {
+      this.playerMovement(engine);
+    }
     this.playerInteract(engine);
   }
 
@@ -354,6 +359,13 @@ export class MainGuy extends Actor {
       if (this.nearToNPC) {
         console.log(`dialogue with: ${this.nearToNPC.name}`);
         uiManager.update_state(SCENE_STATE.TALKING);
+        this.playerState = SCENE_STATE.TALKING;
+        // DO THING
+        setTimeout(() => {
+          uiManager.update_state(SCENE_STATE.PLAYING);
+          this.playerState = SCENE_STATE.PLAYING;
+        }, 3000);
+
         // this.set_state(PLAYER_STATE.TALKING);
         // gameManager.start_talk(this.nearToNPC);
         // return;
@@ -362,6 +374,12 @@ export class MainGuy extends Actor {
         // investigate
         console.log(`investigating: ${this.nearToObject.name}`);
         uiManager.update_state(SCENE_STATE.TALKING);
+        this.playerState = SCENE_STATE.TALKING;
+        // DO THING
+        setTimeout(() => {
+          uiManager.update_state(SCENE_STATE.PLAYING);
+          this.playerState = SCENE_STATE.PLAYING;
+        }, 3000);
       }
     }
   }
