@@ -7,7 +7,7 @@ import {
   SpriteSheet,
   vec,
 } from 'excalibur';
-import { MainGuy } from '../../Actors/player';
+import { MainGuy } from '../../Actors/Main/Player';
 import { Pig } from '../../Actors/Animals/Pig';
 import { IronclawPortResources } from './Resources';
 import { Guard } from '../../Actors/NPCs/Guard';

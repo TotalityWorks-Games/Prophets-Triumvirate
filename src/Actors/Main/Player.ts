@@ -8,14 +8,15 @@ import {
   ImageSource,
   Keys,
   Side,
+  Sound,
   Sprite,
   SpriteSheet,
   vec,
   Vector,
 } from 'excalibur';
-import { Direction, SCENE_STATE } from '../constants';
-import { Config } from '../config';
-import { uiManager } from '../Managers/UIManager';
+import { Direction, SCENE_STATE } from '../../constants';
+import { Config } from '../../config';
+import { uiManager } from '../../Managers/UIManager';
 
 export class MainGuy extends Actor {
   public playerState: SCENE_STATE;
@@ -25,12 +26,14 @@ export class MainGuy extends Actor {
   public resources: {
     HeroSpriteSheetPng: ImageSource;
     HeroRunningSpriteSheetPng: ImageSource;
+    CollisionSound: Sound;
   };
   constructor(
     pos: Vector,
     resources: {
       HeroSpriteSheetPng: ImageSource;
       HeroRunningSpriteSheetPng: ImageSource;
+      CollisionSound: Sound;
     }
   ) {
     super({
@@ -69,6 +72,7 @@ export class MainGuy extends Actor {
     _contact: CollisionContact
   ): void {
     if (other.owner.name === 'Collisions') {
+      this.resources.CollisionSound.play(0.05);
       this.nearToObject = other.owner;
       this.nearToNPC = null;
     } else {

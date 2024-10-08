@@ -9,6 +9,9 @@ import harborMP3 from '../../../Resources/Sounds/Music/Harbor 1 - Treasure Islan
 import harborOgg from '../../../Resources/Sounds/Music/Harbor 1 - Treasure Island (Loopable).ogg';
 import harborWav from '../../../Resources/Sounds/Music/Harbor 1 - Treasure Island (Loopable).wav';
 
+// import sounds
+import collisionSound from '../../../Resources/Sounds/Effects/bump-dur2Short-pitch1Low.wav';
+
 // import spritesheets
 import heroPath from '../../../Resources/Sheets/Characters/Main/Player/Character006.png?url';
 import heroRunningPath from '../../../Resources/Sheets/Characters/Main/Player/Chara006.png?url';
@@ -65,6 +68,7 @@ export const IronclawPortResources = {
     ImageFiltering.Pixel
   ),
   Music: new Sound(harborMP3, harborWav, harborOgg),
+  CollisionSound: new Sound(collisionSound),
   TiledMap: new TiledResource(ironclawPortMapPath, {
     useTilemapCameraStrategy: true,
     pathMap: [
