@@ -1,10 +1,13 @@
 import {
   Actor,
   Animation,
+  Collider,
+  CollisionContact,
   CollisionType,
   Engine,
   ImageSource,
   Keys,
+  Side,
   Sprite,
   SpriteSheet,
   vec,
@@ -14,8 +17,10 @@ import { Direction } from '../constants';
 import { Config } from '../config';
 
 export class MainGuy extends Actor {
-  direction: Direction;
-  resources: {
+  public nearToNPC: any;
+  public nearToObject: any;
+  public direction: Direction;
+  public resources: {
     HeroSpriteSheetPng: ImageSource;
     HeroRunningSpriteSheetPng: ImageSource;
   };
@@ -48,6 +53,44 @@ export class MainGuy extends Actor {
 
     this.graphics.use(`${this.direction}-idle`);
     this.playerMovement(engine);
+    this.playerInteract(engine);
+  }
+
+  onPreCollisionResolve(
+    _self: Collider,
+    other: Collider,
+    _side: Side,
+    _contact: CollisionContact
+  ): void {
+    if (other.owner.name === 'Collisions') {
+      this.nearToObject = other.owner;
+      this.nearToNPC = null;
+    } else {
+      this.nearToNPC = other.owner;
+      this.nearToObject = null;
+    }
+    // switch (other.owner.name) {
+    //   case ACTOR_TYPE.SCENE_NEXT:
+    //     const area: SceneArea | any = other.owner;
+    //     if (area.activated) {
+    //       area.activated = false;
+    //       gameManager.go_to(area.toScene);
+    //     }
+    //     break;
+    //   case ACTOR_TYPE.NPC:
+    //     this.nearToNPC = other.owner;
+    //     break;
+    // }
+  }
+
+  onCollisionEnd(_self: Collider, other: Collider): void {
+    console.log('collision ended');
+    // switch (other.owner.name) {
+    //   case ACTOR_TYPE.SCENE_NEXT:
+    //     const area: SceneArea | any = other.owner;
+    //     area.activated = true;
+    //     break;
+    // }
   }
 
   addAnimations() {
@@ -304,25 +347,49 @@ export class MainGuy extends Actor {
     this.graphics.add('down-run', downRun);
   }
 
+  playerInteract(engine: Engine) {
+    // dialogue
+    if (engine.input.keyboard.wasPressed(Keys.Space)) {
+      if (this.nearToNPC) {
+        console.log(`dialogue with: ${this.nearToNPC.name}`);
+        // this.set_state(PLAYER_STATE.TALKING);
+        // gameManager.start_talk(this.nearToNPC);
+        // return;
+      }
+      if (this.nearToObject) {
+        // investigate
+        console.log(`investigating: ${this.nearToObject.name}`);
+      }
+    }
+  }
+
   playerMovement(engine: Engine) {
     // running
     if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
       if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
+        this.nearToNPC = null;
+        this.nearToObject = null;
         this.vel = vec(Config.PlayerRunningSpeed, 0);
         this.graphics.use('right-run');
         this.direction = 'right';
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
+        this.nearToNPC = null;
+        this.nearToObject = null;
         this.vel = vec(-Config.PlayerRunningSpeed, 0);
         this.graphics.use('left-run');
         this.direction = 'left';
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
+        this.nearToNPC = null;
+        this.nearToObject = null;
         this.vel = vec(0, -Config.PlayerRunningSpeed);
         this.graphics.use('up-run');
         this.direction = 'up';
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
+        this.nearToNPC = null;
+        this.nearToObject = null;
         this.vel = vec(0, Config.PlayerRunningSpeed);
         this.graphics.use('down-run');
         this.direction = 'down';
@@ -330,21 +397,29 @@ export class MainGuy extends Actor {
     } else {
       // walking
       if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
+        this.nearToNPC = null;
+        this.nearToObject = null;
         this.vel = vec(Config.PlayerSpeed, 0);
         this.graphics.use('right-walk');
         this.direction = 'right';
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
+        this.nearToNPC = null;
+        this.nearToObject = null;
         this.vel = vec(-Config.PlayerSpeed, 0);
         this.graphics.use('left-walk');
         this.direction = 'left';
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
+        this.nearToNPC = null;
+        this.nearToObject = null;
         this.vel = vec(0, -Config.PlayerSpeed);
         this.graphics.use('up-walk');
         this.direction = 'up';
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
+        this.nearToNPC = null;
+        this.nearToObject = null;
         this.vel = vec(0, Config.PlayerSpeed);
         this.graphics.use('down-walk');
         this.direction = 'down';

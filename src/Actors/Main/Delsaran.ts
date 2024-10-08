@@ -25,6 +25,7 @@ export class Delsaran extends Actor {
     this.scale = new Vector(2, 2);
     this.direction = 'down';
     this.resources = resources;
+    this.name = 'Delsaran';
   }
 
   onInitialize(_engine: Engine): void {

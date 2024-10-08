@@ -22,8 +22,20 @@ class IronClawPort extends Scene {
 
   onInitialize(engine: Engine): void {
     this.setCameraBoundaries(engine);
-    this.setupCharacters(engine);
+    const npcs = this.setupNPCs();
     this.startMusic();
+
+    // add player character
+    /* Default Player Location: pos: vec(2300, 2550), */
+    const player = new MainGuy(vec(2300, 2550), IronclawPortResources);
+    engine.currentScene.add(player);
+    engine.currentScene.camera.strategy.lockToActor(player);
+    engine.currentScene.camera.zoom = 0.8;
+
+    // add all npcs to game
+    npcs.forEach((character) => {
+      engine.add(character);
+    });
 
     // engine.input.touch.on('pointerdown', () => {
     //   engine.goto('mynextScene');
@@ -70,14 +82,7 @@ class IronClawPort extends Scene {
     engine.currentScene.camera.strategy.limitCameraBounds(mapBounds);
   }
 
-  private setupCharacters(engine: Engine) {
-    // add player character
-    /* Default Player Location: pos: vec(2300, 2550), */
-    const player = new MainGuy(vec(2300, 2550), IronclawPortResources);
-    engine.currentScene.add(player);
-    engine.currentScene.camera.strategy.lockToActor(player);
-    engine.currentScene.camera.zoom = 0.8;
-
+  private setupNPCs() {
     // add NPCs
     const wolfkinSpriteSheet = SpriteSheet.fromImageSource({
       image: IronclawPortResources.WolfkinSpriteSheetPng as ImageSource,
@@ -94,63 +99,119 @@ class IronClawPort extends Scene {
       vec(2090, 2270),
       IronclawPortResources.DelsaranSpriteSheetPng
     );
-    engine.add(delsaran);
 
     // guardOne and guardTwo block the exit to Ironclaw.
-    const guardOne = new Guard(vec(1775, 100), wolfkinSpriteSheet);
-    const guardTwo = new Guard(vec(1840, 100), wolfkinSpriteSheet);
-    engine.add(guardOne);
-    engine.add(guardTwo);
+    const guardOne = new Guard(
+      vec(1775, 100),
+      wolfkinSpriteSheet,
+      'Wolfkin Guard One'
+    );
+    const guardTwo = new Guard(
+      vec(1840, 100),
+      wolfkinSpriteSheet,
+      'Wolfkin Guard Two'
+    );
 
     // guardThree and guardFour watch over the Temple
-    const guardThree = new Guard(vec(1390, 830), wolfkinSpriteSheet);
-    const guardFour = new Guard(vec(1170, 830), wolfkinSpriteSheet);
-    engine.add(guardThree);
-    engine.add(guardFour);
+    const guardThree = new Guard(
+      vec(1390, 830),
+      wolfkinSpriteSheet,
+      'Wolfkin Guard Three'
+    );
+    const guardFour = new Guard(
+      vec(1170, 830),
+      wolfkinSpriteSheet,
+      'Wolfkin Guard Four'
+    );
 
     // guardFive and guardSix watch over the Palace
-    const guardFive = new Guard(vec(1720, 830), wolfkinSpriteSheet);
-    const guardSix = new Guard(vec(1550, 830), wolfkinSpriteSheet);
-    engine.add(guardFive);
-    engine.add(guardSix);
+    const guardFive = new Guard(
+      vec(1720, 830),
+      wolfkinSpriteSheet,
+      'Wolfkin Guard Five'
+    );
+    const guardSix = new Guard(
+      vec(1550, 830),
+      wolfkinSpriteSheet,
+      'Wolfkin Guard Six'
+    );
 
     // guardSeven and guardEight stand near the barracks
-    const guardSeven = new Guard(vec(1000, 100), wolfkinSpriteSheet);
-    const guardEight = new Guard(vec(930, 230), wolfkinSpriteSheet, 'right');
-    engine.add(guardSeven);
-    engine.add(guardEight);
+    const guardSeven = new Guard(
+      vec(1000, 100),
+      wolfkinSpriteSheet,
+      'Wolfkin Guard Seven'
+    );
+    const guardEight = new Guard(
+      vec(930, 230),
+      wolfkinSpriteSheet,
+      'Wolfkin Guard Eight',
+      'right'
+    );
 
     // guardNine is talking to a citizen, probably doing something illegal
-    const guardNine = new Guard(vec(300, 100), wolfkinSpriteSheet, 'left');
-    const citizenOne = new Wolfkin1(vec(265, 100), wolfkinSpriteSheet, 'right');
-    engine.add(guardNine);
-    engine.add(citizenOne);
+    const guardNine = new Guard(
+      vec(300, 100),
+      wolfkinSpriteSheet,
+      'Wolfkin Guard Nine',
+      'left'
+    );
+    const citizenOne = new Wolfkin1(
+      vec(265, 100),
+      wolfkinSpriteSheet,
+      'Wolfkin Citizen One',
+      'right'
+    );
 
     // clericOne is tending to the graves
     const clericOne = new WolfkinCleric(
       vec(1475, 450),
       wolfkinSpriteSheet,
+      'Wolfkin Cleric One',
       'left'
     );
-    engine.add(clericOne);
 
     // citizenTwo, citizenThree, and citizenFour are enjoying themselves by the tables
-    const citizenTwo = new Wolfkin1(vec(2800, 330), wolfkinSpriteSheet, 'left');
-    const citizenThree = new Wolfkin1(vec(2770, 465), wolfkinSpriteSheet);
+    const citizenTwo = new Wolfkin1(
+      vec(2800, 330),
+      wolfkinSpriteSheet,
+      'Wolfkin Citizen Two',
+      'left'
+    );
+    const citizenThree = new Wolfkin1(
+      vec(2770, 465),
+      wolfkinSpriteSheet,
+      'Wolfkin Citizen Three'
+    );
     const citizenFour = new Wolfkin1(
       vec(2570, 400),
       wolfkinSpriteSheet,
+      'Wolfkin Citizen Four',
       'left'
     );
-    engine.add(citizenTwo);
-    engine.add(citizenThree);
-    engine.add(citizenFour);
 
     // add animals
     const pigOne = new Pig(vec(2450, 500), IronclawPortResources);
     // const pigTwo = new Pig(vec(2450, 400), IronclawPortResources);
-    engine.add(pigOne);
-    // engine.add(pigTwo);
+
+    return [
+      delsaran,
+      guardOne,
+      guardTwo,
+      guardThree,
+      guardFour,
+      guardFive,
+      guardSix,
+      guardSeven,
+      guardEight,
+      guardNine,
+      clericOne,
+      citizenOne,
+      citizenTwo,
+      citizenThree,
+      citizenFour,
+      pigOne,
+    ];
   }
 }
 

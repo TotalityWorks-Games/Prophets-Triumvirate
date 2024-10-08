@@ -5,11 +5,17 @@ import { Direction } from '../../../constants';
 export class WolfkinCleric extends Citizen {
   direction: Direction;
   spriteSheet: SpriteSheet;
-  constructor(pos: Vector, spriteSheet: SpriteSheet, direction?: Direction) {
+  constructor(
+    pos: Vector,
+    spriteSheet: SpriteSheet,
+    name: string,
+    direction?: Direction
+  ) {
     super(pos);
     this.pos = pos;
     this.spriteSheet = spriteSheet;
     this.direction = direction ?? 'down';
+    this.name = name;
   }
 
   onInitialize(_engine: Engine): void {

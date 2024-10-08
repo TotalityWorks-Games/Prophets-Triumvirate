@@ -12,7 +12,12 @@ import { Direction } from '../../constants';
 export class Guard extends Actor {
   direction: Direction;
   spriteSheet: SpriteSheet;
-  constructor(pos: Vector, spriteSheet: SpriteSheet, direction?: Direction) {
+  constructor(
+    pos: Vector,
+    spriteSheet: SpriteSheet,
+    name: string,
+    direction?: Direction
+  ) {
     super({
       pos,
       width: 32,
@@ -24,6 +29,7 @@ export class Guard extends Actor {
     this.scale = new Vector(2, 2);
     this.direction = direction ?? 'down';
     this.spriteSheet = spriteSheet;
+    this.name = name;
   }
 
   onInitialize(_engine: Engine): void {
