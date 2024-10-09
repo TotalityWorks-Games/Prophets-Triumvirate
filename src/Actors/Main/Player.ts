@@ -72,7 +72,7 @@ export class MainGuy extends Actor {
     _contact: CollisionContact
   ): void {
     if (other.owner.name === 'Collisions') {
-      this.resources.CollisionSound.play(0.05);
+      this.resources.CollisionSound.play(0.1);
       this.nearToObject = other.owner;
       this.nearToNPC = null;
     } else {
@@ -364,13 +364,9 @@ export class MainGuy extends Actor {
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
           if (this.nearToNPC) {
             console.log(`dialogue with: ${this.nearToNPC.name}`);
-            uiManager.update_state(SCENE_STATE.TALKING);
             this.playerState = SCENE_STATE.TALKING;
-            // DO THING
-
-            // this.set_state(PLAYER_STATE.TALKING);
-            // gameManager.start_talk(this.nearToNPC);
-            // return;
+            uiManager.update_state(SCENE_STATE.TALKING);
+            uiManager.dialogNPC(this.nearToNPC.name);
           }
           if (this.nearToObject) {
             // investigate
@@ -383,8 +379,9 @@ export class MainGuy extends Actor {
         return;
       case SCENE_STATE.TALKING:
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
-          uiManager.update_state(SCENE_STATE.PLAYING);
           this.playerState = SCENE_STATE.PLAYING;
+          uiManager.update_state(SCENE_STATE.PLAYING);
+          uiManager.dialogNPC(undefined);
         }
         return;
       default:

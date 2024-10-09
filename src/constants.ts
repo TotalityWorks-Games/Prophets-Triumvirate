@@ -18,3 +18,7 @@ export enum SCENE_STATE {
   GAMEOVER = 'SCENE_STATE__GAMEOVER',
   ERROR = 'SCENE_STATE__ERROR',
 }
+export type Dialogues = {
+  actor: string;
+  text: string;
+}[];

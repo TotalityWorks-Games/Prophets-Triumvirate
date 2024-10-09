@@ -8,3 +8,8 @@ export const IronclawPortDialogues = [
     text: 'Nothing interesting over here.',
   },
 ];
+
+type Dialogues = {
+  actor: string;
+  text: string;
+}[];

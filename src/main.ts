@@ -10,7 +10,7 @@ import {
 import {
   ironClawPortScene,
   ironClawPortSceneLoader,
-} from './Scenes/IronclawPort/IronclawPort';
+} from './Scenes/IronclawPort-1/IronclawPort';
 import { uiManager } from './Managers/UIManager';
 
 const game = new Engine({
@@ -26,12 +26,12 @@ const game = new Engine({
       scene: ironClawPortScene,
       loader: ironClawPortSceneLoader,
       transitions: {
-        out: new FadeInOut({ duration: 100, direction: 'out' }),
         in: new CrossFade({
-          duration: 2500,
+          duration: 1000,
           direction: 'in',
           blockInput: true,
         }),
+        out: new FadeInOut({ duration: 100, direction: 'out' }),
       },
     },
   },

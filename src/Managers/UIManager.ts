@@ -1,8 +1,9 @@
-import { SCENE_STATE } from '../constants';
+import { Dialogues, SCENE_STATE } from '../constants';
 
 class UIManager {
   game_container!: HTMLElement;
   dialog_container!: HTMLElement;
+  characterToDialogueWith: string | undefined;
   init() {
     this.linkUIReferences();
     this.createDialogueUI();
@@ -24,32 +25,51 @@ class UIManager {
     dialog_container.innerHTML = `
         <div class="avatar"></div>
             <div class="content">
-            <div class="text">Did you know that you can press SHIFT while you walk to run!?</div>
+            <div class="text"></div>
         </div>
         `;
   }
 
-  display_dialog(
-    _actor: 'player' | 'npc' = 'player',
-    text: string
-    // last = false
-  ) {
+  cleanupDialogue() {
     const text_container = this.dialog_container.querySelector(
       '.text'
     ) as HTMLElement;
-    // text_container.classList.remove('last');
+    if (this.game_container.className !== SCENE_STATE.TALKING) {
+      return (text_container.innerText = '');
+    }
+  }
 
-    text_container.innerText = text;
-    // if (last) {
-    //   text_container!.classList.add('last');
-    // }
+  displayDialogue(dialogues: Dialogues) {
+    const text_container = this.dialog_container.querySelector(
+      '.text'
+    ) as HTMLElement;
+
+    if (this.game_container.className === SCENE_STATE.TALKING) {
+      // filter through all dialogues for the one matching this.characterToDialogueWith
+      let dialogue = dialogues.find((dialogue) => {
+        return dialogue.actor === this.characterToDialogueWith;
+      });
+
+      if (dialogue) {
+        // then add this text
+        return (text_container.innerText = dialogue!.text);
+      } else {
+        dialogue = dialogues.find((dialogue) => {
+          return dialogue.actor === 'default';
+        });
+
+        // then add this text
+        return (text_container.innerText = dialogue!.text);
+      }
+    }
+  }
+
+  dialogNPC(character: string | undefined) {
+    this.characterToDialogueWith = character;
   }
 
   update_state(state: SCENE_STATE) {
     this.game_container.className = state;
-    console.log(
-      `state: ${state} - className: ${this.game_container.className}`
-    );
   }
 }
 

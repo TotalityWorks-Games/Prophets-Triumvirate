@@ -2,6 +2,7 @@ import {
   BoundingBox,
   Engine,
   ImageSource,
+  Keys,
   Loader,
   Scene,
   SpriteSheet,
@@ -14,13 +15,19 @@ import { Guard } from '../../Actors/NPCs/Guard';
 import { Wolfkin1 } from '../../Actors/NPCs/Citizens/Wolfkin1';
 import { WolfkinCleric } from '../../Actors/NPCs/Citizens/WolfkinCleric';
 import { Delsaran } from '../../Actors/Main/Delsaran';
+import { SCENE_STATE } from '../../constants';
+import { uiManager } from '../../Managers/UIManager';
+import { IronclawPortDialogues } from './Dialogues';
 
 class IronClawPort extends Scene {
+  game_container!: HTMLElement;
   constructor() {
     super();
   }
 
   onInitialize(engine: Engine): void {
+    this.game_container = document.getElementById('game')!;
+
     this.setCameraBoundaries(engine);
     const npcs = this.setupNPCs();
     this.startMusic();
@@ -58,7 +65,13 @@ class IronClawPort extends Scene {
   }
 
   onPreUpdate(_engine: Engine, _delta: number): void {
-    // ... update stuff
+    if (this.game_container.className === SCENE_STATE.TALKING) {
+      uiManager.displayDialogue(IronclawPortDialogues);
+    }
+
+    if (this.game_container.className !== SCENE_STATE.TALKING) {
+      uiManager.cleanupDialogue();
+    }
   }
 
   private startMusic() {
