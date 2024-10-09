@@ -22,3 +22,16 @@ export type Dialogues = {
   actor: string;
   text: string;
 }[];
+export enum RACES {
+  ACCURSED = 'ACCURSED',
+  ELF = 'ELF',
+  HALF_ELF = 'HALF_ELF',
+  HUMAN = 'HUMAN',
+  NIX_FORGED = 'NIX_FORGED',
+}
+export enum CLASSES {
+  CLERIC = 'CLERIC',
+  THIEF = 'THIEF',
+  WARRIOR = 'WARRIOR',
+  WIZARD = 'WIZARD',
+}
