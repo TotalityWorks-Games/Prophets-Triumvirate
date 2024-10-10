@@ -42,7 +42,7 @@ What follows is the list of all character sprites with short, simple description
 - Character 022: full red-armored white-skinned villain White male
 - Character 023: full gold-armored white-skinned deity Red male
 - Character 024: full blue-dots-armored white-skinned hero Brown male
-- Character 025: full blue-armored white-skinned deity Blue male
+- Character 025: full blue-armored white-skinned Blue male
 
 ### Type 6
 
@@ -169,7 +169,7 @@ What follows is the list of all character sprites with short, simple description
 ### Type 17
 
 - Character 106: brown/green-shoulder-full-armored white-skinned important Blonde male
-- Character 107: green/red-shoulder-full-armored white-skinned important Blue male
+- Character 107: green/red-shoulder-full-armored white-skinned Blue male
 - Character 108: black/purple-shoulder-full-armored white-skinned important Black male
 - Character 109: nasty green-full-armored white-skinned Purple male
 - Character 110: black/green-shoulder-full-armored brown-skinned important Black male
@@ -289,7 +289,7 @@ What follows is the list of all character sprites with short, simple description
 ### Type 30
 
 - Character 181: black-pants eye-patch white-skinned deity White male
-- Character 182: blue-pants eye-patch white-skinned important Brown male
+- Character 182: blue-pants eye-patch white-skinned Brown male - Zeph
 - Character 183: black-pants eye-patch white-skinned important Black/Green male
 - Character 184: black-pants eye-patch brown-skinned important White male
 - Character 185: black-panths eye-patch white-skinned important Red male
