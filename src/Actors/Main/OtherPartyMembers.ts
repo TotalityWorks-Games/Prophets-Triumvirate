@@ -43,7 +43,10 @@ LOGIC:
 
 */
 
+import { ImageSource, Vector } from 'excalibur';
 import { AbilityScores, Direction, RACES } from '../../constants';
+
+// import classes
 import { AccursedCleric } from '../Bases/Classes/Accursed/Cleric';
 import { AccursedThief } from '../Bases/Classes/Accursed/Thief';
 import { AccursedWarrior } from '../Bases/Classes/Accursed/Warrior';
@@ -60,9 +63,10 @@ import { HumanCleric } from '../Bases/Classes/Human/Cleric';
 import { HumanThief } from '../Bases/Classes/Human/Thief';
 import { HumanWarrior } from '../Bases/Classes/Human/Warrior';
 import { HumanWizard } from '../Bases/Classes/Human/Wizard';
-import accursedSpritePath from '../../../Resources/Sheets/Characters/Side/Character005.png?url';
 import { Accursed } from '../Bases/Races/Accursed';
-import { ImageSource, Vector } from 'excalibur';
+
+// import character spritesheets
+import accursedSpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Warrior/Male/Character005.png?url';
 
 function randomRace() {
   return RACES.ACCURSED;

@@ -17,7 +17,7 @@ What follows is the list of all character sprites with short, simple description
 - Character 006: blue-armored white-skinned Black male
 - Character 007: red-(yellow-accent)-armored white-skinned White male
 - Character 008: yellow-(blue-accent)-armored white Red male
-- Character 009: black-(white-accent/blue-dots)-armored Light Blue male
+- Character 009: black-(white-accent/blue-dots)-armored Teal male
 - Character 010: silver-armored white-skinned Pink male
 
 ### Type 3
@@ -65,7 +65,7 @@ What follows is the list of all character sprites with short, simple description
 - Character 036: yellow/red-clothed white-skinned important Black male
 - Character 037: brown/blue-clothed white-skinned Brown male
 - Character 038: green-clothed white-skinned White male
-- Character 039: blue-w/accents-clothed white-skined important Blue male
+- Character 039: blue-w/accents-clothed white-skined important Navy-Blue male
 - Character 040: black/gold-clothed white-skinned Purple male
 
 ### Type 9
@@ -73,7 +73,7 @@ What follows is the list of all character sprites with short, simple description
 - Character 041: black-clothed blue-caped white-skinned important Blonde male
 - Character 042: black-clothed red-caped white-skinned important White male
 - Character 043: red-clothed gold-caped white-skinned deity Blonde male
-- Character 044: purple-clothed blue-caped white-skinned important Blue male
+- Character 044: purple-clothed blue-caped white-skinned important Navy-Blue male
 - Character 045: black-clothed brown-caped white-skinned Green male
 
 ### Type 10

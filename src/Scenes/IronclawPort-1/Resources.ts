@@ -49,7 +49,7 @@ import { randomlyGeneratedNpc } from '../../Actors/Main/OtherPartyMembers';
 export const {
   NPC: PartyMemberExtraOne,
   spritesheeet: partyMemberExtraOneSpritesheet,
-} = randomlyGeneratedNpc();
+} = randomlyGeneratedNpc(); // this data needs to persit after generation, and then read instead of regenerated
 
 export const IronclawPortResources = {
   HeroSpriteSheetPng: new ImageSource(heroPath, false, ImageFiltering.Pixel),
