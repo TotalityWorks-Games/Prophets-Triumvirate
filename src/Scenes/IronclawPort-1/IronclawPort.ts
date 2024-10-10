@@ -44,6 +44,7 @@ class IronClawPort extends Scene {
 
     // add all npcs to game
     npcs.forEach((character) => {
+      console.log(character);
       engine.add(character);
     });
 

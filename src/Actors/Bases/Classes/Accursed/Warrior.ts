@@ -17,6 +17,5 @@ export class AccursedWarrior extends Accursed {
     this.class = CLASSES.WARRIOR;
     this.level = level;
     this.scores = scores;
-    this.inventory = [];
   }
 }

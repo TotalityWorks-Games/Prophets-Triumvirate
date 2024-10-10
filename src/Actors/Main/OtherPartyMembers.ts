@@ -88,8 +88,12 @@ const halfElvenClasses = [
 
 const humanClasses = [HumanCleric, HumanThief, HumanWarrior, HumanWizard];
 
+const randomNumberOutofFour = () => {
+  return Math.floor(Math.random() * 4);
+};
+
 const randomAccursed = () => {
-  return accursedClasses[0];
+  return accursedClasses[randomNumberOutofFour()];
 };
 
 function randomAccursedSpritesheet() {

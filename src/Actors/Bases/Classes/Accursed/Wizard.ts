@@ -17,6 +17,5 @@ export class AccursedWizard extends Accursed {
     this.class = CLASSES.WIZARD;
     this.level = level;
     this.scores = scores;
-    this.inventory = [];
   }
 }

@@ -17,6 +17,5 @@ export class AccursedThief extends Accursed {
     this.class = CLASSES.THIEF;
     this.level = level;
     this.scores = scores;
-    this.inventory = [];
   }
 }
