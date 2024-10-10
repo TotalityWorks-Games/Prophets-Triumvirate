@@ -40,7 +40,6 @@ class IronClawPort extends Scene {
     /* Default Player Location: pos: vec(2300, 2550), */
     const player = new MainGuy(vec(2300, 2550), IronclawPortResources);
     engine.currentScene.add(player);
-    engine.currentScene.camera.strategy.lockToActor(player);
     engine.currentScene.camera.zoom = 0.8;
 
     // add all npcs to game
@@ -49,6 +48,7 @@ class IronClawPort extends Scene {
       engine.add(character);
     });
 
+    engine.currentScene.camera.strategy.lockToActor(npcs[16]);
     // engine.input.touch.on('pointerdown', () => {
     //   engine.goto('mynextScene');
     // });

@@ -138,9 +138,9 @@ What follows is the list of all character sprites with short, simple description
 
 - Character 086: orange/teal-dress white-skinned elf Brown female
 - Character 087: black/blue-dress white-skinned elf Blonde female
-- Character 088: blue/red-dress white-skinned important elf Black female
+- Character 088: blue/red-dress white-skinned elf Black female
 - Character 089: grey/brown-dress white-skinned important elf Teal female
-- Character 090: blue/green-dress white-skinned important elf Muted Green female
+- Character 090: blue/green-dress white-skinned elf Muted Green female
 
 ### Type 14
 

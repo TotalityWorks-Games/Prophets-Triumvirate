@@ -43,15 +43,19 @@ LOGIC:
 
 */
 
-import { ImageSource, Vector } from 'excalibur';
-import { AbilityScores, CLASSES, Direction, RACES } from '../../constants';
+import { CLASSES, RACES } from '../../constants';
 
 // import classes
+// Accursed
 import { AccursedCleric } from '../Bases/Classes/Accursed/Cleric';
 import { AccursedThief } from '../Bases/Classes/Accursed/Thief';
 import { AccursedWarrior } from '../Bases/Classes/Accursed/Warrior';
 import { AccursedWizard } from '../Bases/Classes/Accursed/Wizard';
-import { Accursed } from '../Bases/Races/Accursed';
+// Elven
+import { ElvenCleric } from '../Bases/Classes/Elven/Cleric';
+import { ElvenThief } from '../Bases/Classes/Elven/Thief';
+import { ElvenWarrior } from '../Bases/Classes/Elven/Warrior';
+import { ElvenWizard } from '../Bases/Classes/Elven/Wizard';
 
 // import character spritesheets
 // Accursed Warriors
@@ -67,6 +71,7 @@ import accursedThiefMale02SpritePath from '../../../Resources/Sheets/Characters/
 // Accursed Wizards
 import accursedWizardMale01SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Wizard/Male/Character027.png?url';
 import accursedWizardMale02SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Wizard/Male/Character107.png?url';
+// Elven Warriors
 
 const accursedClericSprites = [
   accursedClericMale01SpritePath,
@@ -88,16 +93,6 @@ const accursedWizardSprites = [
   accursedWizardMale01SpritePath,
   accursedWizardMale02SpritePath,
 ];
-
-const accursedClasses: Array<
-  new (
-    vec: Vector,
-    resource: ImageSource,
-    level: number,
-    scores: AbilityScores,
-    direction?: Direction
-  ) => Accursed
-> = [AccursedCleric, AccursedThief, AccursedWarrior, AccursedWizard];
 
 export const randomlyGeneratedLevel = () => {
   return 1;
