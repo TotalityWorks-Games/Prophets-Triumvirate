@@ -44,33 +44,50 @@ LOGIC:
 */
 
 import { ImageSource, Vector } from 'excalibur';
-import { AbilityScores, Direction, RACES } from '../../constants';
+import { AbilityScores, CLASSES, Direction, RACES } from '../../constants';
 
 // import classes
 import { AccursedCleric } from '../Bases/Classes/Accursed/Cleric';
 import { AccursedThief } from '../Bases/Classes/Accursed/Thief';
 import { AccursedWarrior } from '../Bases/Classes/Accursed/Warrior';
 import { AccursedWizard } from '../Bases/Classes/Accursed/Wizard';
-import { ElvenCleric } from '../Bases/Classes/Elven/Cleric';
-import { ElvenThief } from '../Bases/Classes/Elven/Thief';
-import { ElvenWarrior } from '../Bases/Classes/Elven/Warrior';
-import { ElvenWizard } from '../Bases/Classes/Elven/Wizard';
-import { HalfElfCleric } from '../Bases/Classes/HalfElves/Cleric';
-import { HalfElfThief } from '../Bases/Classes/HalfElves/Thief';
-import { HalfElfWarrior } from '../Bases/Classes/HalfElves/Warrior';
-import { HalfElfWizard } from '../Bases/Classes/HalfElves/Wizard';
-import { HumanCleric } from '../Bases/Classes/Human/Cleric';
-import { HumanThief } from '../Bases/Classes/Human/Thief';
-import { HumanWarrior } from '../Bases/Classes/Human/Warrior';
-import { HumanWizard } from '../Bases/Classes/Human/Wizard';
 import { Accursed } from '../Bases/Races/Accursed';
 
 // import character spritesheets
-import accursedSpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Warrior/Male/Character005.png?url';
+// Accursed Warriors
+import accursedWarriorMale01SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Warrior/Male/Character005.png?url';
+import accursedWarriorMale02SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Warrior/Male/Character027.png?url';
+import accursedWarriorMale03SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Warrior/Male/Character095.png?url';
+// Accursed Clerics
+import accursedClericMale01SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Cleric/Male/Character027.png?url';
+import accursedClericMale02SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Cleric/Male/Character107.png?url';
+// Accursed Thieves
+import accursedThiefMale01SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Thief/Male/Character027.png?url';
+import accursedThiefMale02SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Thief/Male/Character095.png?url';
+// Accursed Wizards
+import accursedWizardMale01SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Wizard/Male/Character027.png?url';
+import accursedWizardMale02SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Wizard/Male/Character107.png?url';
 
-function randomRace() {
-  return RACES.ACCURSED;
-}
+const accursedClericSprites = [
+  accursedClericMale01SpritePath,
+  accursedClericMale02SpritePath,
+];
+
+const accursedThiefSprites = [
+  accursedThiefMale01SpritePath,
+  accursedThiefMale02SpritePath,
+];
+
+const accursedWarriorSprites = [
+  accursedWarriorMale01SpritePath,
+  accursedWarriorMale02SpritePath,
+  accursedWarriorMale03SpritePath,
+];
+
+const accursedWizardSprites = [
+  accursedWizardMale01SpritePath,
+  accursedWizardMale02SpritePath,
+];
 
 const accursedClasses: Array<
   new (
@@ -81,83 +98,6 @@ const accursedClasses: Array<
     direction?: Direction
   ) => Accursed
 > = [AccursedCleric, AccursedThief, AccursedWarrior, AccursedWizard];
-
-const elvenClasses = [ElvenCleric, ElvenThief, ElvenWarrior, ElvenWizard];
-const halfElvenClasses = [
-  HalfElfCleric,
-  HalfElfThief,
-  HalfElfWarrior,
-  HalfElfWizard,
-];
-
-const humanClasses = [HumanCleric, HumanThief, HumanWarrior, HumanWizard];
-
-const randomNumberOutofFour = () => {
-  return Math.floor(Math.random() * 4);
-};
-
-const randomAccursed = () => {
-  return accursedClasses[randomNumberOutofFour()];
-};
-
-function randomAccursedSpritesheet() {
-  // random male or female
-  // return sprite accordingly
-  return accursedSpritePath;
-}
-
-function randomElfSpritesheet() {
-  // random male or female
-  // return sprite accordingly
-  return accursedSpritePath;
-}
-
-function randomHumanSpritesheet() {
-  // random male or female
-  // return sprite accordingly
-  return accursedSpritePath;
-}
-
-const randomlyGeneratedSpritesheet = (randomlyGeneratedRace: RACES) => {
-  switch (randomlyGeneratedRace) {
-    case RACES.ACCURSED:
-      return randomAccursedSpritesheet();
-    case RACES.ELF:
-    case RACES.HALF_ELF:
-      return randomElfSpritesheet();
-    case RACES.HUMAN:
-      return randomHumanSpritesheet();
-    default:
-      return randomHumanSpritesheet();
-  }
-};
-
-export const randomlyGeneratedNpc = () => {
-  const race = randomRace();
-  switch (race) {
-    case RACES.ACCURSED:
-      return {
-        NPC: randomAccursed(),
-        spritesheeet: randomlyGeneratedSpritesheet(race),
-      };
-    case RACES.ELF:
-    case RACES.HALF_ELF:
-      return {
-        NPC: randomAccursed(),
-        spritesheeet: randomlyGeneratedSpritesheet(race),
-      };
-    case RACES.HUMAN:
-      return {
-        NPC: randomAccursed(),
-        spritesheeet: randomlyGeneratedSpritesheet(race),
-      };
-    default:
-      return {
-        NPC: randomAccursed(),
-        spritesheeet: randomlyGeneratedSpritesheet(race),
-      };
-  }
-};
 
 export const randomlyGeneratedLevel = () => {
   return 1;
@@ -174,4 +114,71 @@ export const randomlyGeneratedAbilityScores = () => {
 };
 export const randomlyGeneratedInventory = () => {
   return ['thing'];
+};
+
+export const randomRaceClassCombo = () => {
+  const race = RACES.ACCURSED;
+  const allClasses = [
+    CLASSES.CLERIC,
+    CLASSES.THIEF,
+    CLASSES.WARRIOR,
+    CLASSES.WIZARD,
+  ];
+  const playerClass = allClasses[Math.floor(Math.random() * 4)];
+  return { race, playerClass };
+};
+
+function retrieveAccursedSpritesheet(playerClass: CLASSES) {
+  let sprite;
+  switch (playerClass) {
+    case CLASSES.CLERIC:
+      sprite = Math.floor(Math.random() * accursedClericSprites.length);
+      return accursedClericSprites[sprite];
+    case CLASSES.THIEF:
+      sprite = Math.floor(Math.random() * accursedThiefSprites.length);
+      return accursedThiefSprites[sprite];
+    case CLASSES.WARRIOR:
+      sprite = Math.floor(Math.random() * accursedWarriorSprites.length);
+      return accursedWarriorSprites[sprite];
+    case CLASSES.WIZARD:
+      sprite = Math.floor(Math.random() * accursedWizardSprites.length);
+      return accursedWizardSprites[sprite];
+    default:
+      sprite = Math.floor(Math.random() * accursedClericSprites.length);
+      return accursedClericSprites[sprite];
+  }
+}
+
+export const randomNPC = (race: RACES, playerClass: CLASSES) => {
+  let NPC;
+  let spritesheet;
+  switch (race) {
+    case RACES.ACCURSED:
+      switch (playerClass) {
+        case CLASSES.CLERIC:
+          NPC = AccursedCleric;
+          spritesheet = retrieveAccursedSpritesheet(playerClass);
+          return { NPC, spritesheet };
+        case CLASSES.THIEF:
+          NPC = AccursedThief;
+          spritesheet = retrieveAccursedSpritesheet(playerClass);
+          return { NPC, spritesheet };
+        case CLASSES.WARRIOR:
+          NPC = AccursedWarrior;
+          spritesheet = retrieveAccursedSpritesheet(playerClass);
+          return { NPC, spritesheet };
+        case CLASSES.WIZARD:
+          NPC = AccursedWizard;
+          spritesheet = retrieveAccursedSpritesheet(playerClass);
+          return { NPC, spritesheet };
+        default:
+          NPC = AccursedCleric;
+          spritesheet = retrieveAccursedSpritesheet(playerClass);
+          return { NPC, spritesheet };
+      }
+    default:
+      NPC = AccursedCleric;
+      spritesheet = retrieveAccursedSpritesheet(playerClass);
+      return { NPC, spritesheet };
+  }
 };
