@@ -44,6 +44,17 @@ import propsBTsxPath from '../../../Resources/TSX/propsB.tsx?url';
 import shipsTsxPath from '../../../Resources/TSX/Ships.tsx?url';
 import smallObjectsTsxPath from '../../../Resources/TSX/smallobj.tsx?url';
 import waterTsxPath from '../../../Resources/TSX/water.tsx?url';
+import {
+  randomlyGeneratedNpc,
+  randomlyGeneratedAbilityScores,
+  randomlyGeneratedInventory,
+  randomlyGeneratedLevel,
+} from '../../Actors/Main/OtherPartyMembers';
+
+export const {
+  NPC: PartyMemberExtraOne,
+  spritesheeet: partyMemberExtraOneSpritesheet,
+} = randomlyGeneratedNpc();
 
 export const IronclawPortResources = {
   HeroSpriteSheetPng: new ImageSource(heroPath, false, ImageFiltering.Pixel),
@@ -54,6 +65,11 @@ export const IronclawPortResources = {
   ),
   DelsaranSpriteSheetPng: new ImageSource(
     delsaranPath,
+    false,
+    ImageFiltering.Pixel
+  ),
+  PartyMemberExtraOneSpritesheetPng: new ImageSource(
+    partyMemberExtraOneSpritesheet,
     false,
     ImageFiltering.Pixel
   ),

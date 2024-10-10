@@ -1,10 +1,20 @@
-import { CLASSES } from '../../../../constants';
+import { AbilityScores, CLASSES } from '../../../../constants';
 import { Elf } from '../../Races/Elf';
 
 export class ElvenThief extends Elf {
   class: CLASSES;
-  constructor() {
+  scores: AbilityScores;
+  level: number;
+  inventory: [];
+  constructor(level: number, scores: AbilityScores) {
     super();
     this.class = CLASSES.THIEF;
+    this.level = level;
+    this.scores = scores;
+    this.inventory = [];
+  }
+
+  public addToInventory(inventory: []) {
+    this.inventory = inventory;
   }
 }

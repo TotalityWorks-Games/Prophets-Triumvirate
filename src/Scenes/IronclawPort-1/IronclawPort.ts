@@ -9,7 +9,7 @@ import {
 } from 'excalibur';
 import { MainGuy } from '../../Actors/Main/Player';
 import { Pig } from '../../Actors/Animals/Pig';
-import { IronclawPortResources } from './Resources';
+import { IronclawPortResources, PartyMemberExtraOne } from './Resources';
 import { Guard } from '../../Actors/NPCs/Guard';
 import { Wolfkin1 } from '../../Actors/NPCs/Citizens/Wolfkin1';
 import { WolfkinCleric } from '../../Actors/NPCs/Citizens/WolfkinCleric';
@@ -17,6 +17,10 @@ import { Delsaran } from '../../Actors/Main/Delsaran';
 import { SCENE_STATE } from '../../constants';
 import { uiManager } from '../../Managers/UIManager';
 import { IronclawPortDialogues } from './Dialogues';
+import {
+  randomlyGeneratedAbilityScores,
+  randomlyGeneratedLevel,
+} from '../../Actors/Main/OtherPartyMembers';
 
 class IronClawPort extends Scene {
   game_container!: HTMLElement;
@@ -206,6 +210,15 @@ class IronClawPort extends Scene {
     const pigOne = new Pig(vec(2450, 500), IronclawPortResources);
     // const pigTwo = new Pig(vec(2450, 400), IronclawPortResources);
 
+    // add secondary party member options
+    const partyMemberExtraOne = new PartyMemberExtraOne(
+      vec(2020, 2320),
+      IronclawPortResources.PartyMemberExtraOneSpritesheetPng,
+      randomlyGeneratedLevel(),
+      randomlyGeneratedAbilityScores(),
+      'right'
+    );
+
     return [
       delsaran,
       guardOne,
@@ -223,6 +236,7 @@ class IronClawPort extends Scene {
       citizenThree,
       citizenFour,
       pigOne,
+      partyMemberExtraOne,
     ];
   }
 }
