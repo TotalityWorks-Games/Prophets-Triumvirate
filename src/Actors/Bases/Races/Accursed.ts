@@ -14,6 +14,7 @@ export class Accursed extends Actor {
   race: RACES;
   direction: Direction;
   resources: ImageSource;
+  inventory: [];
   constructor(pos: Vector, resource: ImageSource, direction?: Direction) {
     super({
       pos,
@@ -26,6 +27,7 @@ export class Accursed extends Actor {
     this.race = RACES.ACCURSED;
     this.direction = direction ?? 'down';
     this.resources = resource;
+    this.inventory = [];
   }
 
   onInitialize(_engine: Engine): void {
@@ -36,7 +38,7 @@ export class Accursed extends Actor {
     this.graphics.use(`${this.direction}-idle`);
   }
 
-  addAnimations() {
+  private addAnimations() {
     const accursedSpriteSheet = SpriteSheet.fromImageSource({
       image: this.resources as ImageSource,
       grid: {
@@ -86,5 +88,9 @@ export class Accursed extends Actor {
       ],
     });
     this.graphics.add('up-idle', upIdle);
+  }
+
+  public addToInventory(inventory: []) {
+    this.inventory = inventory;
   }
 }

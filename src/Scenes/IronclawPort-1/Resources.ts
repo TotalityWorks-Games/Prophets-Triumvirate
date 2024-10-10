@@ -44,12 +44,7 @@ import propsBTsxPath from '../../../Resources/TSX/propsB.tsx?url';
 import shipsTsxPath from '../../../Resources/TSX/Ships.tsx?url';
 import smallObjectsTsxPath from '../../../Resources/TSX/smallobj.tsx?url';
 import waterTsxPath from '../../../Resources/TSX/water.tsx?url';
-import {
-  randomlyGeneratedNpc,
-  randomlyGeneratedAbilityScores,
-  randomlyGeneratedInventory,
-  randomlyGeneratedLevel,
-} from '../../Actors/Main/OtherPartyMembers';
+import { randomlyGeneratedNpc } from '../../Actors/Main/OtherPartyMembers';
 
 export const {
   NPC: PartyMemberExtraOne,

@@ -6,7 +6,6 @@ export class AccursedCleric extends Accursed {
   class: CLASSES;
   scores: AbilityScores;
   level: number;
-  inventory: string[];
   constructor(
     pos: Vector,
     resource: ImageSource,
@@ -19,9 +18,5 @@ export class AccursedCleric extends Accursed {
     this.level = level;
     this.scores = scores;
     this.inventory = [];
-  }
-
-  public addToInventory(inventory: string[]) {
-    this.inventory = inventory;
   }
 }
