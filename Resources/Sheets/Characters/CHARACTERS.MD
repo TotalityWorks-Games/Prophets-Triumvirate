@@ -103,7 +103,7 @@ What follows is the list of all character sprites with short, simple description
 - Character 062: black-dress white-skinned White female
 - Character 063: gold-dress white-skinned deity Orange female
 - Character 064: brown-dress white-skinned important Green female
-- Character 065: blue-dress blue-skinned Purple female
+- Character 065: do not use
 
 ### Do not use
 
@@ -212,7 +212,7 @@ What follows is the list of all character sprites with short, simple description
 - Character 132: green-dress white-skinned important Blonde female
 - Character 133: white-dress white-skinned important Red female
 - Character 134: blue-dress white-skinned important White female
-- Character 135: yellow-dress brown-skinned Green female
+- Character 135: do not use
 
 ### Type 22
 
@@ -258,8 +258,8 @@ What follows is the list of all character sprites with short, simple description
 
 - Character 161: gold-armored white-skinned important old Red male
 - Character 162: brown-armored white-skinned important old Blue male
-- Character 163: yellow-armored black-skinned old Teal male
-- Character 164: red-armored green-skinned old orc Brown male
+- Character 163: do not use
+- Character 164: do not use
 - Character 165: blue-armored white-skinned important old White male
 
 ### Type 28
