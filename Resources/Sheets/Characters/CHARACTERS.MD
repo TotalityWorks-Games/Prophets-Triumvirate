@@ -18,7 +18,7 @@ What follows is the list of all character sprites with short, simple description
 - Character 007: red-(yellow-accent)-armored white-skinned White male
 - Character 008: yellow-(blue-accent)-armored white Red male
 - Character 009: black-(white-accent/blue-dots)-armored Teal male
-- Character 010: silver-armored white-skinned Pink male
+- Character 010: do not use
 
 ### Type 3
 
