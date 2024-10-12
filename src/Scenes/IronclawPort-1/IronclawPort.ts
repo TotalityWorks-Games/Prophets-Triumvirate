@@ -44,10 +44,10 @@ class IronClawPort extends Scene {
 
     // add all npcs to game
     npcs.forEach((character) => {
-      console.log(character);
       engine.add(character);
     });
 
+    console.log(`${npcs[16].race} ${npcs[16].class}`);
     engine.currentScene.camera.strategy.lockToActor(npcs[16]);
     // engine.input.touch.on('pointerdown', () => {
     //   engine.goto('mynextScene');
