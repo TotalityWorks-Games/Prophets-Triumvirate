@@ -6,7 +6,7 @@
 import {
   randomNPC,
   randomRaceClassCombo,
-} from '../../Actors/Main/OtherPartyMembers';
+} from '../../Actors/Side/SidePartyMembers';
 
 // instantiate players for this scene:
 const { race, playerClass } = randomRaceClassCombo();

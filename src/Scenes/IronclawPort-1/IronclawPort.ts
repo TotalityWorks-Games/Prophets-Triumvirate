@@ -20,7 +20,7 @@ import { IronclawPortDialogues } from './Dialogues';
 import {
   randomlyGeneratedAbilityScores,
   randomlyGeneratedLevel,
-} from '../../Actors/Main/OtherPartyMembers';
+} from '../../Actors/Side/SidePartyMembers';
 import { NPC } from './Party';
 
 class IronClawPort extends Scene {
