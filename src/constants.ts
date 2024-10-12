@@ -22,6 +22,10 @@ export type Dialogues = {
   actor: string;
   text: string;
 }[];
+export enum SEXES {
+  MALE = 'MALE',
+  FEMALE = 'FEMALE',
+}
 export enum RACES {
   ACCURSED = 'ACCURSED',
   ELF = 'ELF',

@@ -1,5 +1,10 @@
 import { ImageSource, Vector } from 'excalibur';
-import { AbilityScores, CLASSES, Direction } from '../../../../constants';
+import {
+  AbilityScores,
+  CLASSES,
+  Direction,
+  SEXES,
+} from '../../../../constants';
 import { Elf } from '../../Races/Elf';
 
 export class ElvenWarrior extends Elf {
@@ -11,9 +16,10 @@ export class ElvenWarrior extends Elf {
     resource: ImageSource,
     level: number,
     scores: AbilityScores,
+    sex: SEXES,
     direction?: Direction
   ) {
-    super(pos, resource, direction);
+    super(pos, resource, sex, direction);
     this.class = CLASSES.WARRIOR;
     this.level = level;
     this.scores = scores;

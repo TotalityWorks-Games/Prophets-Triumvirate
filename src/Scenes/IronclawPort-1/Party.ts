@@ -8,6 +8,27 @@ import {
   randomRaceClassCombo,
 } from '../../Actors/Side/SidePartyMembers';
 
-// instantiate players for this scene:
-const { race, playerClass } = randomRaceClassCombo();
-export const { NPC, spritesheet } = randomNPC(race, playerClass);
+// instantiate 3 players for this scene:
+const { race: sideMemberOneRace, playerClass: sideMemberOneClass } =
+  randomRaceClassCombo();
+export const {
+  NPC: SideMemberOne,
+  spritesheet: sideMemberOneSpritesheet,
+  sex: sideMemberOneSex,
+} = randomNPC(sideMemberOneRace, sideMemberOneClass);
+
+const { race: sideMemberTwoRace, playerClass: sideMemberTwoClass } =
+  randomRaceClassCombo();
+export const {
+  NPC: SideMemberTwo,
+  spritesheet: sideMemberTwoSpritesheet,
+  sex: sideMemberTwoSex,
+} = randomNPC(sideMemberTwoRace, sideMemberTwoClass);
+
+const { race: sideMemberThreeRace, playerClass: sideMemberThreeClass } =
+  randomRaceClassCombo();
+export const {
+  NPC: SideMemberThree,
+  spritesheet: sideMemberThreeSpritesheet,
+  sex: sideMemberThreeSex,
+} = randomNPC(sideMemberThreeRace, sideMemberThreeClass);

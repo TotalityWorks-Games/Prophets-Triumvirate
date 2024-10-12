@@ -43,7 +43,7 @@ LOGIC:
 
 */
 
-import { CLASSES, RACES } from '../../constants';
+import { CLASSES, RACES, SEXES } from '../../constants';
 
 // import classes
 // Accursed
@@ -66,24 +66,42 @@ import { HumanThief } from '../Bases/Classes/Human/Thief';
 import { HumanWarrior } from '../Bases/Classes/Human/Warrior';
 import { HumanWizard } from '../Bases/Classes/Human/Wizard';
 import {
-  accursedClericSprites,
-  accursedThiefSprites,
-  accursedWarriorSprites,
-  accursedWizardSprites,
-  elvenClericSprites,
-  elvenThiefSprites,
+  accursedClericFemaleSprites,
+  accursedClericMaleSprites,
+  accursedThiefFemaleSprites,
+  accursedThiefMaleSprites,
+  accursedWarriorMaleSprites,
+  // there are no accursedWarriorFemaleSprites
+  accursedWizardFemaleSprites,
+  accursedWizardMaleSprites,
+  // all elven sprites are Female
+  elvenClericFemaleSprites,
+  elvenThiefFemaleSprites,
+  elvenWizardFemaleSprites,
   // there are no elvenWarriorSprites
-  elvenWizardSprites,
-  halfElfClericSprites,
-  halfElfThiefSprites,
-  halfElfWarriorSprites,
-  halfElfWizardSprites,
-  humanClericSprites,
-  humanThiefSprites,
-  humanWarriorSprites,
-  humanWizardSprites,
+  halfElfClericFemaleSprites,
+  halfElfClericMaleSprites,
+  halfElfThiefFemaleSprites,
+  halfElfThiefMaleSprites,
+  halfElfWarriorFemaleSprites,
+  halfElfWarriorMaleSprites,
+  halfElfWizardFemaleSprites,
+  halfElfWizardMaleSprites,
+  humanClericFemaleSprites,
+  humanClericMaleSprites,
+  humanThiefFemaleSprites,
+  humanThiefMaleSprites,
+  humanWarriorFemaleSprites,
+  humanWarriorMaleSprites,
+  humanWizardFemaleSprites,
+  humanWizardMaleSprites,
 } from './SideSprites';
 
+const randomlyGeneratedSex = () => {
+  const sexes = [SEXES.MALE, SEXES.FEMALE];
+  const sex = sexes[Math.floor(Math.random() * sexes.length)];
+  return sex;
+};
 export const randomlyGeneratedLevel = () => {
   return 1;
 };
@@ -123,24 +141,41 @@ export const randomRaceClassCombo = () => {
   return { race, playerClass };
 };
 
-function retrieveAccursedSpritesheet(playerClass: CLASSES) {
+function retrieveAccursedSpritesheet(playerClass: CLASSES, sex: SEXES) {
   let sprite;
   switch (playerClass) {
     case CLASSES.CLERIC:
-      sprite = Math.floor(Math.random() * accursedClericSprites.length);
-      return accursedClericSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * accursedClericMaleSprites.length);
+        return accursedClericMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * accursedClericFemaleSprites.length);
+      return accursedClericFemaleSprites[sprite];
     case CLASSES.THIEF:
-      sprite = Math.floor(Math.random() * accursedThiefSprites.length);
-      return accursedThiefSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * accursedThiefMaleSprites.length);
+        return accursedThiefMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * accursedThiefFemaleSprites.length);
+      return accursedThiefFemaleSprites[sprite];
     case CLASSES.WARRIOR:
-      sprite = Math.floor(Math.random() * accursedWarriorSprites.length);
-      return accursedWarriorSprites[sprite];
+      // there are no accursedWarriorFemaleSprites
+      sprite = Math.floor(Math.random() * accursedWarriorMaleSprites.length);
+      return accursedWarriorMaleSprites[sprite];
     case CLASSES.WIZARD:
-      sprite = Math.floor(Math.random() * accursedWizardSprites.length);
-      return accursedWizardSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * accursedWizardMaleSprites.length);
+        return accursedWizardMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * accursedWizardFemaleSprites.length);
+      return accursedWizardFemaleSprites[sprite];
     default:
-      sprite = Math.floor(Math.random() * accursedClericSprites.length);
-      return accursedClericSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * accursedClericMaleSprites.length);
+        return accursedClericMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * accursedClericFemaleSprites.length);
+      return accursedClericFemaleSprites[sprite];
   }
 }
 
@@ -148,162 +183,205 @@ function retrieveElvenSpritesheet(playerClass: CLASSES) {
   let sprite;
   switch (playerClass) {
     case CLASSES.CLERIC:
-      sprite = Math.floor(Math.random() * elvenClericSprites.length);
-      return elvenClericSprites[sprite];
+      sprite = Math.floor(Math.random() * elvenClericFemaleSprites.length);
+      return elvenClericFemaleSprites[sprite];
     case CLASSES.THIEF:
-      sprite = Math.floor(Math.random() * elvenThiefSprites.length);
-      return elvenThiefSprites[sprite];
+      sprite = Math.floor(Math.random() * elvenThiefFemaleSprites.length);
+      return elvenThiefFemaleSprites[sprite];
     case CLASSES.WIZARD:
-      sprite = Math.floor(Math.random() * elvenWizardSprites.length);
-      return elvenWizardSprites[sprite];
+      sprite = Math.floor(Math.random() * elvenWizardFemaleSprites.length);
+      return elvenWizardFemaleSprites[sprite];
     // there are no warriors among elves
     default:
-      sprite = Math.floor(Math.random() * elvenClericSprites.length);
-      return elvenClericSprites[sprite];
+      sprite = Math.floor(Math.random() * elvenClericFemaleSprites.length);
+      return elvenClericFemaleSprites[sprite];
   }
 }
 
-function retrieveHalfElfSpritesheet(playerClass: CLASSES) {
+function retrieveHalfElfSpritesheet(playerClass: CLASSES, sex: SEXES) {
   let sprite;
   switch (playerClass) {
     case CLASSES.CLERIC:
-      sprite = Math.floor(Math.random() * halfElfClericSprites.length);
-      return halfElfClericSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * halfElfClericMaleSprites.length);
+        return halfElfClericMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * halfElfClericFemaleSprites.length);
+      return halfElfClericFemaleSprites[sprite];
     case CLASSES.THIEF:
-      sprite = Math.floor(Math.random() * halfElfThiefSprites.length);
-      return halfElfThiefSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * halfElfThiefMaleSprites.length);
+        return halfElfThiefMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * halfElfThiefFemaleSprites.length);
+      return halfElfThiefFemaleSprites[sprite];
     case CLASSES.WARRIOR:
-      sprite = Math.floor(Math.random() * halfElfWarriorSprites.length);
-      return halfElfWarriorSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * halfElfWarriorMaleSprites.length);
+        return halfElfWarriorMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * halfElfWarriorFemaleSprites.length);
+      return halfElfWarriorFemaleSprites[sprite];
     case CLASSES.WIZARD:
-      sprite = Math.floor(Math.random() * halfElfWizardSprites.length);
-      return halfElfWizardSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * halfElfWizardMaleSprites.length);
+        return halfElfWizardMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * halfElfWizardFemaleSprites.length);
+      return halfElfWizardFemaleSprites[sprite];
     default:
-      sprite = Math.floor(Math.random() * halfElfClericSprites.length);
-      return halfElfClericSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * halfElfClericMaleSprites.length);
+        return halfElfClericMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * halfElfClericFemaleSprites.length);
+      return halfElfClericFemaleSprites[sprite];
   }
 }
 
-function retrieveHumanSpritesheet(playerClass: CLASSES) {
+function retrieveHumanSpritesheet(playerClass: CLASSES, sex: SEXES) {
   let sprite;
   switch (playerClass) {
     case CLASSES.CLERIC:
-      sprite = Math.floor(Math.random() * humanClericSprites.length);
-      return humanClericSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * humanClericMaleSprites.length);
+        return humanClericMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * humanClericFemaleSprites.length);
+      return humanClericFemaleSprites[sprite];
     case CLASSES.THIEF:
-      sprite = Math.floor(Math.random() * humanThiefSprites.length);
-      return humanThiefSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * humanThiefMaleSprites.length);
+        return humanThiefMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * humanThiefFemaleSprites.length);
+      return humanThiefFemaleSprites[sprite];
     case CLASSES.WARRIOR:
-      sprite = Math.floor(Math.random() * humanWarriorSprites.length);
-      return humanWarriorSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * humanWarriorMaleSprites.length);
+        return humanWarriorMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * humanWarriorFemaleSprites.length);
+      return humanWarriorFemaleSprites[sprite];
     case CLASSES.WIZARD:
-      sprite = Math.floor(Math.random() * humanWizardSprites.length);
-      return humanWizardSprites[sprite];
+      if (sex === SEXES.MALE) {
+        sprite = Math.floor(Math.random() * humanWizardMaleSprites.length);
+        return humanWizardMaleSprites[sprite];
+      }
+      sprite = Math.floor(Math.random() * humanWizardFemaleSprites.length);
+      return humanWizardFemaleSprites[sprite];
     default:
-      sprite = Math.floor(Math.random() * humanClericSprites.length);
-      return humanClericSprites[sprite];
+      sprite = Math.floor(Math.random() * humanClericMaleSprites.length);
+      return humanClericMaleSprites[sprite];
   }
 }
 
 export const randomNPC = (race: RACES, playerClass: CLASSES) => {
   let NPC;
+  let sex = randomlyGeneratedSex();
   let spritesheet;
   switch (race) {
     case RACES.ACCURSED:
       switch (playerClass) {
         case CLASSES.CLERIC:
           NPC = AccursedCleric;
-          spritesheet = retrieveAccursedSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveAccursedSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         case CLASSES.THIEF:
           NPC = AccursedThief;
-          spritesheet = retrieveAccursedSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveAccursedSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         case CLASSES.WARRIOR:
           NPC = AccursedWarrior;
-          spritesheet = retrieveAccursedSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          sex = SEXES.MALE; // there are no female accursed warriors
+          spritesheet = retrieveAccursedSpritesheet(playerClass, SEXES.MALE);
+          return { NPC, spritesheet, sex };
         case CLASSES.WIZARD:
           NPC = AccursedWizard;
-          spritesheet = retrieveAccursedSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveAccursedSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         default:
           NPC = AccursedCleric;
-          spritesheet = retrieveAccursedSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveAccursedSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
       }
     case RACES.ELF:
       switch (playerClass) {
         case CLASSES.CLERIC:
           NPC = ElvenCleric;
+          sex = SEXES.FEMALE; // all elven sprites are female
           spritesheet = retrieveElvenSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          return { NPC, spritesheet, sex };
         case CLASSES.THIEF:
           NPC = ElvenThief;
+          sex = SEXES.FEMALE; // all elven sprites are female
           spritesheet = retrieveElvenSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          return { NPC, spritesheet, sex };
         case CLASSES.WARRIOR:
           NPC = ElvenWarrior;
+          sex = SEXES.FEMALE; // all elven sprites are female
           spritesheet = retrieveElvenSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          return { NPC, spritesheet, sex };
         case CLASSES.WIZARD:
           NPC = ElvenWizard;
+          sex = SEXES.FEMALE; // all elven sprites are female
           spritesheet = retrieveElvenSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          return { NPC, spritesheet, sex };
         default:
           NPC = ElvenCleric;
+          sex = SEXES.FEMALE; // all elven sprites are female
           spritesheet = retrieveElvenSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          return { NPC, spritesheet, sex };
       }
     case RACES.HALF_ELF:
       switch (playerClass) {
         case CLASSES.CLERIC:
           NPC = HalfElfCleric;
-          spritesheet = retrieveHalfElfSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveHalfElfSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         case CLASSES.THIEF:
           NPC = HalfElfThief;
-          spritesheet = retrieveHalfElfSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveHalfElfSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         case CLASSES.WARRIOR:
           NPC = HalfElfWarrior;
-          spritesheet = retrieveHalfElfSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveHalfElfSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         case CLASSES.WIZARD:
           NPC = HalfElfWizard;
-          spritesheet = retrieveHalfElfSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveHalfElfSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         default:
           NPC = HalfElfCleric;
-          spritesheet = retrieveHalfElfSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveHalfElfSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
       }
     case RACES.HUMAN:
       switch (playerClass) {
         case CLASSES.CLERIC:
           NPC = HumanCleric;
-          spritesheet = retrieveHumanSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveHumanSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         case CLASSES.THIEF:
           NPC = HumanThief;
-          spritesheet = retrieveHumanSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveHumanSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         case CLASSES.WARRIOR:
           NPC = HumanWarrior;
-          spritesheet = retrieveHumanSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveHumanSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         case CLASSES.WIZARD:
           NPC = HumanWizard;
-          spritesheet = retrieveHumanSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveHumanSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
         default:
           NPC = HumanCleric;
-          spritesheet = retrieveHumanSpritesheet(playerClass);
-          return { NPC, spritesheet };
+          spritesheet = retrieveHumanSpritesheet(playerClass, sex);
+          return { NPC, spritesheet, sex };
       }
     default:
       NPC = AccursedCleric;
-      spritesheet = retrieveAccursedSpritesheet(playerClass);
-      return { NPC, spritesheet };
+      spritesheet = retrieveAccursedSpritesheet(playerClass, sex);
+      return { NPC, spritesheet, sex };
   }
 };

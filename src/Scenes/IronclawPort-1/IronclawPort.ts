@@ -21,7 +21,14 @@ import {
   randomlyGeneratedAbilityScores,
   randomlyGeneratedLevel,
 } from '../../Actors/Side/SidePartyMembers';
-import { NPC } from './Party';
+import {
+  SideMemberOne,
+  SideMemberTwo,
+  SideMemberThree,
+  sideMemberOneSex,
+  sideMemberThreeSex,
+  sideMemberTwoSex,
+} from './Party';
 
 class IronClawPort extends Scene {
   game_container!: HTMLElement;
@@ -47,7 +54,15 @@ class IronClawPort extends Scene {
       engine.add(character);
     });
 
-    console.log(`${npcs[16].race} ${npcs[16].class}`);
+    console.log(
+      `SideMemberOne: ${npcs[16].sex} - ${npcs[16].race} ${npcs[16].class}`
+    );
+    console.log(
+      `SideMemberTwo: ${npcs[17].sex} - ${npcs[17].race} ${npcs[17].class}`
+    );
+    console.log(
+      `SideMemberThree: ${npcs[18].sex} - ${npcs[18].race} ${npcs[18].class}`
+    );
     engine.currentScene.camera.strategy.lockToActor(npcs[16]);
     // engine.input.touch.on('pointerdown', () => {
     //   engine.goto('mynextScene');
@@ -212,11 +227,28 @@ class IronClawPort extends Scene {
     const pigOne = new Pig(vec(2450, 500), IronclawPortResources);
     // const pigTwo = new Pig(vec(2450, 400), IronclawPortResources);
 
-    const partyMemberExtraOne = new NPC(
+    const sideMemberOne = new SideMemberOne(
       vec(1990, 2170),
-      IronclawPortResources.PartyMemberExtraOneSpritesheetPng,
+      IronclawPortResources.SideMemberOneSpritesheetPng,
       randomlyGeneratedLevel(),
-      randomlyGeneratedAbilityScores()
+      randomlyGeneratedAbilityScores(),
+      sideMemberOneSex
+    );
+
+    const sideMemberTwo = new SideMemberTwo(
+      vec(1940, 2170),
+      IronclawPortResources.SideMemberTwoSpritesheetPng,
+      randomlyGeneratedLevel(),
+      randomlyGeneratedAbilityScores(),
+      sideMemberTwoSex
+    );
+
+    const sideMemberThree = new SideMemberThree(
+      vec(2040, 2170),
+      IronclawPortResources.SideMemberThreeSpritesheetPng,
+      randomlyGeneratedLevel(),
+      randomlyGeneratedAbilityScores(),
+      sideMemberThreeSex
     );
 
     return [
@@ -236,7 +268,9 @@ class IronClawPort extends Scene {
       citizenThree,
       citizenFour,
       pigOne,
-      partyMemberExtraOne,
+      sideMemberOne,
+      sideMemberTwo,
+      sideMemberThree,
     ];
   }
 }

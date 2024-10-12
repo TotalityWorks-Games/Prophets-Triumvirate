@@ -8,13 +8,19 @@ import {
   SpriteSheet,
   Vector,
 } from 'excalibur';
-import { Direction } from '../../constants';
+import { Direction, SEXES } from '../../constants';
 
 export class Character extends Actor {
+  sex: SEXES;
   direction: Direction;
   resources: ImageSource;
   inventory: [];
-  constructor(pos: Vector, resource: ImageSource, direction?: Direction) {
+  constructor(
+    pos: Vector,
+    resource: ImageSource,
+    sex: SEXES,
+    direction?: Direction
+  ) {
     super({
       pos,
       width: 32,
@@ -23,6 +29,7 @@ export class Character extends Actor {
     });
     this.z = 100;
     this.scale = new Vector(2, 2);
+    this.sex = sex;
     this.direction = direction ?? 'down';
     this.resources = resource;
     this.inventory = [];

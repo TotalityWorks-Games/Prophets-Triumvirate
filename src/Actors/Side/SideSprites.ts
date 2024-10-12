@@ -14,7 +14,7 @@ import accursedWarriorMale03SpritePath from '../../../Resources/Sheets/Character
 // Accursed Wizards
 import accursedWizardMale01SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Wizard/Male/Character027.png?url';
 import accursedWizardMale02SpritePath from '../../../Resources/Sheets/Characters/Side/Accursed/Wizard/Male/Character107.png?url';
-import accursedWizardFemale from '../../../Resources/Sheets/Characters/Side/Accursed/Wizard/Female/Character048.png?url';
+import accursedWizardFemale01 from '../../../Resources/Sheets/Characters/Side/Accursed/Wizard/Female/Character048.png?url';
 
 // Elven Clerics
 import elvenClericFemale01SpritePath from '../../../Resources/Sheets/Characters/Side/Elven/Cleric/Female/Character086.png?url';
@@ -317,31 +317,36 @@ import humanWizardFemale18SpritePath from '../../../Resources/Sheets/Characters/
 import humanWizardFemale19SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character138.png?url';
 import humanWizardFemale20SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character139.png?url';
 
-export const accursedClericSprites = [
+export const accursedClericMaleSprites = [
   accursedClericMale01SpritePath,
   accursedClericMale02SpritePath,
-  accursedClericFemale01SpritePath,
 ];
 
-export const accursedThiefSprites = [
+export const accursedClericFemaleSprites = [accursedClericFemale01SpritePath];
+
+export const accursedThiefMaleSprites = [
   accursedThiefMale01SpritePath,
   accursedThiefMale02SpritePath,
-  accursedTheifFemale01SpritePath,
 ];
 
-export const accursedWarriorSprites = [
+export const accursedThiefFemaleSprites = [accursedTheifFemale01SpritePath];
+
+export const accursedWarriorMaleSprites = [
   accursedWarriorMale01SpritePath,
   accursedWarriorMale02SpritePath,
   accursedWarriorMale03SpritePath,
 ];
 
-export const accursedWizardSprites = [
+// there are no accursedWarriorFemaleSprites
+
+export const accursedWizardMaleSprites = [
   accursedWizardMale01SpritePath,
   accursedWizardMale02SpritePath,
-  accursedWizardFemale,
 ];
 
-export const elvenClericSprites = [
+export const accursedWizardFemaleSprites = [accursedWizardFemale01];
+
+export const elvenClericFemaleSprites = [
   elvenClericFemale01SpritePath,
   elvenClericFemale02SpritePath,
   elvenClericFemale03SpritePath,
@@ -352,7 +357,7 @@ export const elvenClericSprites = [
   elvenClericFemale08SpritePath,
 ];
 
-export const elvenThiefSprites = [
+export const elvenThiefFemaleSprites = [
   elvenThiefFemale01SpritePath,
   elvenThiefFemale02SpritePath,
   elvenThiefFemale03SpritePath,
@@ -360,7 +365,7 @@ export const elvenThiefSprites = [
   elvenThiefFemale05SpritePath,
 ];
 
-export const elvenWizardSprites = [
+export const elvenWizardFemaleSprites = [
   elvenWizardFemale01SpritePath,
   elvenWizardFemale02SpritePath,
   elvenWizardFemale03SpritePath,
@@ -372,7 +377,7 @@ export const elvenWizardSprites = [
   elvenWizardFemale09SpritePath,
 ];
 
-export const halfElfClericSprites = [
+export const halfElfClericMaleSprites = [
   halfElfClericMale01SpritePath,
   halfElfClericMale02SpritePath,
   halfElfClericMale03SpritePath,
@@ -388,6 +393,9 @@ export const halfElfClericSprites = [
   halfElfClericMale13SpritePath,
   halfElfClericMale14SpritePath,
   halfElfClericMale15SpritePath,
+];
+
+export const halfElfClericFemaleSprites = [
   halfElfClericFemale01SpritePath,
   halfElfClericFemale02SpritePath,
   halfElfClericFemale03SpritePath,
@@ -415,7 +423,7 @@ export const halfElfClericSprites = [
   halfElfClericFemale25SpritePath,
 ];
 
-export const halfElfThiefSprites = [
+export const halfElfThiefMaleSprites = [
   halfElfThiefMale01SpritePath,
   halfElfThiefMale02SpritePath,
   halfElfThiefMale03SpritePath,
@@ -424,6 +432,9 @@ export const halfElfThiefSprites = [
   halfElfThiefMale06SpritePath,
   halfElfThiefMale07SpritePath,
   halfElfThiefMale08SpritePath,
+];
+
+export const halfElfThiefFemaleSprites = [
   halfElfThiefFemale01SpritePath,
   halfElfThiefFemale02SpritePath,
   halfElfThiefFemale03SpritePath,
@@ -446,7 +457,7 @@ export const halfElfThiefSprites = [
   halfElfThiefFemale20SpritePath,
 ];
 
-export const halfElfWarriorSprites = [
+export const halfElfWarriorMaleSprites = [
   halfElfWarriorMale01SpritePath,
   halfElfWarriorMale02SpritePath,
   halfElfWarriorMale03SpritePath,
@@ -470,12 +481,15 @@ export const halfElfWarriorSprites = [
   halfElfWarriorMale21SpritePath,
   halfElfWarriorMale22SpritePath,
   halfElfWarriorMale23SpritePath,
+];
+
+export const halfElfWarriorFemaleSprites = [
   halfElfWarriorFemale01SpritePath,
   halfElfWarriorFemale02SpritePath,
   halfElfWarriorFemale03SpritePath,
 ];
 
-export const halfElfWizardSprites = [
+export const halfElfWizardMaleSprites = [
   halfElfWizardMale01SpritePath,
   halfElfWizardMale02SpritePath,
   halfElfWizardMale03SpritePath,
@@ -491,6 +505,9 @@ export const halfElfWizardSprites = [
   halfElfWizardMale13SpritePath,
   halfElfWizardMale14SpritePath,
   halfElfWizardMale15SpritePath,
+];
+
+export const halfElfWizardFemaleSprites = [
   halfElfWizardFemale01SpritePath,
   halfElfWizardFemale02SpritePath,
   halfElfWizardFemale03SpritePath,
@@ -516,7 +533,7 @@ export const halfElfWizardSprites = [
   halfElfWizardFemale23SpritePath,
 ];
 
-export const humanClericSprites = [
+export const humanClericMaleSprites = [
   humanClericMale01SpritePath,
   humanClericMale02SpritePath,
   humanClericMale03SpritePath,
@@ -532,6 +549,9 @@ export const humanClericSprites = [
   humanClericMale13SpritePath,
   humanClericMale14SpritePath,
   humanClericMale15SpritePath,
+];
+
+export const humanClericFemaleSprites = [
   humanClericFemale01SpritePath,
   humanClericFemale02SpritePath,
   humanClericFemale03SpritePath,
@@ -555,7 +575,7 @@ export const humanClericSprites = [
   humanClericFemale21SpritePath,
 ];
 
-export const humanThiefSprites = [
+export const humanThiefMaleSprites = [
   humanThiefMale01SpritePath,
   humanThiefMale02SpritePath,
   humanThiefMale03SpritePath,
@@ -564,6 +584,9 @@ export const humanThiefSprites = [
   humanThiefMale06SpritePath,
   humanThiefMale07SpritePath,
   humanThiefMale08SpritePath,
+];
+
+export const humanThiefFemaleSprites = [
   humanThiefFemale01SpritePath,
   humanThiefFemale02SpritePath,
   humanThiefFemale03SpritePath,
@@ -587,7 +610,7 @@ export const humanThiefSprites = [
   humanThiefFemale21SpritePath,
 ];
 
-export const humanWarriorSprites = [
+export const humanWarriorMaleSprites = [
   humanWarriorMale01SpritePath,
   humanWarriorMale02SpritePath,
   humanWarriorMale03SpritePath,
@@ -611,12 +634,15 @@ export const humanWarriorSprites = [
   humanWarriorMale21SpritePath,
   humanWarriorMale22SpritePath,
   humanWarriorMale23SpritePath,
+];
+
+export const humanWarriorFemaleSprites = [
   humanWarriorFemale01SpritePath,
   humanWarriorFemale02SpritePath,
   humanWarriorFemale03SpritePath,
 ];
 
-export const humanWizardSprites = [
+export const humanWizardMaleSprites = [
   humanWizardMale01SpritePath,
   humanWizardMale02SpritePath,
   humanWizardMale03SpritePath,
@@ -632,6 +658,9 @@ export const humanWizardSprites = [
   humanWizardMale13SpritePath,
   humanWizardMale14SpritePath,
   humanWizardMale15SpritePath,
+];
+
+export const humanWizardFemaleSprites = [
   humanWizardFemale01SpritePath,
   humanWizardFemale02SpritePath,
   humanWizardFemale03SpritePath,

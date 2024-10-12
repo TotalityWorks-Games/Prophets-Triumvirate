@@ -1,11 +1,16 @@
 import { ImageSource, Vector } from 'excalibur';
-import { Direction, RACES } from '../../../constants';
+import { Direction, RACES, SEXES } from '../../../constants';
 import { Character } from '../Character';
 
 export class Elf extends Character {
   race: RACES;
-  constructor(pos: Vector, resource: ImageSource, direction?: Direction) {
-    super(pos, resource, direction);
+  constructor(
+    pos: Vector,
+    resource: ImageSource,
+    sex: SEXES,
+    direction?: Direction
+  ) {
+    super(pos, resource, sex, direction);
     this.race = RACES.ELF;
   }
 }
