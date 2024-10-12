@@ -144,44 +144,178 @@ import halfElfWarriorFemale02SpritePath from '../../../Resources/Sheets/Characte
 import halfElfWarriorFemale03SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Warrior/Female/Character189.png?url';
 
 // Half-Elf Wizards
-import halfElfWizardMale01SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character009.png';
-import halfElfWizardMale02SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character016.png';
-import halfElfWizardMale03SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character017.png';
-import halfElfWizardMale04SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character018.png';
-import halfElfWizardMale05SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character022.png';
-import halfElfWizardMale06SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character028.png';
-import halfElfWizardMale07SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character029.png';
-import halfElfWizardMale08SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character030.png';
-import halfElfWizardMale09SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character045.png';
-import halfElfWizardMale10SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character096.png';
-import halfElfWizardMale11SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character097.png';
-import halfElfWizardMale12SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character098.png';
-import halfElfWizardMale13SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character099.png';
-import halfElfWizardMale14SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character100.png';
-import halfElfWizardMale15SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character109.png';
-import halfElfWizardFemale01SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character031.png';
-import halfElfWizardFemale02SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character033.png';
-import halfElfWizardFemale03SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character034.png';
-import halfElfWizardFemale04SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character035.png';
-import halfElfWizardFemale05SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character046.png';
-import halfElfWizardFemale06SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character047.png';
-import halfElfWizardFemale07SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character049.png';
-import halfElfWizardFemale08SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character050.png';
-import halfElfWizardFemale09SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character076.png';
-import halfElfWizardFemale10SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character077.png';
-import halfElfWizardFemale11SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character078.png';
-import halfElfWizardFemale12SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character080.png';
-import halfElfWizardFemale13SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character086.png';
-import halfElfWizardFemale14SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character087.png';
-import halfElfWizardFemale15SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character088.png';
-import halfElfWizardFemale16SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character090.png';
-import halfElfWizardFemale17SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character101.png';
-import halfElfWizardFemale18SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character102.png';
-import halfElfWizardFemale19SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character104.png';
-import halfElfWizardFemale20SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character112.png';
-import halfElfWizardFemale21SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character136.png';
-import halfElfWizardFemale22SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character138.png';
-import halfElfWizardFemale23SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character139.png';
+import halfElfWizardMale01SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character009.png?url';
+import halfElfWizardMale02SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character016.png?url';
+import halfElfWizardMale03SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character017.png?url';
+import halfElfWizardMale04SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character018.png?url';
+import halfElfWizardMale05SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character022.png?url';
+import halfElfWizardMale06SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character028.png?url';
+import halfElfWizardMale07SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character029.png?url';
+import halfElfWizardMale08SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character030.png?url';
+import halfElfWizardMale09SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character045.png?url';
+import halfElfWizardMale10SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character096.png?url';
+import halfElfWizardMale11SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character097.png?url';
+import halfElfWizardMale12SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character098.png?url';
+import halfElfWizardMale13SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character099.png?url';
+import halfElfWizardMale14SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character100.png?url';
+import halfElfWizardMale15SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Male/Character109.png?url';
+import halfElfWizardFemale01SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character031.png?url';
+import halfElfWizardFemale02SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character033.png?url';
+import halfElfWizardFemale03SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character034.png?url';
+import halfElfWizardFemale04SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character035.png?url';
+import halfElfWizardFemale05SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character046.png?url';
+import halfElfWizardFemale06SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character047.png?url';
+import halfElfWizardFemale07SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character049.png?url';
+import halfElfWizardFemale08SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character050.png?url';
+import halfElfWizardFemale09SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character076.png?url';
+import halfElfWizardFemale10SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character077.png?url';
+import halfElfWizardFemale11SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character078.png?url';
+import halfElfWizardFemale12SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character080.png?url';
+import halfElfWizardFemale13SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character086.png?url';
+import halfElfWizardFemale14SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character087.png?url';
+import halfElfWizardFemale15SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character088.png?url';
+import halfElfWizardFemale16SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character090.png?url';
+import halfElfWizardFemale17SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character101.png?url';
+import halfElfWizardFemale18SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character102.png?url';
+import halfElfWizardFemale19SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character104.png?url';
+import halfElfWizardFemale20SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character112.png?url';
+import halfElfWizardFemale21SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character136.png?url';
+import halfElfWizardFemale22SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character138.png?url';
+import halfElfWizardFemale23SpritePath from '../../../Resources/Sheets/Characters/Side/HalfElven/Wizard/Female/Character139.png?url';
+
+// Human Clerics
+import humanClericMale01SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character007.png?url';
+import humanClericMale02SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character008.png?url';
+import humanClericMale03SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character021.png?url';
+import humanClericMale04SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character024.png?url';
+import humanClericMale05SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character028.png?url';
+import humanClericMale06SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character029.png?url';
+import humanClericMale07SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character030.png?url';
+import humanClericMale08SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character037.png?url';
+import humanClericMale09SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character038.png?url';
+import humanClericMale10SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character040.png?url';
+import humanClericMale11SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character096.png?url';
+import humanClericMale12SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character097.png?url';
+import humanClericMale13SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character098.png?url';
+import humanClericMale14SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character099.png?url';
+import humanClericMale15SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Male/Character100.png?url';
+import humanClericFemale01SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character011.png?url';
+import humanClericFemale02SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character012.png?url';
+import humanClericFemale03SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character013.png?url';
+import humanClericFemale04SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character014.png?url';
+import humanClericFemale05SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character015.png?url';
+import humanClericFemale06SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character031.png?url';
+import humanClericFemale07SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character033.png?url';
+import humanClericFemale08SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character034.png?url';
+import humanClericFemale09SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character035.png?url';
+import humanClericFemale10SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character046.png?url';
+import humanClericFemale11SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character047.png?url';
+import humanClericFemale12SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character049.png?url';
+import humanClericFemale13SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character050.png?url';
+import humanClericFemale14SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character061.png?url';
+import humanClericFemale15SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character079.png?url';
+import humanClericFemale16SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character112.png?url';
+import humanClericFemale17SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character136.png?url';
+import humanClericFemale18SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character137.png?url';
+import humanClericFemale19SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character138.png?url';
+import humanClericFemale20SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character139.png?url';
+import humanClericFemale21SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Cleric/Female/Character173.png?url';
+
+// Human Thieves
+import humanThiefMale01SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Male/Character022.png?url';
+import humanThiefMale02SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Male/Character028.png?url';
+import humanThiefMale03SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Male/Character029.png?url';
+import humanThiefMale04SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Male/Character030.png?url';
+import humanThiefMale05SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Male/Character037.png?url';
+import humanThiefMale06SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Male/Character038.png?url';
+import humanThiefMale07SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Male/Character040.png?url';
+import humanThiefMale08SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Male/Character045.png?url';
+import humanThiefFemale01SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character011.png?url';
+import humanThiefFemale02SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character012.png?url';
+import humanThiefFemale03SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character013.png?url';
+import humanThiefFemale04SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character014.png?url';
+import humanThiefFemale05SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character015.png?url';
+import humanThiefFemale06SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character015.png?url';
+import humanThiefFemale07SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character031.png?url';
+import humanThiefFemale08SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character033.png?url';
+import humanThiefFemale09SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character034.png?url';
+import humanThiefFemale10SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character035.png?url';
+import humanThiefFemale11SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character046.png?url';
+import humanThiefFemale12SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character047.png?url';
+import humanThiefFemale13SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character049.png?url';
+import humanThiefFemale14SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character050.png?url';
+import humanThiefFemale15SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character062.png?url';
+import humanThiefFemale16SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character112.png?url';
+import humanThiefFemale17SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character136.png?url';
+import humanThiefFemale18SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character137.png?url';
+import humanThiefFemale19SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character138.png?url';
+import humanThiefFemale20SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character139.png?url';
+import humanThiefFemale21SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Thief/Female/Character170.png?url';
+
+// Human Warrior
+import humanWarriorMale01SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character001.png?url';
+import humanWarriorMale02SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character002.png?url';
+import humanWarriorMale03SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character004.png?url';
+import humanWarriorMale04SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character007.png?url';
+import humanWarriorMale05SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character008.png?url';
+import humanWarriorMale06SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character009.png?url';
+import humanWarriorMale07SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character016.png?url';
+import humanWarriorMale08SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character017.png?url';
+import humanWarriorMale09SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character018.png?url';
+import humanWarriorMale10SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character021.png?url';
+import humanWarriorMale11SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character022.png?url';
+import humanWarriorMale12SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character024.png?url';
+import humanWarriorMale13SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character028.png?url';
+import humanWarriorMale14SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character029.png?url';
+import humanWarriorMale15SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character030.png?url';
+import humanWarriorMale16SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character091.png?url';
+import humanWarriorMale17SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character092.png?url';
+import humanWarriorMale18SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character093.png?url';
+import humanWarriorMale19SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character094.png?url';
+import humanWarriorMale20SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character109.png?url';
+import humanWarriorMale21SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character156.png?url';
+import humanWarriorMale22SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character157.png?url';
+import humanWarriorMale23SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Male/Character158.png?url';
+import humanWarriorFemale01SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Female/Character187.png?url';
+import humanWarriorFemale02SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Female/Character188.png?url';
+import humanWarriorFemale03SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Warrior/Female/Character189.png?url';
+
+// Human Wizards
+import humanWizardMale01SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character009.png?url';
+import humanWizardMale02SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character016.png?url';
+import humanWizardMale03SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character017.png?url';
+import humanWizardMale04SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character018.png?url';
+import humanWizardMale05SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character022.png?url';
+import humanWizardMale06SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character028.png?url';
+import humanWizardMale07SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character029.png?url';
+import humanWizardMale08SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character030.png?url';
+import humanWizardMale09SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character045.png?url';
+import humanWizardMale10SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character096.png?url';
+import humanWizardMale11SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character097.png?url';
+import humanWizardMale12SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character098.png?url';
+import humanWizardMale13SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character099.png?url';
+import humanWizardMale14SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character100.png?url';
+import humanWizardMale15SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Male/Character109.png?url';
+import humanWizardFemale01SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character031.png?url';
+import humanWizardFemale02SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character033.png?url';
+import humanWizardFemale03SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character034.png?url';
+import humanWizardFemale04SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character035.png?url';
+import humanWizardFemale05SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character046.png?url';
+import humanWizardFemale06SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character047.png?url';
+import humanWizardFemale07SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character049.png?url';
+import humanWizardFemale08SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character050.png?url';
+import humanWizardFemale09SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character076.png?url';
+import humanWizardFemale10SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character077.png?url';
+import humanWizardFemale11SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character078.png?url';
+import humanWizardFemale12SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character080.png?url';
+import humanWizardFemale13SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character101.png?url';
+import humanWizardFemale14SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character102.png?url';
+import humanWizardFemale15SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character104.png?url';
+import humanWizardFemale16SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character112.png?url';
+import humanWizardFemale17SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character136.png?url';
+import humanWizardFemale18SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character137.png?url';
+import humanWizardFemale19SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character138.png?url';
+import humanWizardFemale20SpritePath from '../../../Resources/Sheets/Characters/Side/Human/Wizard/Female/Character139.png?url';
 
 export const accursedClericSprites = [
   accursedClericMale01SpritePath,
@@ -380,4 +514,142 @@ export const halfElfWizardSprites = [
   halfElfWizardFemale21SpritePath,
   halfElfWizardFemale22SpritePath,
   halfElfWizardFemale23SpritePath,
+];
+
+export const humanClericSprites = [
+  humanClericMale01SpritePath,
+  humanClericMale02SpritePath,
+  humanClericMale03SpritePath,
+  humanClericMale04SpritePath,
+  humanClericMale05SpritePath,
+  humanClericMale06SpritePath,
+  humanClericMale07SpritePath,
+  humanClericMale08SpritePath,
+  humanClericMale09SpritePath,
+  humanClericMale10SpritePath,
+  humanClericMale11SpritePath,
+  humanClericMale12SpritePath,
+  humanClericMale13SpritePath,
+  humanClericMale14SpritePath,
+  humanClericMale15SpritePath,
+  humanClericFemale01SpritePath,
+  humanClericFemale02SpritePath,
+  humanClericFemale03SpritePath,
+  humanClericFemale04SpritePath,
+  humanClericFemale05SpritePath,
+  humanClericFemale06SpritePath,
+  humanClericFemale07SpritePath,
+  humanClericFemale08SpritePath,
+  humanClericFemale09SpritePath,
+  humanClericFemale10SpritePath,
+  humanClericFemale11SpritePath,
+  humanClericFemale12SpritePath,
+  humanClericFemale13SpritePath,
+  humanClericFemale14SpritePath,
+  humanClericFemale15SpritePath,
+  humanClericFemale16SpritePath,
+  humanClericFemale17SpritePath,
+  humanClericFemale18SpritePath,
+  humanClericFemale19SpritePath,
+  humanClericFemale20SpritePath,
+  humanClericFemale21SpritePath,
+];
+
+export const humanThiefSprites = [
+  humanThiefMale01SpritePath,
+  humanThiefMale02SpritePath,
+  humanThiefMale03SpritePath,
+  humanThiefMale04SpritePath,
+  humanThiefMale05SpritePath,
+  humanThiefMale06SpritePath,
+  humanThiefMale07SpritePath,
+  humanThiefMale08SpritePath,
+  humanThiefFemale01SpritePath,
+  humanThiefFemale02SpritePath,
+  humanThiefFemale03SpritePath,
+  humanThiefFemale04SpritePath,
+  humanThiefFemale05SpritePath,
+  humanThiefFemale06SpritePath,
+  humanThiefFemale07SpritePath,
+  humanThiefFemale08SpritePath,
+  humanThiefFemale09SpritePath,
+  humanThiefFemale10SpritePath,
+  humanThiefFemale11SpritePath,
+  humanThiefFemale12SpritePath,
+  humanThiefFemale13SpritePath,
+  humanThiefFemale14SpritePath,
+  humanThiefFemale15SpritePath,
+  humanThiefFemale16SpritePath,
+  humanThiefFemale17SpritePath,
+  humanThiefFemale18SpritePath,
+  humanThiefFemale19SpritePath,
+  humanThiefFemale20SpritePath,
+  humanThiefFemale21SpritePath,
+];
+
+export const humanWarriorSprites = [
+  humanWarriorMale01SpritePath,
+  humanWarriorMale02SpritePath,
+  humanWarriorMale03SpritePath,
+  humanWarriorMale04SpritePath,
+  humanWarriorMale05SpritePath,
+  humanWarriorMale06SpritePath,
+  humanWarriorMale07SpritePath,
+  humanWarriorMale08SpritePath,
+  humanWarriorMale09SpritePath,
+  humanWarriorMale10SpritePath,
+  humanWarriorMale11SpritePath,
+  humanWarriorMale12SpritePath,
+  humanWarriorMale13SpritePath,
+  humanWarriorMale14SpritePath,
+  humanWarriorMale15SpritePath,
+  humanWarriorMale16SpritePath,
+  humanWarriorMale17SpritePath,
+  humanWarriorMale18SpritePath,
+  humanWarriorMale19SpritePath,
+  humanWarriorMale20SpritePath,
+  humanWarriorMale21SpritePath,
+  humanWarriorMale22SpritePath,
+  humanWarriorMale23SpritePath,
+  humanWarriorFemale01SpritePath,
+  humanWarriorFemale02SpritePath,
+  humanWarriorFemale03SpritePath,
+];
+
+export const humanWizardSprites = [
+  humanWizardMale01SpritePath,
+  humanWizardMale02SpritePath,
+  humanWizardMale03SpritePath,
+  humanWizardMale04SpritePath,
+  humanWizardMale05SpritePath,
+  humanWizardMale06SpritePath,
+  humanWizardMale07SpritePath,
+  humanWizardMale08SpritePath,
+  humanWizardMale09SpritePath,
+  humanWizardMale10SpritePath,
+  humanWizardMale11SpritePath,
+  humanWizardMale12SpritePath,
+  humanWizardMale13SpritePath,
+  humanWizardMale14SpritePath,
+  humanWizardMale15SpritePath,
+  humanWizardFemale01SpritePath,
+  humanWizardFemale02SpritePath,
+  humanWizardFemale03SpritePath,
+  humanWizardFemale04SpritePath,
+  humanWizardFemale05SpritePath,
+  humanWizardFemale06SpritePath,
+  humanWizardFemale07SpritePath,
+  humanWizardFemale08SpritePath,
+  humanWizardFemale09SpritePath,
+  humanWizardFemale10SpritePath,
+  humanWizardFemale11SpritePath,
+  humanWizardFemale12SpritePath,
+  humanWizardFemale13SpritePath,
+  humanWizardFemale14SpritePath,
+  humanWizardFemale15SpritePath,
+  humanWizardFemale16SpritePath,
+  humanWizardFemale17SpritePath,
+  humanWizardFemale18SpritePath,
+  humanWizardFemale19SpritePath,
+  humanWizardFemale20SpritePath,
 ];

@@ -61,6 +61,10 @@ import { HalfElfCleric } from '../Bases/Classes/HalfElves/Cleric';
 import { HalfElfThief } from '../Bases/Classes/HalfElves/Thief';
 import { HalfElfWarrior } from '../Bases/Classes/HalfElves/Warrior';
 import { HalfElfWizard } from '../Bases/Classes/HalfElves/Wizard';
+import { HumanCleric } from '../Bases/Classes/Human/Cleric';
+import { HumanThief } from '../Bases/Classes/Human/Thief';
+import { HumanWarrior } from '../Bases/Classes/Human/Warrior';
+import { HumanWizard } from '../Bases/Classes/Human/Wizard';
 import {
   accursedClericSprites,
   accursedThiefSprites,
@@ -74,6 +78,10 @@ import {
   halfElfThiefSprites,
   halfElfWarriorSprites,
   halfElfWizardSprites,
+  humanClericSprites,
+  humanThiefSprites,
+  humanWarriorSprites,
+  humanWizardSprites,
 } from './SideSprites';
 
 export const randomlyGeneratedLevel = () => {
@@ -94,7 +102,7 @@ export const randomlyGeneratedInventory = () => {
 };
 
 export const randomRaceClassCombo = () => {
-  const allRaces = [RACES.ACCURSED, RACES.ELF, RACES.HALF_ELF];
+  const allRaces = [RACES.ACCURSED, RACES.ELF, RACES.HALF_ELF, RACES.HUMAN];
   const race = allRaces[Math.floor(Math.random() * allRaces.length)];
   let playerClass;
   const allClasses = [
@@ -176,6 +184,27 @@ function retrieveHalfElfSpritesheet(playerClass: CLASSES) {
   }
 }
 
+function retrieveHumanSpritesheet(playerClass: CLASSES) {
+  let sprite;
+  switch (playerClass) {
+    case CLASSES.CLERIC:
+      sprite = Math.floor(Math.random() * humanClericSprites.length);
+      return humanClericSprites[sprite];
+    case CLASSES.THIEF:
+      sprite = Math.floor(Math.random() * humanThiefSprites.length);
+      return humanThiefSprites[sprite];
+    case CLASSES.WARRIOR:
+      sprite = Math.floor(Math.random() * humanWarriorSprites.length);
+      return humanWarriorSprites[sprite];
+    case CLASSES.WIZARD:
+      sprite = Math.floor(Math.random() * humanWizardSprites.length);
+      return humanWizardSprites[sprite];
+    default:
+      sprite = Math.floor(Math.random() * humanClericSprites.length);
+      return humanClericSprites[sprite];
+  }
+}
+
 export const randomNPC = (race: RACES, playerClass: CLASSES) => {
   let NPC;
   let spritesheet;
@@ -247,6 +276,29 @@ export const randomNPC = (race: RACES, playerClass: CLASSES) => {
         default:
           NPC = HalfElfCleric;
           spritesheet = retrieveHalfElfSpritesheet(playerClass);
+          return { NPC, spritesheet };
+      }
+    case RACES.HUMAN:
+      switch (playerClass) {
+        case CLASSES.CLERIC:
+          NPC = HumanCleric;
+          spritesheet = retrieveHumanSpritesheet(playerClass);
+          return { NPC, spritesheet };
+        case CLASSES.THIEF:
+          NPC = HumanThief;
+          spritesheet = retrieveHumanSpritesheet(playerClass);
+          return { NPC, spritesheet };
+        case CLASSES.WARRIOR:
+          NPC = HumanWarrior;
+          spritesheet = retrieveHumanSpritesheet(playerClass);
+          return { NPC, spritesheet };
+        case CLASSES.WIZARD:
+          NPC = HumanWizard;
+          spritesheet = retrieveHumanSpritesheet(playerClass);
+          return { NPC, spritesheet };
+        default:
+          NPC = HumanCleric;
+          spritesheet = retrieveHumanSpritesheet(playerClass);
           return { NPC, spritesheet };
       }
     default:
