@@ -14,6 +14,7 @@ const { race: sideMemberOneRace, playerClass: sideMemberOneClass } =
 export const {
   NPC: SideMemberOne,
   spritesheet: sideMemberOneSpritesheet,
+  name: sideMemberOneName,
   sex: sideMemberOneSex,
 } = randomNPC(sideMemberOneRace, sideMemberOneClass);
 
@@ -22,6 +23,7 @@ const { race: sideMemberTwoRace, playerClass: sideMemberTwoClass } =
 export const {
   NPC: SideMemberTwo,
   spritesheet: sideMemberTwoSpritesheet,
+  name: sideMemberTwoName,
   sex: sideMemberTwoSex,
 } = randomNPC(sideMemberTwoRace, sideMemberTwoClass);
 
@@ -30,5 +32,6 @@ const { race: sideMemberThreeRace, playerClass: sideMemberThreeClass } =
 export const {
   NPC: SideMemberThree,
   spritesheet: sideMemberThreeSpritesheet,
+  name: sideMemberThreeName,
   sex: sideMemberThreeSex,
 } = randomNPC(sideMemberThreeRace, sideMemberThreeClass);

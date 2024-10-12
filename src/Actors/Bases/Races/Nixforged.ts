@@ -5,12 +5,13 @@ import { Character } from '../Character';
 export class Nixforged extends Character {
   race: RACES;
   constructor(
+    name: string,
     pos: Vector,
     resource: ImageSource,
     sex: SEXES,
     direction?: Direction
   ) {
-    super(pos, resource, sex, direction);
+    super(name, pos, resource, sex, direction);
     this.race = RACES.NIX_FORGED;
   }
 }

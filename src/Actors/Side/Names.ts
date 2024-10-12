@@ -45,7 +45,7 @@ export const humanMaleNames = [
   'Branson',
   'Kristopher',
   'Cody',
-];
+] as const;
 
 export const humanFemaleNames = [
   'Brenda',
@@ -60,7 +60,7 @@ export const humanFemaleNames = [
   'Rachael',
   'Rebecca',
   'Ruth',
-];
+] as const;
 
 export const halfElvenMaleNames = [...elvenMaleNames, ...humanMaleNames];
 export const halfElvenFemaleNames = [...elvenFemaleNames, ...humanFemaleNames];

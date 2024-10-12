@@ -28,6 +28,9 @@ import {
   sideMemberOneSex,
   sideMemberThreeSex,
   sideMemberTwoSex,
+  sideMemberOneName,
+  sideMemberTwoName,
+  sideMemberThreeName,
 } from './Party';
 
 class IronClawPort extends Scene {
@@ -55,13 +58,13 @@ class IronClawPort extends Scene {
     });
 
     console.log(
-      `SideMemberOne: ${npcs[16].sex} - ${npcs[16].race} ${npcs[16].class}`
+      `${npcs[16].name}: ${npcs[16].sex} - ${npcs[16].race} ${npcs[16].class}`
     );
     console.log(
-      `SideMemberTwo: ${npcs[17].sex} - ${npcs[17].race} ${npcs[17].class}`
+      `${npcs[17].name}: ${npcs[17].sex} - ${npcs[17].race} ${npcs[17].class}`
     );
     console.log(
-      `SideMemberThree: ${npcs[18].sex} - ${npcs[18].race} ${npcs[18].class}`
+      `${npcs[18].name}: ${npcs[18].sex} - ${npcs[18].race} ${npcs[18].class}`
     );
     engine.currentScene.camera.strategy.lockToActor(npcs[16]);
     // engine.input.touch.on('pointerdown', () => {
@@ -228,6 +231,7 @@ class IronClawPort extends Scene {
     // const pigTwo = new Pig(vec(2450, 400), IronclawPortResources);
 
     const sideMemberOne = new SideMemberOne(
+      sideMemberOneName,
       vec(1990, 2170),
       IronclawPortResources.SideMemberOneSpritesheetPng,
       randomlyGeneratedLevel(),
@@ -236,6 +240,7 @@ class IronClawPort extends Scene {
     );
 
     const sideMemberTwo = new SideMemberTwo(
+      sideMemberTwoName,
       vec(1940, 2170),
       IronclawPortResources.SideMemberTwoSpritesheetPng,
       randomlyGeneratedLevel(),
@@ -244,6 +249,7 @@ class IronClawPort extends Scene {
     );
 
     const sideMemberThree = new SideMemberThree(
+      sideMemberThreeName,
       vec(2040, 2170),
       IronclawPortResources.SideMemberThreeSpritesheetPng,
       randomlyGeneratedLevel(),

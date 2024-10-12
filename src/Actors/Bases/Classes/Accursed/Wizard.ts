@@ -12,6 +12,7 @@ export class AccursedWizard extends Accursed {
   scores: AbilityScores;
   level: number;
   constructor(
+    name: string,
     pos: Vector,
     resource: ImageSource,
     level: number,
@@ -19,7 +20,7 @@ export class AccursedWizard extends Accursed {
     sex: SEXES,
     direction?: Direction
   ) {
-    super(pos, resource, sex, direction);
+    super(name, pos, resource, sex, direction);
     this.class = CLASSES.WIZARD;
     this.level = level;
     this.scores = scores;

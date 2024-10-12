@@ -66,6 +66,16 @@ import { HumanThief } from '../Bases/Classes/Human/Thief';
 import { HumanWarrior } from '../Bases/Classes/Human/Warrior';
 import { HumanWizard } from '../Bases/Classes/Human/Wizard';
 import {
+  accursedFemaleNames,
+  accursedMaleNames,
+  elvenFemaleNames,
+  elvenMaleNames,
+  halfElvenFemaleNames,
+  halfElvenMaleNames,
+  humanFemaleNames,
+  humanMaleNames,
+} from './Names';
+import {
   accursedClericFemaleSprites,
   accursedClericMaleSprites,
   accursedThiefFemaleSprites,
@@ -139,6 +149,46 @@ export const randomRaceClassCombo = () => {
 
   playerClass = allClasses[Math.floor(Math.random() * 4)];
   return { race, playerClass };
+};
+
+const randomlyGeneratedName = (race: RACES, sex: SEXES) => {
+  let name;
+  if (sex === SEXES.MALE) {
+    switch (race) {
+      case RACES.ACCURSED:
+        name = Math.floor(Math.random() * accursedMaleNames.length);
+        return accursedMaleNames[name];
+      case RACES.ELF:
+        name = Math.floor(Math.random() * elvenMaleNames.length);
+        return elvenMaleNames[name];
+      case RACES.HALF_ELF:
+        name = Math.floor(Math.random() * halfElvenMaleNames.length);
+        return halfElvenMaleNames[name];
+      case RACES.HUMAN:
+        name = Math.floor(Math.random() * humanMaleNames.length);
+        return humanMaleNames[name];
+      default:
+        name = Math.floor(Math.random() * humanMaleNames.length);
+        return humanMaleNames[name];
+    }
+  }
+  switch (race) {
+    case RACES.ACCURSED:
+      name = Math.floor(Math.random() * accursedFemaleNames.length);
+      return accursedFemaleNames[name];
+    case RACES.ELF:
+      name = Math.floor(Math.random() * elvenFemaleNames.length);
+      return elvenFemaleNames[name];
+    case RACES.HALF_ELF:
+      name = Math.floor(Math.random() * halfElvenFemaleNames.length);
+      return halfElvenFemaleNames[name];
+    case RACES.HUMAN:
+      name = Math.floor(Math.random() * humanFemaleNames.length);
+      return humanFemaleNames[name];
+    default:
+      name = Math.floor(Math.random() * humanFemaleNames.length);
+      return humanFemaleNames[name];
+  }
 };
 
 function retrieveAccursedSpritesheet(playerClass: CLASSES, sex: SEXES) {
@@ -279,6 +329,7 @@ function retrieveHumanSpritesheet(playerClass: CLASSES, sex: SEXES) {
 export const randomNPC = (race: RACES, playerClass: CLASSES) => {
   let NPC;
   let sex = randomlyGeneratedSex();
+  let name = randomlyGeneratedName(race, sex);
   let spritesheet;
   switch (race) {
     case RACES.ACCURSED:
@@ -286,102 +337,108 @@ export const randomNPC = (race: RACES, playerClass: CLASSES) => {
         case CLASSES.CLERIC:
           NPC = AccursedCleric;
           spritesheet = retrieveAccursedSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.THIEF:
           NPC = AccursedThief;
           spritesheet = retrieveAccursedSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.WARRIOR:
           NPC = AccursedWarrior;
           sex = SEXES.MALE; // there are no female accursed warriors
+          name = randomlyGeneratedName(race, sex);
           spritesheet = retrieveAccursedSpritesheet(playerClass, SEXES.MALE);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.WIZARD:
           NPC = AccursedWizard;
           spritesheet = retrieveAccursedSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         default:
           NPC = AccursedCleric;
           spritesheet = retrieveAccursedSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
       }
     case RACES.ELF:
       switch (playerClass) {
         case CLASSES.CLERIC:
           NPC = ElvenCleric;
           sex = SEXES.FEMALE; // all elven sprites are female
+          name = randomlyGeneratedName(race, sex);
           spritesheet = retrieveElvenSpritesheet(playerClass);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.THIEF:
           NPC = ElvenThief;
           sex = SEXES.FEMALE; // all elven sprites are female
+          name = randomlyGeneratedName(race, sex);
           spritesheet = retrieveElvenSpritesheet(playerClass);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.WARRIOR:
           NPC = ElvenWarrior;
           sex = SEXES.FEMALE; // all elven sprites are female
+          name = randomlyGeneratedName(race, sex);
           spritesheet = retrieveElvenSpritesheet(playerClass);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.WIZARD:
           NPC = ElvenWizard;
           sex = SEXES.FEMALE; // all elven sprites are female
+          name = randomlyGeneratedName(race, sex);
           spritesheet = retrieveElvenSpritesheet(playerClass);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         default:
           NPC = ElvenCleric;
           sex = SEXES.FEMALE; // all elven sprites are female
+          name = randomlyGeneratedName(race, sex);
           spritesheet = retrieveElvenSpritesheet(playerClass);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
       }
     case RACES.HALF_ELF:
       switch (playerClass) {
         case CLASSES.CLERIC:
           NPC = HalfElfCleric;
           spritesheet = retrieveHalfElfSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.THIEF:
           NPC = HalfElfThief;
           spritesheet = retrieveHalfElfSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.WARRIOR:
           NPC = HalfElfWarrior;
           spritesheet = retrieveHalfElfSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.WIZARD:
           NPC = HalfElfWizard;
           spritesheet = retrieveHalfElfSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         default:
           NPC = HalfElfCleric;
           spritesheet = retrieveHalfElfSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
       }
     case RACES.HUMAN:
       switch (playerClass) {
         case CLASSES.CLERIC:
           NPC = HumanCleric;
           spritesheet = retrieveHumanSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.THIEF:
           NPC = HumanThief;
           spritesheet = retrieveHumanSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.WARRIOR:
           NPC = HumanWarrior;
           spritesheet = retrieveHumanSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         case CLASSES.WIZARD:
           NPC = HumanWizard;
           spritesheet = retrieveHumanSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
         default:
           NPC = HumanCleric;
           spritesheet = retrieveHumanSpritesheet(playerClass, sex);
-          return { NPC, spritesheet, sex };
+          return { NPC, spritesheet, name, sex };
       }
     default:
       NPC = AccursedCleric;
       spritesheet = retrieveAccursedSpritesheet(playerClass, sex);
-      return { NPC, spritesheet, sex };
+      return { NPC, spritesheet, name, sex };
   }
 };

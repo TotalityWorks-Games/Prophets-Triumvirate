@@ -16,6 +16,7 @@ export class Character extends Actor {
   resources: ImageSource;
   inventory: [];
   constructor(
+    name: string,
     pos: Vector,
     resource: ImageSource,
     sex: SEXES,
@@ -27,6 +28,7 @@ export class Character extends Actor {
       height: 32,
       collisionType: CollisionType.Fixed,
     });
+    this.name = name;
     this.z = 100;
     this.scale = new Vector(2, 2);
     this.sex = sex;
