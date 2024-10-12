@@ -17,21 +17,11 @@ import { Delsaran } from '../../Actors/Main/Delsaran';
 import { SCENE_STATE } from '../../constants';
 import { uiManager } from '../../Managers/UIManager';
 import { IronclawPortDialogues } from './Dialogues';
+import { SideMemberOne, sideMemberOneSex, sideMemberOneName } from './Party';
 import {
   randomlyGeneratedAbilityScores,
   randomlyGeneratedLevel,
 } from '../../Actors/Side/SidePartyMembers';
-import {
-  SideMemberOne,
-  SideMemberTwo,
-  SideMemberThree,
-  sideMemberOneSex,
-  sideMemberThreeSex,
-  sideMemberTwoSex,
-  sideMemberOneName,
-  sideMemberTwoName,
-  sideMemberThreeName,
-} from './Party';
 
 class IronClawPort extends Scene {
   game_container!: HTMLElement;
@@ -50,6 +40,7 @@ class IronClawPort extends Scene {
     /* Default Player Location: pos: vec(2300, 2550), */
     const player = new MainGuy(vec(2300, 2550), IronclawPortResources);
     engine.currentScene.add(player);
+    engine.currentScene.camera.strategy.lockToActor(player);
     engine.currentScene.camera.zoom = 0.8;
 
     // add all npcs to game
@@ -57,16 +48,6 @@ class IronClawPort extends Scene {
       engine.add(character);
     });
 
-    console.log(
-      `${npcs[16].name}: ${npcs[16].sex} - ${npcs[16].race} ${npcs[16].class}`
-    );
-    console.log(
-      `${npcs[17].name}: ${npcs[17].sex} - ${npcs[17].race} ${npcs[17].class}`
-    );
-    console.log(
-      `${npcs[18].name}: ${npcs[18].sex} - ${npcs[18].race} ${npcs[18].class}`
-    );
-    engine.currentScene.camera.strategy.lockToActor(npcs[16]);
     // engine.input.touch.on('pointerdown', () => {
     //   engine.goto('mynextScene');
     // });
@@ -232,29 +213,12 @@ class IronClawPort extends Scene {
 
     const sideMemberOne = new SideMemberOne(
       sideMemberOneName,
-      vec(1990, 2170),
+      vec(2020, 2320),
       IronclawPortResources.SideMemberOneSpritesheetPng,
       randomlyGeneratedLevel(),
       randomlyGeneratedAbilityScores(),
-      sideMemberOneSex
-    );
-
-    const sideMemberTwo = new SideMemberTwo(
-      sideMemberTwoName,
-      vec(1940, 2170),
-      IronclawPortResources.SideMemberTwoSpritesheetPng,
-      randomlyGeneratedLevel(),
-      randomlyGeneratedAbilityScores(),
-      sideMemberTwoSex
-    );
-
-    const sideMemberThree = new SideMemberThree(
-      sideMemberThreeName,
-      vec(2040, 2170),
-      IronclawPortResources.SideMemberThreeSpritesheetPng,
-      randomlyGeneratedLevel(),
-      randomlyGeneratedAbilityScores(),
-      sideMemberThreeSex
+      sideMemberOneSex,
+      'right'
     );
 
     return [
@@ -274,9 +238,7 @@ class IronClawPort extends Scene {
       citizenThree,
       citizenFour,
       pigOne,
-      sideMemberOne,
-      sideMemberTwo,
-      sideMemberThree,
+      // sideMemberOne,
     ];
   }
 }

@@ -44,11 +44,7 @@ import propsBTsxPath from '../../../Resources/TSX/propsB.tsx?url';
 import shipsTsxPath from '../../../Resources/TSX/Ships.tsx?url';
 import smallObjectsTsxPath from '../../../Resources/TSX/smallobj.tsx?url';
 import waterTsxPath from '../../../Resources/TSX/water.tsx?url';
-import {
-  sideMemberOneSpritesheet,
-  sideMemberTwoSpritesheet,
-  sideMemberThreeSpritesheet,
-} from './Party';
+import { sideMemberOneSpritesheet } from './Party';
 
 export const IronclawPortResources = {
   HeroSpriteSheetPng: new ImageSource(heroPath, false, ImageFiltering.Pixel),
@@ -64,16 +60,6 @@ export const IronclawPortResources = {
   ),
   SideMemberOneSpritesheetPng: new ImageSource(
     sideMemberOneSpritesheet,
-    false,
-    ImageFiltering.Pixel
-  ),
-  SideMemberTwoSpritesheetPng: new ImageSource(
-    sideMemberTwoSpritesheet,
-    false,
-    ImageFiltering.Pixel
-  ),
-  SideMemberThreeSpritesheetPng: new ImageSource(
-    sideMemberThreeSpritesheet,
     false,
     ImageFiltering.Pixel
   ),

@@ -17,21 +17,3 @@ export const {
   name: sideMemberOneName,
   sex: sideMemberOneSex,
 } = randomNPC(sideMemberOneRace, sideMemberOneClass);
-
-const { race: sideMemberTwoRace, playerClass: sideMemberTwoClass } =
-  randomRaceClassCombo();
-export const {
-  NPC: SideMemberTwo,
-  spritesheet: sideMemberTwoSpritesheet,
-  name: sideMemberTwoName,
-  sex: sideMemberTwoSex,
-} = randomNPC(sideMemberTwoRace, sideMemberTwoClass);
-
-const { race: sideMemberThreeRace, playerClass: sideMemberThreeClass } =
-  randomRaceClassCombo();
-export const {
-  NPC: SideMemberThree,
-  spritesheet: sideMemberThreeSpritesheet,
-  name: sideMemberThreeName,
-  sex: sideMemberThreeSex,
-} = randomNPC(sideMemberThreeRace, sideMemberThreeClass);
