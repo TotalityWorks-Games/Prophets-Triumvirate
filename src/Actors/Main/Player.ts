@@ -34,7 +34,8 @@ export class MainGuy extends Actor {
       HeroSpriteSheetPng: ImageSource;
       HeroRunningSpriteSheetPng: ImageSource;
       CollisionSound: Sound;
-    }
+    },
+    direction?: Direction
   ) {
     super({
       pos,
@@ -45,7 +46,7 @@ export class MainGuy extends Actor {
 
     this.z = 100;
     this.scale = new Vector(2, 2);
-    this.direction = 'down';
+    this.direction = direction ?? 'down';
     this.resources = resources;
     this.playerState = SCENE_STATE.PLAYING;
   }

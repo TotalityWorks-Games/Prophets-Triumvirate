@@ -12,6 +12,10 @@ import {
   ironClawPortSceneLoader,
 } from './Scenes/IronclawPort-1/IronclawPort';
 import { uiManager } from './Managers/UIManager';
+import {
+  smallHouseInterior1Scene,
+  smallHouseInterior1SceneLoader,
+} from './Scenes/IronclawPort-1/Interiors/SmallHouse1/SmallHouse1';
 
 const game = new Engine({
   canvasElementId: 'game-canvas',
@@ -22,9 +26,21 @@ const game = new Engine({
   pixelRatio: 2,
   resolution: Resolution.SNES,
   scenes: {
+    // start: {
+    //   scene: ironClawPortScene,
+    //   loader: ironClawPortSceneLoader,
+    //   transitions: {
+    //     in: new CrossFade({
+    //       duration: 1000,
+    //       direction: 'in',
+    //       blockInput: true,
+    //     }),
+    //     out: new FadeInOut({ duration: 100, direction: 'out' }),
+    //   },
+    // },
     start: {
-      scene: ironClawPortScene,
-      loader: ironClawPortSceneLoader,
+      scene: smallHouseInterior1Scene,
+      loader: smallHouseInterior1SceneLoader,
       transitions: {
         in: new CrossFade({
           duration: 1000,
