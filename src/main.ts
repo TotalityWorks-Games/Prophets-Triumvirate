@@ -16,12 +16,16 @@ import {
   smallHouseInterior1Scene,
   smallHouseInterior1SceneLoader,
 } from './Scenes/IronclawPort-1/Interiors/SmallHouse1/SmallHouse1';
+import {
+  smallHouseInterior2Scene,
+  smallHouseInterior2SceneLoader,
+} from './Scenes/IronclawPort-1/Interiors/SmallHouse2/Scene';
 
 const game = new Engine({
   canvasElementId: 'game-canvas',
-  width: 600,
-  height: 400,
-  displayMode: DisplayMode.FitScreenAndFill,
+  // width: 600,
+  // height: 400,
+  // displayMode: DisplayMode.FitScreenAndFill,
   pixelArt: true,
   pixelRatio: 2,
   resolution: Resolution.SNES,
@@ -38,9 +42,21 @@ const game = new Engine({
     //     out: new FadeInOut({ duration: 100, direction: 'out' }),
     //   },
     // },
+    // start: {
+    //   scene: smallHouseInterior1Scene,
+    //   loader: smallHouseInterior1SceneLoader,
+    //   transitions: {
+    //     in: new CrossFade({
+    //       duration: 1000,
+    //       direction: 'in',
+    //       blockInput: true,
+    //     }),
+    //     out: new FadeInOut({ duration: 100, direction: 'out' }),
+    //   },
+    // },
     start: {
-      scene: smallHouseInterior1Scene,
-      loader: smallHouseInterior1SceneLoader,
+      scene: smallHouseInterior2Scene,
+      loader: smallHouseInterior2SceneLoader,
       transitions: {
         in: new CrossFade({
           duration: 1000,
