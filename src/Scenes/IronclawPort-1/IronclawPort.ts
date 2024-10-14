@@ -17,11 +17,11 @@ import { Delsaran } from '../../Actors/Main/Delsaran';
 import { SCENE_STATE } from '../../constants';
 import { uiManager } from '../../Managers/UIManager';
 import { IronclawPortDialogues } from './Dialogues';
-import { SideMemberOne, sideMemberOneSex, sideMemberOneName } from './Party';
-import {
-  randomlyGeneratedAbilityScores,
-  randomlyGeneratedLevel,
-} from '../../Actors/Side/SidePartyMembers';
+// import { SideMemberOne, sideMemberOneSex, sideMemberOneName } from './Party';
+// import {
+//   randomlyGeneratedAbilityScores,
+//   randomlyGeneratedLevel,
+// } from '../../Actors/Side/SidePartyMembers';
 
 class IronClawPort extends Scene {
   game_container!: HTMLElement;
@@ -211,15 +211,15 @@ class IronClawPort extends Scene {
     const pigOne = new Pig(vec(2450, 500), IronclawPortResources);
     // const pigTwo = new Pig(vec(2450, 400), IronclawPortResources);
 
-    const sideMemberOne = new SideMemberOne(
-      sideMemberOneName,
-      vec(2020, 2320),
-      IronclawPortResources.SideMemberOneSpritesheetPng,
-      randomlyGeneratedLevel(),
-      randomlyGeneratedAbilityScores(),
-      sideMemberOneSex,
-      'right'
-    );
+    // const sideMemberOne = new SideMemberOne(
+    //   sideMemberOneName,
+    //   vec(2020, 2320),
+    //   IronclawPortResources.SideMemberOneSpritesheetPng,
+    //   randomlyGeneratedLevel(),
+    //   randomlyGeneratedAbilityScores(),
+    //   sideMemberOneSex,
+    //   'right'
+    // );
 
     return [
       delsaran,
