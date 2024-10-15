@@ -2,8 +2,10 @@ import {
   BoundingBox,
   Engine,
   ImageSource,
+  Keys,
   Loader,
   Scene,
+  SceneActivationContext,
   SpriteSheet,
   vec,
 } from 'excalibur';
@@ -14,14 +16,15 @@ import { Guard } from '../../Actors/NPCs/Guard';
 import { Wolfkin1 } from '../../Actors/NPCs/Citizens/Wolfkin1';
 import { WolfkinCleric } from '../../Actors/NPCs/Citizens/WolfkinCleric';
 import { Delsaran } from '../../Actors/Main/Delsaran';
-import { SCENE_STATE } from '../../constants';
+import { LOCATIONS, SCENE_STATE } from '../../constants';
 import { uiManager } from '../../Managers/UIManager';
 import { IronclawPortDialogues } from './Dialogues';
-// import { SideMemberOne, sideMemberOneSex, sideMemberOneName } from './Party';
-// import {
-//   randomlyGeneratedAbilityScores,
-//   randomlyGeneratedLevel,
-// } from '../../Actors/Side/SidePartyMembers';
+import { SideMemberOne, sideMemberOneSex, sideMemberOneName } from './Party';
+import {
+  randomlyGeneratedAbilityScores,
+  randomlyGeneratedLevel,
+} from '../../Actors/Side/SidePartyMembers';
+import { musicManager } from '../../Managers/MusicManager';
 
 class IronClawPort extends Scene {
   game_container!: HTMLElement;
@@ -34,7 +37,6 @@ class IronClawPort extends Scene {
 
     this.setCameraBoundaries(engine);
     const npcs = this.setupNPCs();
-    this.startMusic();
 
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
@@ -47,6 +49,11 @@ class IronClawPort extends Scene {
     npcs.forEach((character) => {
       engine.add(character);
     });
+
+    if (musicManager.location !== LOCATIONS.IRONCLAW_PORT) {
+      musicManager.updateLocation(LOCATIONS.IRONCLAW_PORT);
+      musicManager.startMusic(IronclawPortResources);
+    }
 
     // engine.input.touch.on('pointerdown', () => {
     //   engine.goto('mynextScene');
@@ -62,13 +69,20 @@ class IronClawPort extends Scene {
     //       return entity instanceof Player
     //   },
     //   action: () => {
-    //       game.goToScene(props.entity.fieldInstances[0].__value);
     //   }
     // });
     IronclawPortResources.TiledMap.addToScene(engine.currentScene);
   }
 
-  onPreUpdate(_engine: Engine, _delta: number): void {
+  onActivate(_context: SceneActivationContext<unknown>): void {}
+
+  onDeactivate(_context: SceneActivationContext): void {}
+
+  onPreUpdate(engine: Engine, _delta: number): void {
+    if (engine.input.keyboard.isHeld(Keys.ShiftRight)) {
+      engine.goToScene('ironClawPortSmallHouseInterior1');
+    }
+
     if (this.game_container.className === SCENE_STATE.TALKING) {
       uiManager.displayDialogue(IronclawPortDialogues);
     }
@@ -76,12 +90,6 @@ class IronClawPort extends Scene {
     if (this.game_container.className !== SCENE_STATE.TALKING) {
       uiManager.cleanupDialogue();
     }
-  }
-
-  private startMusic() {
-    // add looping music
-    IronclawPortResources.Music.loop = true;
-    IronclawPortResources.Music.play(0.5);
   }
 
   private setCameraBoundaries(engine: Engine) {
@@ -211,15 +219,15 @@ class IronClawPort extends Scene {
     const pigOne = new Pig(vec(2450, 500), IronclawPortResources);
     // const pigTwo = new Pig(vec(2450, 400), IronclawPortResources);
 
-    // const sideMemberOne = new SideMemberOne(
-    //   sideMemberOneName,
-    //   vec(2020, 2320),
-    //   IronclawPortResources.SideMemberOneSpritesheetPng,
-    //   randomlyGeneratedLevel(),
-    //   randomlyGeneratedAbilityScores(),
-    //   sideMemberOneSex,
-    //   'right'
-    // );
+    const sideMemberOne = new SideMemberOne(
+      sideMemberOneName,
+      vec(2020, 2320),
+      IronclawPortResources.SideMemberOneSpritesheetPng,
+      randomlyGeneratedLevel(),
+      randomlyGeneratedAbilityScores(),
+      sideMemberOneSex,
+      'right'
+    );
 
     return [
       delsaran,
@@ -238,7 +246,7 @@ class IronClawPort extends Scene {
       citizenThree,
       citizenFour,
       pigOne,
-      // sideMemberOne,
+      sideMemberOne,
     ];
   }
 }

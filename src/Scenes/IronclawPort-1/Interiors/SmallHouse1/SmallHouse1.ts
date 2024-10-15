@@ -2,17 +2,20 @@ import {
   BoundingBox,
   Engine,
   ImageSource,
-  Loader,
+  DefaultLoader,
   Scene,
   SpriteSheet,
   vec,
+  Keys,
 } from 'excalibur';
 import { MainGuy } from '../../../../Actors/Main/Player';
 import { SmallHouseInterior1Resources } from './Resources';
 import { Wolfkin1 } from '../../../../Actors/NPCs/Citizens/Wolfkin1';
-import { SCENE_STATE } from '../../../../constants';
+import { LOCATIONS, SCENE_STATE } from '../../../../constants';
 import { uiManager } from '../../../../Managers/UIManager';
 import { SmallHouseInterior1Dialogues } from './Dialogues';
+import { musicManager } from '../../../../Managers/MusicManager';
+import { IronclawPortResources } from '../../Resources';
 
 class SmallHouse1 extends Scene {
   game_container!: HTMLElement;
@@ -25,7 +28,6 @@ class SmallHouse1 extends Scene {
 
     this.setCameraBoundaries(engine);
     const npcs = this.setupNPCs();
-    this.startMusic();
 
     // add player character
     const player = new MainGuy(
@@ -42,10 +44,18 @@ class SmallHouse1 extends Scene {
       engine.add(character);
     });
 
+    if (musicManager.location !== LOCATIONS.TEST) {
+      musicManager.updateLocation(LOCATIONS.TEST);
+    }
+
     SmallHouseInterior1Resources.TiledMap.addToScene(engine.currentScene);
   }
 
-  onPreUpdate(_engine: Engine, _delta: number): void {
+  onPreUpdate(engine: Engine, _delta: number): void {
+    if (engine.input.keyboard.isHeld(Keys.Backspace)) {
+      engine.goToScene('start');
+    }
+
     if (this.game_container.className === SCENE_STATE.TALKING) {
       uiManager.displayDialogue(SmallHouseInterior1Dialogues);
     }
@@ -53,12 +63,6 @@ class SmallHouse1 extends Scene {
     if (this.game_container.className !== SCENE_STATE.TALKING) {
       uiManager.cleanupDialogue();
     }
-  }
-
-  private startMusic() {
-    // add looping music
-    SmallHouseInterior1Resources.Music.loop = true;
-    SmallHouseInterior1Resources.Music.play(0.5);
   }
 
   private setCameraBoundaries(engine: Engine) {
@@ -104,7 +108,7 @@ class SmallHouse1 extends Scene {
 export const smallHouseInterior1Scene = new SmallHouse1();
 
 // loader
-export const smallHouseInterior1SceneLoader = new Loader();
+export const smallHouseInterior1SceneLoader = new DefaultLoader();
 for (let resource of Object.values(SmallHouseInterior1Resources)) {
   smallHouseInterior1SceneLoader.addResource(resource);
 }

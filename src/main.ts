@@ -1,25 +1,8 @@
 import './style.css';
-import {
-  CrossFade,
-  DisplayMode,
-  Engine,
-  FadeInOut,
-  Resolution,
-} from 'excalibur';
+import { Engine, Resolution } from 'excalibur';
 
-import {
-  ironClawPortScene,
-  ironClawPortSceneLoader,
-} from './Scenes/IronclawPort-1/IronclawPort';
 import { uiManager } from './Managers/UIManager';
-import {
-  smallHouseInterior1Scene,
-  smallHouseInterior1SceneLoader,
-} from './Scenes/IronclawPort-1/Interiors/SmallHouse1/SmallHouse1';
-import {
-  smallHouseInterior2Scene,
-  smallHouseInterior2SceneLoader,
-} from './Scenes/IronclawPort-1/Interiors/SmallHouse2/Scene';
+import { allScenes } from './Scenes/allScenes';
 
 const game = new Engine({
   canvasElementId: 'game-canvas',
@@ -29,47 +12,10 @@ const game = new Engine({
   pixelArt: true,
   pixelRatio: 2,
   resolution: Resolution.SNES,
-  scenes: {
-    // start: {
-    //   scene: ironClawPortScene,
-    //   loader: ironClawPortSceneLoader,
-    //   transitions: {
-    //     in: new CrossFade({
-    //       duration: 1000,
-    //       direction: 'in',
-    //       blockInput: true,
-    //     }),
-    //     out: new FadeInOut({ duration: 100, direction: 'out' }),
-    //   },
-    // },
-    // start: {
-    //   scene: smallHouseInterior1Scene,
-    //   loader: smallHouseInterior1SceneLoader,
-    //   transitions: {
-    //     in: new CrossFade({
-    //       duration: 1000,
-    //       direction: 'in',
-    //       blockInput: true,
-    //     }),
-    //     out: new FadeInOut({ duration: 100, direction: 'out' }),
-    //   },
-    // },
-    start: {
-      scene: smallHouseInterior2Scene,
-      loader: smallHouseInterior2SceneLoader,
-      transitions: {
-        in: new CrossFade({
-          duration: 1000,
-          direction: 'in',
-          blockInput: true,
-        }),
-        out: new FadeInOut({ duration: 100, direction: 'out' }),
-      },
-    },
-  },
+  scenes: { ...allScenes },
 });
 
 game.start().then(() => {
   uiManager.init();
-  game.goToScene('start');
+  game.goToScene('ironClawPortSmallHouseInterior1');
 });

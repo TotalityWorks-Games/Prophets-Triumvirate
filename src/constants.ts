@@ -47,3 +47,7 @@ export type AbilityScores = {
   intelligence: number;
   charisma: number;
 };
+export enum LOCATIONS {
+  IRONCLAW_PORT = 'IRONCLAW_PORT',
+  TEST = 'TEST',
+}
