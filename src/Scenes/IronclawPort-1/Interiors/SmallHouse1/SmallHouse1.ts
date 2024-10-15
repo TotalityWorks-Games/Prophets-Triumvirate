@@ -15,7 +15,6 @@ import { LOCATIONS, SCENE_STATE } from '../../../../constants';
 import { uiManager } from '../../../../Managers/UIManager';
 import { SmallHouseInterior1Dialogues } from './Dialogues';
 import { musicManager } from '../../../../Managers/MusicManager';
-import { IronclawPortResources } from '../../Resources';
 
 class SmallHouse1 extends Scene {
   game_container!: HTMLElement;
@@ -80,7 +79,7 @@ class SmallHouse1 extends Scene {
       bottom: tilemap.pos.y + tileWidth * 35,
       right: tilemap.pos.y + tileHeight * 35,
     });
-    // engine.currentScene.camera.strategy.limitCameraBounds(mapBounds);
+    engine.currentScene.camera.strategy.limitCameraBounds(mapBounds);
   }
 
   private setupNPCs() {
