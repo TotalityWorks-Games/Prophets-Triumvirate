@@ -17,6 +17,9 @@ import {
 import { Direction, SCENE_STATE } from '../../constants';
 import { Config } from '../../config';
 import { uiManager } from '../../Managers/UIManager';
+import { sceneManager } from '../../Managers/SceneManager';
+import { allScenes } from '../../Scenes/allScenes';
+import { musicManager } from '../../Managers/MusicManager';
 
 export class MainGuy extends Actor {
   public playerState: SCENE_STATE;
@@ -28,6 +31,7 @@ export class MainGuy extends Actor {
     HeroRunningSpriteSheetPng: ImageSource;
     CollisionSound: Sound;
   };
+  private engine: Engine | undefined;
   constructor(
     pos: Vector,
     resources: {
@@ -51,8 +55,9 @@ export class MainGuy extends Actor {
     this.playerState = SCENE_STATE.PLAYING;
   }
 
-  onInitialize(_engine: Engine): void {
+  onInitialize(engine: Engine): void {
     this.addAnimations();
+    this.engine = engine;
   }
 
   onPreUpdate(engine: Engine, _elapsedMs: number): void {
@@ -72,7 +77,11 @@ export class MainGuy extends Actor {
     _side: Side,
     _contact: CollisionContact
   ): void {
-    if (other.owner.name === 'Collisions') {
+    if (other.owner.name === 'Exit') {
+      console.log(other.owner.name);
+      sceneManager.updateScene(this.engine!, 'start');
+      musicManager.stopMusic();
+    } else if (other.owner.name === 'Collisions') {
       this.resources.CollisionSound.play(0.1);
       this.nearToObject = other.owner;
       this.nearToNPC = null;

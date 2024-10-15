@@ -3,6 +3,7 @@ import { LOCATIONS } from '../constants';
 
 class MusicManager {
   public location: LOCATIONS;
+  private currectSong?: Sound;
   constructor() {
     this.location = LOCATIONS.IRONCLAW_PORT;
   }
@@ -12,14 +13,14 @@ class MusicManager {
   }
 
   public startMusic(resources: { Music: Sound }) {
+    this.currectSong = resources.Music;
     console.log('music');
-    // add looping music
-    resources.Music.loop = true;
-    resources.Music.play(0.5);
+    this.currectSong.loop = true;
+    this.currectSong.play(0.5);
   }
 
-  public stopMusic(resources: { Music: Sound }) {
-    resources.Music.stop();
+  public stopMusic() {
+    this.currectSong?.stop();
   }
 }
 

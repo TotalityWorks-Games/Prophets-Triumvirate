@@ -71,6 +71,7 @@ class IronClawPort extends Scene {
     //   action: () => {
     //   }
     // });
+
     IronclawPortResources.TiledMap.addToScene(engine.currentScene);
   }
 
