@@ -1,12 +1,12 @@
-import { CrossFade, Engine, FadeInOut } from 'excalibur';
+import { Engine } from 'excalibur';
 import {
   ironClawPortScene,
   ironClawPortSceneLoader,
-} from './IronclawPort-1/IronclawPort';
+} from './IronclawPort-1/Scene';
 import {
   smallHouseInterior1Scene,
   smallHouseInterior1SceneLoader,
-} from './IronclawPort-1/Interiors/SmallHouse1/SmallHouse1';
+} from './IronclawPort-1/Interiors/SmallHouse1/Scene';
 import {
   smallHouseInterior2Scene,
   smallHouseInterior2SceneLoader,
@@ -15,7 +15,6 @@ import {
   templeInteriorScene,
   templeInteriorSceneLoader,
 } from './IronclawPort-1/Interiors/TempleOfBekna/Scene';
-import { sceneManager } from '../Managers/SceneManager';
 import { musicManager } from '../Managers/MusicManager';
 import { LOCATIONS } from '../constants';
 

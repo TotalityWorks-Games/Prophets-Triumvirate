@@ -1,8 +1,8 @@
 import {
   BoundingBox,
+  DefaultLoader,
   Engine,
   ImageSource,
-  Loader,
   Scene,
   SpriteSheet,
   vec,
@@ -97,7 +97,7 @@ class SmallHouse2 extends Scene {
 export const smallHouseInterior2Scene = new SmallHouse2();
 
 // loader
-export const smallHouseInterior2SceneLoader = new Loader();
+export const smallHouseInterior2SceneLoader = new DefaultLoader();
 for (let resource of Object.values(SmallHouseInterior2Resources)) {
   smallHouseInterior2SceneLoader.addResource(resource);
 }

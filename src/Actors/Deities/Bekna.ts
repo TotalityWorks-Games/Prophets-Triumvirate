@@ -32,10 +32,8 @@ export class Bekna extends Actor {
 
   onInitialize(_engine: Engine): void {
     this.addAnimations();
-    console.log(`deity scale: ${this.scale}`);
     if (this.idol) {
       this.scale = new Vector(1, 1);
-      console.log(`deity scale: ${this.scale}`);
     }
   }
 
