@@ -16,6 +16,7 @@ import { LOCATIONS, SCENE_STATE } from '../../../../constants';
 import { uiManager } from '../../../../Managers/UIManager';
 import { TempleInteriorDialogues } from './Dialogues';
 import { musicManager } from '../../../../Managers/MusicManager';
+import { Bekna } from '../../../../Actors/Deities/Bekna';
 
 class Temple extends Scene {
   game_container!: HTMLElement;
@@ -74,6 +75,13 @@ class Temple extends Scene {
   }
 
   private setupNPCs() {
+    // add diety
+    const bekna = new Bekna(
+      vec(320, 85),
+      TempleInteriorResources.BeknaSpriteSheetPng,
+      true
+    );
+
     // add NPCs
     const wolfkinSpriteSheet = SpriteSheet.fromImageSource({
       image: TempleInteriorResources.WolfkinSpriteSheetPng as ImageSource,
@@ -91,7 +99,7 @@ class Temple extends Scene {
       'Wolfkin Citizen One'
     );
 
-    return [citizenOne];
+    return [citizenOne, bekna];
   }
 
   onActivate(_context: SceneActivationContext<unknown>): void {

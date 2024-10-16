@@ -15,6 +15,7 @@ import collisionSound from '../../../../../Resources/Sounds/Effects/bump-dur2Sho
 // import spritesheets
 import heroPath from '../../../../../Resources/Sheets/Characters/Main/Player/Character006.png?url';
 import heroRunningPath from '../../../../../Resources/Sheets/Characters/Main/Player/Chara006.png?url';
+import beknaPath from '../../../../../Resources/Sheets/Characters/Deities/Character032.png?url';
 import wolfkinPath from '../../../../../Resources/Sheets/Characters/Wolfkin/beast_tribe_1.png?url';
 import clBuildingsSetPath from '../../../../../Resources/Sheets/Locations/CL_Buildings.png?url';
 import cltBuildingsSetPath from '../../../../../Resources/Sheets/Locations/CLT_Buildings.png?url';
@@ -34,6 +35,7 @@ export const TempleInteriorResources = {
     false,
     ImageFiltering.Pixel
   ),
+  BeknaSpriteSheetPng: new ImageSource(beknaPath, false, ImageFiltering.Pixel),
   WolfkinSpriteSheetPng: new ImageSource(
     wolfkinPath,
     false,
