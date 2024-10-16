@@ -50,11 +50,6 @@ class IronClawPort extends Scene {
       engine.add(character);
     });
 
-    if (musicManager.location !== LOCATIONS.IRONCLAW_PORT) {
-      musicManager.updateLocation(LOCATIONS.IRONCLAW_PORT);
-      musicManager.startMusic(IronclawPortResources);
-    }
-
     // engine.input.touch.on('pointerdown', () => {
     //   engine.goto('mynextScene');
     // });
@@ -75,7 +70,12 @@ class IronClawPort extends Scene {
     IronclawPortResources.TiledMap.addToScene(engine.currentScene);
   }
 
-  onActivate(_context: SceneActivationContext<unknown>): void {}
+  onActivate(_context: SceneActivationContext<unknown>): void {
+    if (musicManager.location !== LOCATIONS.IRONCLAW_PORT) {
+      musicManager.updateLocation(LOCATIONS.IRONCLAW_PORT);
+      musicManager.startMusic(IronclawPortResources);
+    }
+  }
 
   onDeactivate(_context: SceneActivationContext): void {}
 

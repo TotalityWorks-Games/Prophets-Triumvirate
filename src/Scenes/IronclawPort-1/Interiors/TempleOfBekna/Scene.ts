@@ -8,6 +8,7 @@ import {
   vec,
   Keys,
   Loader,
+  SceneActivationContext,
 } from 'excalibur';
 import { MainGuy } from '../../../../Actors/Main/Player';
 import { TempleInteriorResources } from './Resources';
@@ -39,12 +40,6 @@ class Temple extends Scene {
     npcs.forEach((character) => {
       engine.add(character);
     });
-
-    if (musicManager.location !== LOCATIONS.TEMPLE) {
-      musicManager.updateLocation(LOCATIONS.TEMPLE);
-      musicManager.stopMusic();
-      musicManager.startMusic(TempleInteriorResources);
-    }
 
     TempleInteriorResources.TiledMap.addToScene(engine.currentScene);
   }
@@ -98,6 +93,13 @@ class Temple extends Scene {
     );
 
     return [citizenOne];
+  }
+
+  onActivate(_context: SceneActivationContext<unknown>): void {
+    if (musicManager.location !== LOCATIONS.TEMPLE) {
+      musicManager.updateLocation(LOCATIONS.TEMPLE);
+      musicManager.startMusic(TempleInteriorResources);
+    }
   }
 }
 
