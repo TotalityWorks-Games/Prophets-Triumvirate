@@ -1,4 +1,4 @@
-import { CrossFade, FadeInOut } from 'excalibur';
+import { CrossFade, Engine, FadeInOut } from 'excalibur';
 import {
   ironClawPortScene,
   ironClawPortSceneLoader,
@@ -15,6 +15,9 @@ import {
   templeInteriorScene,
   templeInteriorSceneLoader,
 } from './IronclawPort-1/Interiors/TempleOfBekna/Scene';
+import { sceneManager } from '../Managers/SceneManager';
+import { musicManager } from '../Managers/MusicManager';
+import { LOCATIONS } from '../constants';
 
 export const allScenes = {
   start: {
@@ -33,4 +36,24 @@ export const allScenes = {
     scene: smallHouseInterior2Scene,
     loader: smallHouseInterior2SceneLoader,
   },
+};
+
+export enum SceneNames {
+  START = 'start',
+  IRONCLAW_PORT_TEMPLE_INTERIOR = 'ironClawPortTempleInterior',
+  IRONCLAW_PORT_SMALL_HOUSE_INTERIOR1 = 'ironClawPortSmallHouseInterior1',
+  IRONCLAW_PORT_SMALL_HOUSE_INTERIOR2 = 'ironClawPortSmallHouseInterior2',
+}
+
+export const handleSceneExit = (engine: Engine, scene: SceneNames) => {
+  switch (scene) {
+    case SceneNames.START:
+      if (musicManager.location !== LOCATIONS.IRONCLAW_PORT) {
+        musicManager.stopMusic();
+      }
+      engine.goToScene(SceneNames.START);
+      break;
+    default:
+      break;
+  }
 };

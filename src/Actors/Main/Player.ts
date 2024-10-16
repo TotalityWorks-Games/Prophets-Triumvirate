@@ -18,7 +18,7 @@ import { Direction, SCENE_STATE } from '../../constants';
 import { Config } from '../../config';
 import { uiManager } from '../../Managers/UIManager';
 import { sceneManager } from '../../Managers/SceneManager';
-import { allScenes } from '../../Scenes/allScenes';
+import { allScenes, handleSceneExit } from '../../Scenes/allScenes';
 import { musicManager } from '../../Managers/MusicManager';
 
 export class MainGuy extends Actor {
@@ -77,11 +77,14 @@ export class MainGuy extends Actor {
     _side: Side,
     _contact: CollisionContact
   ): void {
-    if (other.owner.name === 'Exit') {
-      console.log(other.owner.name);
-      sceneManager.updateScene(this.engine!, 'start');
-      musicManager.stopMusic();
-    } else if (other.owner.name === 'Collisions') {
+    handleSceneExit(this.engine!, other.owner.name);
+    // if (other.owner.name === 'Exit') {
+    //   console.log(other.owner.name);
+    //   sceneManager.updateScene(this.engine!, 'start');
+    //   musicManager.stopMusic();
+    // }
+    // else
+    if (other.owner.name === 'Collisions') {
       this.resources.CollisionSound.play(0.1);
       this.nearToObject = other.owner;
       this.nearToNPC = null;

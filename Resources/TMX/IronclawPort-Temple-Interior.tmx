@@ -34,7 +34,7 @@
   </data>
  </layer>
  <objectgroup id="9" name="Objects">
-  <object id="4" name="Exit" x="286.69" y="633.263" width="62.1287" height="5.9883">
+  <object id="4" name="start" x="286.69" y="633.263" width="62.1287" height="5.9883">
    <properties>
     <property name="leave" type="bool" value="true"/>
    </properties>
