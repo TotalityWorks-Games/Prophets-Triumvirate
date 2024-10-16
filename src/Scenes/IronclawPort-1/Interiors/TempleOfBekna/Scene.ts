@@ -7,7 +7,6 @@ import {
   SpriteSheet,
   vec,
   Keys,
-  Loader,
   SceneActivationContext,
 } from 'excalibur';
 import { MainGuy } from '../../../../Actors/Main/Player';
@@ -31,7 +30,7 @@ class Temple extends Scene {
     const npcs = this.setupNPCs();
 
     // add player character
-    const player = new MainGuy(vec(320, 600), TempleInteriorResources, 'up');
+    const player = new MainGuy(vec(320, 590), TempleInteriorResources, 'up');
     engine.currentScene.add(player);
     engine.currentScene.camera.strategy.lockToActor(player);
     engine.currentScene.camera.zoom = 0.8;
@@ -106,7 +105,7 @@ class Temple extends Scene {
 export const templeInteriorScene = new Temple();
 
 // loader
-export const templeInteriorSceneLoader = new Loader();
+export const templeInteriorSceneLoader = new DefaultLoader();
 for (let resource of Object.values(TempleInteriorResources)) {
   templeInteriorSceneLoader.addResource(resource);
 }

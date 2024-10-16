@@ -44,6 +44,7 @@ class IronClawPort extends Scene {
     engine.currentScene.add(player);
     engine.currentScene.camera.strategy.lockToActor(player);
     engine.currentScene.camera.zoom = 0.8;
+    musicManager.startMusic(IronclawPortResources);
 
     // add all npcs to game
     npcs.forEach((character) => {

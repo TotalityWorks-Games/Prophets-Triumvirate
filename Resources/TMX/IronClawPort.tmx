@@ -96,8 +96,8 @@
   </data>
  </layer>
  <objectgroup id="21" name="Objects">
-  <object id="1" name="ironClawPortTempleInterior" x="1260" y="769.333" width="41.3333" height="58.6667"/>
-  <object id="2" name="ironClawPortSmallHouseInterior1" x="1777.33" y="1568" width="29.3333" height="61.3333"/>
-  <object id="3" name="ironClawPortSmallHouseInterior2" x="1585.33" y="1569.33" width="32" height="60"/>
+  <object id="1" name="ironClawPortTempleInterior" x="1260" y="769.333" width="41.3333" height="28"/>
+  <object id="2" name="ironClawPortSmallHouseInterior1" x="1777.33" y="1568" width="29.3333" height="24"/>
+  <object id="3" name="ironClawPortSmallHouseInterior2" x="1585.33" y="1569.33" width="32" height="24"/>
  </objectgroup>
 </map>

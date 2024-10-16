@@ -25,7 +25,6 @@ class SmallHouse2 extends Scene {
 
     this.setCameraBoundaries(engine);
     const npcs = this.setupNPCs();
-    this.startMusic();
 
     // add player character
     const player = new MainGuy(
@@ -53,12 +52,6 @@ class SmallHouse2 extends Scene {
     if (this.game_container.className !== SCENE_STATE.TALKING) {
       uiManager.cleanupDialogue();
     }
-  }
-
-  private startMusic() {
-    // add looping music
-    SmallHouseInterior2Resources.Music.loop = true;
-    SmallHouseInterior2Resources.Music.play(0.5);
   }
 
   private setCameraBoundaries(engine: Engine) {

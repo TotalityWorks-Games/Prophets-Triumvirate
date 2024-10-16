@@ -4,11 +4,6 @@ import { ImageSource, ImageFiltering, Sound, Resource } from 'excalibur';
 // import map
 import smallHouseInterior2 from '../../../../../Resources/TMX/IronclawPort-Small-House-Interior2.tmx?url';
 
-// import music
-import harborMP3 from '../../../../../Resources/Sounds/Music/Harbor 1 - Treasure Island (Loopable).mp3';
-import harborOgg from '../../../../../Resources/Sounds/Music/Harbor 1 - Treasure Island (Loopable).ogg';
-import harborWav from '../../../../../Resources/Sounds/Music/Harbor 1 - Treasure Island (Loopable).wav';
-
 // import sounds
 import collisionSound from '../../../../../Resources/Sounds/Effects/bump-dur2Short-pitch1Low.wav';
 
@@ -37,7 +32,6 @@ export const SmallHouseInterior2Resources = {
     false,
     ImageFiltering.Pixel
   ),
-  Music: new Sound(harborMP3, harborWav, harborOgg),
   CollisionSound: new Sound(collisionSound),
   TiledMap: new TiledResource(smallHouseInterior2, {
     useTilemapCameraStrategy: true,

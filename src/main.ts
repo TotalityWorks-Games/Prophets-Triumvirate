@@ -17,5 +17,5 @@ const game = new Engine({
 
 game.start().then(() => {
   uiManager.init();
-  game.goToScene('ironClawPortTempleInterior');
+  game.goToScene('start');
 });

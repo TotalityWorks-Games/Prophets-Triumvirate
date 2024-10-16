@@ -51,13 +51,17 @@ export const handleSceneExit = (engine: Engine, scene: SceneNames) => {
       if (musicManager.location !== LOCATIONS.IRONCLAW_PORT) {
         musicManager.stopMusic();
       }
-      engine.goToScene(SceneNames.START);
+      engine.goToScene(scene);
       break;
     case SceneNames.IRONCLAW_PORT_TEMPLE_INTERIOR:
       if (musicManager.location !== LOCATIONS.TEMPLE) {
         musicManager.stopMusic();
       }
-      engine.goToScene(SceneNames.IRONCLAW_PORT_TEMPLE_INTERIOR);
+      engine.goToScene(scene);
+      break;
+    case SceneNames.IRONCLAW_PORT_SMALL_HOUSE_INTERIOR1:
+    case SceneNames.IRONCLAW_PORT_SMALL_HOUSE_INTERIOR2:
+      engine.goToScene(scene);
       break;
     default:
       break;

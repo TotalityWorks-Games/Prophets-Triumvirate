@@ -11,10 +11,9 @@ import {
 import { MainGuy } from '../../../../Actors/Main/Player';
 import { SmallHouseInterior1Resources } from './Resources';
 import { Wolfkin1 } from '../../../../Actors/NPCs/Citizens/Wolfkin1';
-import { LOCATIONS, SCENE_STATE } from '../../../../constants';
+import { SCENE_STATE } from '../../../../constants';
 import { uiManager } from '../../../../Managers/UIManager';
 import { SmallHouseInterior1Dialogues } from './Dialogues';
-import { musicManager } from '../../../../Managers/MusicManager';
 
 class SmallHouse1 extends Scene {
   game_container!: HTMLElement;
@@ -42,10 +41,6 @@ class SmallHouse1 extends Scene {
     npcs.forEach((character) => {
       engine.add(character);
     });
-
-    if (musicManager.location !== LOCATIONS.TEST) {
-      musicManager.updateLocation(LOCATIONS.TEST);
-    }
 
     SmallHouseInterior1Resources.TiledMap.addToScene(engine.currentScene);
   }
