@@ -17,9 +17,7 @@ import {
 import { Direction, SCENE_STATE } from '../../constants';
 import { Config } from '../../config';
 import { uiManager } from '../../Managers/UIManager';
-import { sceneManager } from '../../Managers/SceneManager';
-import { allScenes, handleSceneExit } from '../../Scenes/allScenes';
-import { musicManager } from '../../Managers/MusicManager';
+import { handleSceneExit } from '../../Scenes/allScenes';
 
 export class MainGuy extends Actor {
   public playerState: SCENE_STATE;
