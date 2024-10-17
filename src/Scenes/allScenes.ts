@@ -17,6 +17,10 @@ import {
 } from './IronclawPort-1/Interiors/TempleOfBekna/Scene';
 import { musicManager } from '../Managers/MusicManager';
 import { LOCATIONS } from '../constants';
+import {
+  palaceInteriorScene,
+  palaceInteriorSceneLoader,
+} from './IronclawPort-1/Interiors/IronclawPalace/Scene';
 
 export const allScenes = {
   start: {
@@ -26,6 +30,10 @@ export const allScenes = {
   ironClawPortTempleInterior: {
     scene: templeInteriorScene,
     loader: templeInteriorSceneLoader,
+  },
+  ironClawPlaceInterior: {
+    scene: palaceInteriorScene,
+    loader: palaceInteriorSceneLoader,
   },
   ironClawPortSmallHouseInterior1: {
     scene: smallHouseInterior1Scene,
@@ -42,6 +50,7 @@ export enum SceneNames {
   IRONCLAW_PORT_TEMPLE_INTERIOR = 'ironClawPortTempleInterior',
   IRONCLAW_PORT_SMALL_HOUSE_INTERIOR1 = 'ironClawPortSmallHouseInterior1',
   IRONCLAW_PORT_SMALL_HOUSE_INTERIOR2 = 'ironClawPortSmallHouseInterior2',
+  IRONCLAW_PORT_PALACE_INTERIOR = 'ironClawPlaceInterior',
 }
 
 export const handleSceneExit = (engine: Engine, scene: SceneNames) => {
@@ -54,6 +63,12 @@ export const handleSceneExit = (engine: Engine, scene: SceneNames) => {
       break;
     case SceneNames.IRONCLAW_PORT_TEMPLE_INTERIOR:
       if (musicManager.location !== LOCATIONS.TEMPLE) {
+        musicManager.stopMusic();
+      }
+      engine.goToScene(scene);
+      break;
+    case SceneNames.IRONCLAW_PORT_PALACE_INTERIOR:
+      if (musicManager.location !== LOCATIONS.PALACE) {
         musicManager.stopMusic();
       }
       engine.goToScene(scene);

@@ -50,5 +50,6 @@ export type AbilityScores = {
 export enum LOCATIONS {
   IRONCLAW_PORT = 'IRONCLAW_PORT',
   TEMPLE = 'TEMPLE',
+  PALACE = 'PALACE',
   TEST = 'TEST',
 }
