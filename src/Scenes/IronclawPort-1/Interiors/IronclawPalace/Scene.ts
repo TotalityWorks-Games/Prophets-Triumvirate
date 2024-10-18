@@ -17,6 +17,7 @@ import { uiManager } from '../../../../Managers/UIManager';
 import { PalaceInteriorDialogues } from './Dialogues';
 import { musicManager } from '../../../../Managers/MusicManager';
 import { Bekna } from '../../../../Actors/Deities/Bekna';
+import { WolfkinKing } from '../../../../Actors/NPCs/Citizens/WolfkinKing';
 
 class Palace extends Scene {
   game_container!: HTMLElement;
@@ -75,11 +76,11 @@ class Palace extends Scene {
   }
 
   private setupNPCs() {
-    // add diety
-    const bekna = new Bekna(
+    // add king
+    const kingIronclaw = new WolfkinKing(
       vec(320, 85),
-      PalaceInteriorResources.BeknaSpriteSheetPng,
-      true
+      PalaceInteriorResources.KingSpriteSheetPng,
+      'King Ironclaw'
     );
 
     // add NPCs
@@ -99,7 +100,7 @@ class Palace extends Scene {
       'Wolfkin Citizen One'
     );
 
-    return [citizenOne, bekna];
+    return [citizenOne, kingIronclaw];
   }
 
   onActivate(_context: SceneActivationContext<unknown>): void {

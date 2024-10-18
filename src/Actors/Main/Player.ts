@@ -75,7 +75,6 @@ export class MainGuy extends Actor {
     _side: Side,
     _contact: CollisionContact
   ): void {
-    handleSceneExit(this.engine!, other.owner.name);
     // if (other.owner.name === 'Exit') {
     //   console.log(other.owner.name);
     //   sceneManager.updateScene(this.engine!, 'start');
@@ -106,6 +105,7 @@ export class MainGuy extends Actor {
 
   onCollisionEnd(_self: Collider, other: Collider): void {
     console.log('collision ended');
+    handleSceneExit(this.engine!, other.owner.name);
     // switch (other.owner.name) {
     //   case ACTOR_TYPE.SCENE_NEXT:
     //     const area: SceneArea | any = other.owner;
